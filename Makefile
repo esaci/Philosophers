@@ -8,9 +8,9 @@ SRCD = ./srcs/
 
 COMPILE = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -pthread -Wall -Wextra -Werror
 
-SRC =	$(SRCD)main.c
+SRC =	$(SRCD)utils.c
 
 OBJ = $(SRC:.c=.o)
 
