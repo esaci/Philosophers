@@ -10,7 +10,10 @@ COMPILE = gcc
 
 CFLAGS = -g -pthread -Wall -Wextra -Werror
 
-SRC =	$(SRCD)utils.c
+SRC =	$(SRCD)utils.c \
+		$(SRCD)utils2.c \
+		$(SRCD)stopper.c \
+		$(SRCD)routine.c
 
 OBJ = $(SRC:.c=.o)
 
