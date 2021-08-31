@@ -22,15 +22,14 @@
 typedef struct	s_game
 {
 	pthread_mutex_t	mutex_id;
-	pthread_mutex_t	mutex_f;
 	pthread_mutex_t	mutex_d;
+	pthread_mutex_t	*mutex_f;
 	struct timeval	c_time;
 	struct timeval	s_time;
-	int		id_fork;
-	int		id_eat;
-	int		id_sleeping;
-	int		id_thinking;
-	int		id_dead;
+	struct timeval	*tmp_time;
+	int		t_eat;
+	int		t_sleeping;
+	int		t_die;
 	int		nbr_philo;
 	pthread_t *th_ph;
 }				t_game;
@@ -54,11 +53,15 @@ typedef struct	s_dstruct
 
 int			ft_strlen(const char *s);
 int			ft_atoi(const char *str);
-char		*ft_itoa(int n);
+char		*ft_itoa(signed int n);
 int			stopper(t_game *game, t_philo *philo, char *str, char *str2);
 int			koi(char	*str);
 int			print_return(char *str, int code);
 void		*routine(void *philo);
 char		*merge_twoarray(char *str, char *str2);
+int			print_str(char *str, int mode);
+int			show_state(t_game *game, t_philo *philo, char *str, int id_p);
+signed	int	time_calcul(int time, signed int sectime);
 int			koii(int i);
+int			custom_usleep(t_game *game, t_philo *philo, int	time);
 #endif

@@ -26,7 +26,6 @@ int	stopper(t_game *game, t_philo *philo, char *str, char *str2)
 	free(philo->t_eat);
 	free(philo->t_sleep);
 	free(philo->t_think);
-	pthread_mutex_destroy(&game->mutex_f);
 	pthread_mutex_destroy(&game->mutex_d);
 	if (game->th_ph)
 	{
@@ -40,6 +39,9 @@ int	stopper(t_game *game, t_philo *philo, char *str, char *str2)
 	}
 	if (str2)
 		free(str2);
+	if (game->mutex_f)
+		free(game->mutex_f);
+	//oublie pas de destroy les mutex du ptr
 	koi(str);
 	return (0);
 }

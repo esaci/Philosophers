@@ -22,6 +22,24 @@ char	*merge_twoarray(char *str, char *str2)
 	return (ptr);
 }
 
+int		print_str(char *str, int mode)
+{
+	write(1, str, ft_strlen(str));
+	if (mode == 1)
+		write(1, "\n", 1);
+	if (mode == 2)
+		write(1, " ", 1);
+	return (0);
+}
+
+signed	int		time_calcul(int time, signed int sectime)
+{
+	int	res;
+
+	res = time * 1000000 + sectime;
+	return (res);
+}
+
 int		koii(int i)
 {
 	return(koi(ft_itoa(i)));

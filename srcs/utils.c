@@ -41,18 +41,12 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-char	*ft_calcul(char *dst, long int val)
+char	*ft_calcul(char *dst, signed int val)
 {
-	long int	val2;
+	signed int	val2;
 	size_t		counti;
 
 	counti = 0;
-	if (val == -2147483648)
-	{
-		dst[counti++] = '-';
-		dst[counti++] = '8';
-		val = 214748364;
-	}
 	if (val < 0)
 	{
 		dst[counti++] = '-';
@@ -69,16 +63,16 @@ char	*ft_calcul(char *dst, long int val)
 	return (dst);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(signed int n)
 {
 	char	*dst;
 	size_t	count;
 	char	swotch;
 
-	dst = malloc(sizeof(char) * 12);
+	dst = malloc(sizeof(char) * 34);
 	if (!(dst))
 		return (NULL);
-	dst = ft_calcul(dst, (long int)n);
+	dst = ft_calcul(dst, n);
 	count = ft_strlen(dst) - 1;
 	n = 0;
 	if (dst[0] == '-')

@@ -18,17 +18,28 @@ int	init_game(int ac, char *av[], t_game *game, t_philo *philo)
 	t_dstruct	dstruct;
 
 	game->nbr_philo = ft_atoi(av[1]);
+	game->t_eat = ft_atoi(av[4]);
+	game->t_sleeping = ft_atoi(av[5]);
+	game->t_die = ft_atoi(av[3]);
 	game->th_ph = malloc(sizeof(pthread_t) * (game->nbr_philo));
 	if(!game->th_ph)
 		return(stopper(game, philo, "malloc", NULL));
-	if(gettimeofday(&game->s_time, NULL))
-		return(stopper(game, philo, "time", NULL));
-	pthread_mutex_init(&game->mutex_f, NULL);
+	game->mutex_f = malloc(sizeof(pthread_mutex_t) * game->nbr_philo);
+	if(!game->mutex_f)
+		return(stopper(game, philo, "malloc", NULL));
+	count = 0;
+	while (count < game->nbr_philo)
+	{
+		pthread_mutex_init(&game->mutex_f[count], NULL);
+		count++;
+	}
 	pthread_mutex_init(&game->mutex_d, NULL);
 	pthread_mutex_init(&game->mutex_id, NULL);
 	dstruct.game = game;
 	dstruct.philo = philo;
 	count = 0;
+	if(gettimeofday(&game->s_time, NULL))
+		return(stopper(game, philo, "time", NULL));
 	while (count < game->nbr_philo)
 	{
 		if (pthread_create(game->th_ph + count, NULL, &routine, &dstruct))
@@ -42,6 +53,7 @@ int	init_game(int ac, char *av[], t_game *game, t_philo *philo)
 			return (stopper(game, philo, "Thread joining failed", NULL));
 		count++;
 	}
+
 	return (0);
 }
 
