@@ -10,7 +10,7 @@ SANIT = -fsanitize=thread
 
 COMPILE = gcc
 
-CFLAGS = -g -pthread -Wall -Wextra -Werror
+CFLAGS = -pthread -Wall -Wextra -Werror
 
 SRC =	$(SRCD)init_philo.c		\
 		$(SRCD)init_game.c		\
