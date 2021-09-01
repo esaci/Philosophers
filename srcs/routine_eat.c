@@ -7,7 +7,10 @@ int		routine_eat(t_game *game, t_philo *philo, int id_p)
 	id_p2 = id_p + 1;
 	pthread_mutex_lock(&game->mutex_w);
 	if (!philo->s_fork[id_p] || !philo->s_fork[id_p])
+	{
+		pthread_mutex_unlock(&game->mutex_w);
 		return(routine_eat(game, philo, id_p));
+	}
 	pthread_mutex_unlock(&game->mutex_w);
 /* 	if (id_p == 0)
 		usleep(10); */

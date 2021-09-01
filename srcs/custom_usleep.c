@@ -64,6 +64,6 @@ int	custom_usleep(t_game *game, t_philo *philo, int	time)
 		tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 				tmp_time->tv_usec - c_time->tv_usec) * 1000;
 	}
-	free(game->tmp_time);
+	free(tmp_time);
 	return (0);
 }

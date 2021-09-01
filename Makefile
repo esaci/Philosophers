@@ -33,7 +33,7 @@ $(NAME) : $(OBJ) $(SRCD)/main.c
 		rm -rf $(NAME)
 		ar rc $(PHILD)$(PHIL) $(OBJ)
 		ranlib $(PHILD)$(PHIL)
-		$(COMPILE) -o $(NAME) $(SRCD)/main.c  $(PHILD)$(PHIL)
+		$(COMPILE) $(CFLAGS) -o $(NAME) $(SRCD)/main.c  $(PHILD)$(PHIL)
 
 clean:
 	rm -rf $(OBJ)
