@@ -20,7 +20,8 @@ SRC =	$(SRCD)init_philo.c		\
 		$(SRCD)routine.c	\
 		$(SRCD)show.c		\
 		$(SRCD)custom_usleep.c	\
-		$(SRCD)routine_eat.c
+		$(SRCD)routine_eat.c \
+		$(SRCD)waiter.c
 
 OBJ = $(SRC:.c=.o)
 
