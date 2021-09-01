@@ -6,16 +6,21 @@ PHILD = ./lib/
 
 SRCD = ./srcs/
 
+SANIT = -fsanitize=thread
+
 COMPILE = gcc
 
 CFLAGS = -g -pthread -Wall -Wextra -Werror
 
-SRC =	$(SRCD)utils.c		\
+SRC =	$(SRCD)init_philo.c		\
+		$(SRCD)init_game.c		\
+		$(SRCD)utils.c		\
 		$(SRCD)utils2.c		\
 		$(SRCD)stopper.c	\
 		$(SRCD)routine.c	\
 		$(SRCD)show.c		\
-		$(SRCD)custom_usleep.c
+		$(SRCD)custom_usleep.c	\
+		$(SRCD)routine_eat.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -28,7 +33,7 @@ $(NAME) : $(OBJ) $(SRCD)/main.c
 		rm -rf $(NAME)
 		ar rc $(PHILD)$(PHIL) $(OBJ)
 		ranlib $(PHILD)$(PHIL)
-		$(COMPILE) -o $(NAME) $(SRCD)/main.c  $(PHILD)$(PHIL) -fsanitize=thread
+		$(COMPILE) -o $(NAME) $(SRCD)/main.c  $(PHILD)$(PHIL)
 
 clean:
 	rm -rf $(OBJ)

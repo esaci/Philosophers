@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/01 02:02:44 by esaci             #+#    #+#             */
+/*   Updated: 2021/09/01 02:02:45 by esaci            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../lib/libphi.h"
 
 char	*merge_twoarray(char *str, char *str2)
@@ -9,7 +21,7 @@ char	*merge_twoarray(char *str, char *str2)
 	count = ft_strlen(str) + ft_strlen(str2) + 1;
 	ptr = malloc(sizeof(char) * (count + 1));
 	if (!ptr)
-		return(NULL);
+		return (NULL);
 	while (str[count])
 	{
 		ptr[count] = str[count];
@@ -22,7 +34,7 @@ char	*merge_twoarray(char *str, char *str2)
 	return (ptr);
 }
 
-int		print_str(char *str, int mode)
+int	print_str(char *str, int mode)
 {
 	write(1, str, ft_strlen(str));
 	if (mode == 1)
@@ -32,15 +44,15 @@ int		print_str(char *str, int mode)
 	return (0);
 }
 
-signed	int		time_calcul(int time, signed int sectime)
+signed	int	time_calcul(int time, signed int sectime)
 {
 	int	res;
 
-	res = time * 1000000 + sectime;
+	res = time * 1000 + sectime / 1000;
 	return (res);
 }
 
-int		koii(int i)
+int	koii(int i)
 {
-	return(koi(ft_itoa(i)));
+	return (koi(ft_itoa(i)));
 }

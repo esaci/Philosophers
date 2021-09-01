@@ -15,7 +15,7 @@ int	print_return(char *str, int code)
 	return (code);
 }
 
-int	stopper(t_game *game, t_philo *philo, char *str, char *str2)
+int	stopper(t_game *game, t_philo *philo, char *str, void *str2)
 {
 	int	count;
 
