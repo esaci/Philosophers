@@ -21,6 +21,7 @@
 
 typedef struct	s_waiter
 {
+	int			order;
 }				t_waiter;
 typedef struct	s_game
 {
@@ -57,18 +58,19 @@ typedef struct	s_dstruct
 
 int				init_philo(int ac, char *av[], t_philo *philo);
 int				init_game(char *av[], t_game *game, t_philo *philo);
+int				init_waiter(t_game *game, t_philo *philo);
 int				ft_strlen(const char *s);
 int				ft_atoi(const char *str);
 char			*ft_itoa(signed int n);
 int				stopper(t_game *game, t_philo *philo, char *str, void *str2);
-int				koi(char	*str);
+int				koi(char	*str, t_game *game);
 int				print_return(char *str, int code);
 void			*routine(void *philo);
 char			*merge_twoarray(char *str, char *str2);
 int				print_str(char *str, int mode);
 int				show_state(t_game *game, t_philo *philo, char *str, int id_p);
 signed int		time_calcul(int time, signed int sectime);
-int				koii(int i);
+int				koii(int i, t_game *game);
 int				custom_usleep(t_game *game, t_philo *philo, int	time);
 int				routine_eat(t_game *game, t_philo *philo, int id_p);
 struct timeval	*init_timeval(t_game *game, t_philo *philo);

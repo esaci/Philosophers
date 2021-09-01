@@ -20,6 +20,7 @@ int	init_game2(t_game *game, t_philo *philo)
 	pthread_mutex_init(&game->mutex_d, NULL);
 	pthread_mutex_init(&game->mutex_w, NULL);
 	pthread_mutex_init(&game->mutex_id, NULL);
+	game->waiter.order = -1;
 	dstruct.game = game;
 	dstruct.philo = philo;
 	count = 0;

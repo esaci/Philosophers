@@ -52,7 +52,7 @@ signed	int	time_calcul(int time, signed int sectime)
 	return (res);
 }
 
-int	koii(int i)
+int	koii(int i, t_game *game)
 {
-	return (koi(ft_itoa(i)));
+	return (koi(ft_itoa(i), game));
 }

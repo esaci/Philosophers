@@ -12,11 +12,13 @@
 
 #include "../lib/libphi.h"
 
-int	koi(char	*str)
+int	koi(char	*str, t_game *game)
 {
+	pthread_mutex_lock(&game->mutex_id);
 	write(1, "|", 1);
 	write(1, str, ft_strlen(str));
 	write(1, "|\n", 2);
+	pthread_mutex_unlock(&game->mutex_id);
 	return (0);
 }
 
@@ -44,6 +46,6 @@ int	stopper(t_game *game, t_philo *philo, char *str, void *str2)
 		free(game->mutex_f);
 	if (game->th_ph)
 		free(game->th_ph);
-	koi(str);
 	return (0);
+	koi(str, game);
 }
