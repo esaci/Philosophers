@@ -18,6 +18,7 @@ int	init_game2(t_game *game, t_philo *philo)
 	t_dstruct	dstruct;
 
 	pthread_mutex_init(&game->mutex_d, NULL);
+	pthread_mutex_init(&game->mutex_w, NULL);
 	pthread_mutex_init(&game->mutex_id, NULL);
 	dstruct.game = game;
 	dstruct.philo = philo;

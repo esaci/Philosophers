@@ -14,7 +14,7 @@ int		show_state(t_game *game, t_philo *philo, char *str, int id_p)
 	ptr = ft_itoa(time_calcul(c_time->tv_sec - game->s_time.tv_sec, c_time->tv_usec - game->s_time.tv_usec));
 	print_str(ptr, 2);
 	free(ptr);
-	ptr = ft_itoa(id_p);
+	ptr = ft_itoa(id_p + 1);
 	print_str(ptr, 2);
 	free(ptr);
 	print_str(str, 1);
@@ -22,4 +22,3 @@ int		show_state(t_game *game, t_philo *philo, char *str, int id_p)
 	free(c_time);
 	return (0);
 }
-

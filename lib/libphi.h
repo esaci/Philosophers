@@ -23,6 +23,7 @@ typedef struct	s_game
 {
 	pthread_mutex_t		mutex_id;
 	pthread_mutex_t		mutex_d;
+	pthread_mutex_t		mutex_w;
 	pthread_mutex_t		*mutex_f;
 	struct timeval		s_time;
 	struct timeval		*tmp_time;

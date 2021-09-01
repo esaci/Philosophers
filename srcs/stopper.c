@@ -27,6 +27,7 @@ int	stopper(t_game *game, t_philo *philo, char *str, void *str2)
 	free(philo->t_sleep);
 	free(philo->t_think);
 	pthread_mutex_destroy(&game->mutex_d);
+	pthread_mutex_destroy(&game->mutex_w);
 	if (game->th_ph)
 	{
 		count = 0;
