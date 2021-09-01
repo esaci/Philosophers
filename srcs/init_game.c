@@ -49,7 +49,7 @@ int	init_game(char *av[], t_game *game, t_philo *philo)
 	game->t_eat = ft_atoi(av[3]);
 	game->t_sleeping = ft_atoi(av[4]);
 	game->t_die = ft_atoi(av[2]);
-	game->th_ph = malloc(sizeof(pthread_t) * (game->nbr_philo));
+	game->th_ph = malloc(sizeof(pthread_t) * (game->nbr_philo + 1));
 	if (!game->th_ph)
 		return (stopper(game, philo, "malloc", NULL));
 	game->mutex_f = malloc(sizeof(pthread_mutex_t) * game->nbr_philo);

@@ -16,7 +16,7 @@ int	init_philo3(t_philo *philo, int nbr_philo)
 {
 	int	count;
 
-	if (!philo->s_fork)
+	if (philo->s_fork == NULL)
 	{
 		free(philo->t_think);
 		free(philo->t_eat);
@@ -33,7 +33,8 @@ int	init_philo3(t_philo *philo, int nbr_philo)
 		philo->t_die[count] = 0;
 		philo->t_eat[count] = 0;
 		philo->t_sleep[count] = 0;
-		philo->t_think[count++] = 0;
+		philo->t_think[count] = 0;
+		count++;
 	}
 	return (0);
 }
