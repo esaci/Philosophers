@@ -72,8 +72,9 @@ int				show_state(t_game *game, t_philo *philo, char *str, int id_p);
 signed int		time_calcul(int time, signed int sectime);
 int				koii(int i, t_game *game);
 int				custom_usleep(t_game *game, t_philo *philo, int	time);
-int				routine_eat(t_game *game, t_philo *philo, int id_p);
 struct timeval	*init_timeval(t_game *game, t_philo *philo);
 int				custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp_time, void *c_time);
 void			waiter_eat(t_game *game, t_philo *philo, int id_p, int id_p2);
+int				routine_eat(t_game *game, t_philo *philo, int id_p);
+int				routine_sleep(t_game *game, t_philo *philo, int id_p);
 #endif
