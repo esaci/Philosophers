@@ -19,6 +19,9 @@
 # include <unistd.h>
 # include <sys/time.h>
 
+typedef struct	s_waiter
+{
+}				t_waiter;
 typedef struct	s_game
 {
 	pthread_mutex_t		mutex_id;
@@ -31,6 +34,7 @@ typedef struct	s_game
 	int					t_sleeping;
 	int					t_die;
 	int					nbr_philo;
+	t_waiter			waiter;
 	pthread_t *th_ph;
 }				t_game;
 

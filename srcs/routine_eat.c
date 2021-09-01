@@ -28,6 +28,7 @@ int		routine_eat(t_game *game, t_philo *philo, int id_p)
 		return (1);
 	if (custom_usleep(game, philo, game->t_eat * 1000))
 		return (1);
+	philo->t_eat[id_p]++;
 	philo->s_fork[id_p] = 1;
 	philo->s_fork[id_p2] = 1;
 	pthread_mutex_unlock(&game->mutex_f[id_p2]);
