@@ -6,8 +6,6 @@ PHILD = ./lib/
 
 SRCD = ./srcs/
 
-SANIT = -fsanitize=thread
-
 COMPILE = gcc
 
 CFLAGS = -pthread -Wall -Wextra -Werror

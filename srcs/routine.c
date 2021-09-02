@@ -40,7 +40,7 @@ void	*routine(void *dstruct)
 		return (NULL);
 	if (routine_sleep(game, philo, id_p))
 		return (NULL);
-	if (routine_think(game, philo, id_p))
-		return (NULL);
+/* 	if (routine_think(game, philo, id_p))
+		return (NULL); */
 	return (NULL);
 }
