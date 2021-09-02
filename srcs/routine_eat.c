@@ -20,10 +20,10 @@ int	routine_eat(t_game *game, t_philo *philo, int id_p)
 	if (id_p == game->nbr_philo - 1)
 		id_p2 = 0;
 	pthread_mutex_lock(&game->mutex_f[id_p]);
-	waiter_eat(game, philo, id_p, id_p2);
-	pthread_mutex_lock(&game->mutex_f[id_p2]);
 	if (game->waiter.order == -1)
 		game->waiter.order = id_p % 2;
+	waiter_eat(game, philo, id_p, id_p2);
+	pthread_mutex_lock(&game->mutex_f[id_p2]);
 	philo->s_fork[id_p] = 0;
 	philo->s_fork[id_p2] = 0;
 	if (show_state(game, philo, "is eating", id_p))

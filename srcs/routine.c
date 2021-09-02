@@ -38,8 +38,8 @@ void	*routine(void *dstruct)
 	id_p = routine_id(game, philo);
 	if (routine_eat(game, philo, id_p))
 		return (NULL);
-	if (routine_sleep(game, philo, id_p))
-		return (NULL);
+/* 	if (routine_sleep(game, philo, id_p))
+		return (NULL); */
 /* 	if (routine_think(game, philo, id_p))
 		return (NULL); */
 	return (NULL);
