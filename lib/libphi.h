@@ -77,4 +77,5 @@ int				custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp_time, vo
 void			waiter_eat(t_game *game, t_philo *philo, int id_p, int id_p2);
 int				routine_eat(t_game *game, t_philo *philo, int id_p);
 int				routine_sleep(t_game *game, t_philo *philo, int id_p);
+int				routine_think(t_game *g, t_philo *p, int nb_p);
 #endif

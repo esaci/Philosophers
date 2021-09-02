@@ -25,6 +25,20 @@ int	routine_id(t_game *game, t_philo *philo)
 	return (id_p);
 }
 
+int	loop_routine(t_game *game, t_philo *philo, int id_p)
+{
+	while (1)
+	{
+		if (routine_eat(game, philo, id_p))
+			return (1);
+		if (routine_sleep(game, philo, id_p))
+			return (1);
+		if (routine_think(game, philo, id_p))
+			return (1);
+	}
+	return (0);
+}
+
 void	*routine(void *dstruct)
 {
 	int			id_p;
@@ -36,11 +50,7 @@ void	*routine(void *dstruct)
 	philo = (t_philo *)dst->philo;
 	game = (t_game *)dst->game;
 	id_p = routine_id(game, philo);
-	if (routine_eat(game, philo, id_p))
+	if (loop_routine(game, philo, id_p))
 		return (NULL);
-/* 	if (routine_sleep(game, philo, id_p))
-		return (NULL); */
-/* 	if (routine_think(game, philo, id_p))
-		return (NULL); */
 	return (NULL);
 }
