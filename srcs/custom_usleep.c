@@ -41,7 +41,7 @@ int	custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp, void *c)
 	return (0);
 }
 
-int	custom_usleep(t_game *game, t_philo *philo, int	time)
+int	custom_usleep(t_game *game, t_philo *philo, signed int	time)
 {
 	struct timeval		*c_time;
 	struct timeval		*tmp_time;
@@ -59,7 +59,7 @@ int	custom_usleep(t_game *game, t_philo *philo, int	time)
 			tmp_time->tv_usec - c_time->tv_usec) * 1000;
 	while (tmp < time)
 	{
-		usleep((time - tmp) * 5 / 10);
+		usleep((time - tmp) * 1 / 10);
 		custom_gettime(game, philo, tmp_time, c_time);
 		tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 				tmp_time->tv_usec - c_time->tv_usec) * 1000;
