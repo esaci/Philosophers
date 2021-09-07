@@ -56,3 +56,24 @@ int	koii(int i, t_game *game)
 {
 	return (koi(ft_itoa(i), game));
 }
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t	count;
+	int		res;
+
+	res = 0;
+	count = 0;
+	while (count < n)
+	{
+		if (!(*(unsigned char *)s1 == *(unsigned char *)s2))
+		{
+			res = *(unsigned char *)s1 - *(unsigned char *)s2;
+			return (res);
+		}
+		s1++;
+		s2++;
+		count++;
+	}
+	return (0);
+}

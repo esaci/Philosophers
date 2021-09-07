@@ -19,8 +19,12 @@ int	main(int ac, char *av[])
 
 	if (ac < 5 || ac > 6)
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
+	if (full_check_int(av, ac))
+		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
 	if (init_philo(ac, av, &philo))
 		return (1);
+	if (philo.n_eat == 0)
+		return (stopper(&game, &philo, "n_eat", NULL));
 	if (init_game(av, &game, &philo))
 		return (1);
 	stopper(&game, &philo, "FIN", NULL);

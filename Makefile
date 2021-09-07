@@ -1,12 +1,16 @@
 NAME = philo
 
+NAME2 = philos2
+
 PHIL = libphi.a
 
 PHILD = ./lib/
 
 SRCD = ./srcs/
 
-SANIT = -fsanitize=thread
+SANIT = -pthread -Wall -Wextra -Werror -fsanitize=thread
+
+SANIT2 = -pthread -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
 
 COMPILE = gcc
 
@@ -16,6 +20,7 @@ SRC =	$(SRCD)init_philo.c		\
 		$(SRCD)init_game.c		\
 		$(SRCD)utils.c		\
 		$(SRCD)utils2.c		\
+		$(SRCD)utils3.c		\
 		$(SRCD)stopper.c	\
 		$(SRCD)routine.c	\
 		$(SRCD)show.c		\
@@ -37,6 +42,22 @@ $(NAME) : $(OBJ) $(SRCD)/main.c
 		ar rc $(PHILD)$(PHIL) $(OBJ)
 		ranlib $(PHILD)$(PHIL)
 		$(COMPILE) $(CFLAGS) -o $(NAME) $(SRCD)/main.c  $(PHILD)$(PHIL)
+
+sanit2: $(NAME2)
+
+$(NAME2) : $(OBJ) $(SRCD)/main.c
+		rm -rf $(NAME)
+		ar rc $(PHILD)$(PHIL) $(OBJ)
+		ranlib $(PHILD)$(PHIL)
+		$(COMPILE) $(SANIT2) -o $(NAME) $(SRCD)/main.c  $(PHILD)$(PHIL)
+
+sanit: $(NAME1)
+
+$(NAME1) : $(OBJ) $(SRCD)/main.c
+		rm -rf $(NAME)
+		ar rc $(PHILD)$(PHIL) $(OBJ)
+		ranlib $(PHILD)$(PHIL)
+		$(COMPILE) $(SANIT) -o $(NAME) $(SRCD)/main.c  $(PHILD)$(PHIL)
 
 clean:
 	rm -rf $(OBJ)

@@ -69,6 +69,7 @@ int	init_philo(int ac, char *av[], t_philo *philo)
 	philo->n_eat = -1;
 	if (ac == 6)
 		philo->n_eat = ft_atoi(av[5]);
+
 	nbr_philo = ft_atoi(av[1]);
 	if (nbr_philo <= 0)
 		return (1);
