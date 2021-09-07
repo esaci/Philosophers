@@ -12,6 +12,15 @@
 
 #include "../lib/libphi.h"
 
+void	init_mutex(t_game *game)
+{
+	pthread_mutex_init(&game->mutex_d, NULL);
+	pthread_mutex_init(&game->mutex_w, NULL);
+	pthread_mutex_init(&game->mutex_id, NULL);
+	game->mutex_f = 0;
+	game->th_ph = 0;
+}
+
 int	main(int ac, char *av[])
 {
 	t_game	game;
@@ -21,6 +30,7 @@ int	main(int ac, char *av[])
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
 	if (full_check_int(av, ac))
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
+	init_mutex(&game);
 	if (init_philo(ac, av, &philo))
 		return (1);
 	if (philo.n_eat == 0)
