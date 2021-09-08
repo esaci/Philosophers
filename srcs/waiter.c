@@ -20,29 +20,22 @@ int		init_waiter(t_game *game, t_philo *philo)
 		return (philo->n_eat);
 }
 
-void	waiter_eat(t_game *game, t_philo *philo, int id_p, int id_p2)
+void	waiter_eat(t_game *g, t_philo *p, signed int *time)
 {
-	if (game->waiter.order == -1)
+	int	id_p;
+
+	id_p = (int)time[1];
+	if (g->waiter.order == -1)
 		return ;
-	if (id_p % 2 == game->waiter.order)
+	if (id_p % 2 == g->waiter.order)
 		return ;
-	pthread_mutex_unlock(&game->mutex_f[id_p]);
-	if (id_p == 0 && philo->t_eat[game->nbr_philo - 1] <= philo->t_eat[id_p])
-		pthread_mutex_lock(&game->mutex_w);
-	if (philo->t_eat[id_p - 1] <= philo->t_eat[id_p] && id_p != 0)
-		pthread_mutex_lock(&game->mutex_w);
-/* 	while(id_p == 0 && philo->t_eat[game->nbr_philo - 1] <= philo->t_eat[id_p])
-		;
-	while (philo->t_eat[id_p - 1] <= philo->t_eat[id_p] && id_p != 0)
-		; */
-	pthread_mutex_unlock(&game->mutex_w);
-	pthread_mutex_lock(&game->mutex_f[id_p]);
+	pthread_mutex_unlock(&g->mutex_f[id_p]);
+	if (id_p == 0 && p->t_eat[g->nbr_philo - 1] <= p->t_eat[id_p])
+		pthread_mutex_lock(&g->waiter.mutex_w);
+	if (p->t_eat[id_p - 1] <= p->t_eat[id_p] && id_p != 0)
+		pthread_mutex_lock(&g->waiter.mutex_w);
+	pthread_mutex_unlock(&g->waiter.mutex_w);
+	update_time(g, p, time);
+	pthread_mutex_lock(&g->mutex_f[id_p]);
 	return ;
-	if (id_p2 == id_p)
-		return ;
-	return ;
-	while(id_p == 0 && philo->t_eat[game->nbr_philo - 1] <= philo->t_eat[id_p])
-		;
-	while (philo->t_eat[id_p - 1] <= philo->t_eat[id_p] && id_p != 0)
-		;
 }

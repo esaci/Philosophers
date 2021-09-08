@@ -29,23 +29,23 @@ int	print_return(char *str, int code)
 	return (code);
 }
 
-int	stopper(t_game *game, t_philo *philo, char *str, void *str2)
+int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 {
-	free(philo->philo_id);
-	free(philo->t_die);
-	free(philo->t_eat);
-	free(philo->t_sleep);
-	free(philo->t_think);
-	free(philo->s_fork);
-	pthread_mutex_destroy(&game->mutex_d);
-	pthread_mutex_destroy(&game->mutex_id);
-	pthread_mutex_destroy(&game->mutex_w);
+	free(p->philo_id);
+	free(p->t_die);
+	free(p->t_eat);
+	free(p->t_sleep);
+	free(p->t_think);
+	free(p->s_fork);
+	pthread_mutex_destroy(&g->mutex_d);
+	pthread_mutex_destroy(&g->mutex_id);
+	pthread_mutex_destroy(&g->waiter.mutex_w);
 	if (str2)
 		free(str2);
-	if (game->mutex_f)
-		free(game->mutex_f);
-	if (game->th_ph)
-		free(game->th_ph);
+	if (g->mutex_f)
+		free(g->mutex_f);
+	if (g->th_ph)
+		free(g->th_ph);
 	return (0);
-	koi(str, game);
+	koi(str, g);
 }

@@ -27,31 +27,28 @@ int	routine_id(t_game *game, t_philo *philo)
 
 int	return_free_time(signed int *time)
 {
-	free(time);
 	return (1);
+	free(time);
 }
 
 int	loop_routine(t_game *game, t_philo *philo, int id_p)
 {
-	struct timeval	*c_time;
+	signed int		*time;
 
-	game->time = malloc(sizeof(signed int) * 2);
-	c_time = init_timeval(game, philo);
-	if (!c_time)
-		return (return_free_time(game->time));
-	*game->time = time_calcul(c_time->tv_sec - game->s_time.tv_sec,
-				c_time->tv_usec - game->s_time.tv_usec);
-	free(c_time);
+	time = malloc(sizeof(signed int) * 3);
+	time[1] = (signed int)id_p;
+	if (update_time(game, philo, time))
+		return (return_free_time(time));
 	while (1)
 	{
-		if (routine_eat(game, philo, id_p))
-			return (return_free_time(game->time));
-		if (routine_sleep(game, philo, id_p))
-			return (return_free_time(game->time));
-		if (routine_think(game, philo, id_p))
-			return (return_free_time(game->time));
+		if (routine_eat(game, philo, time))
+			return (return_free_time(time));
+		if (routine_sleep(game, philo, time))
+			return (return_free_time(time));
+		if (routine_think(game, philo, time))
+			return (return_free_time(time));
 	}
-	free(game->time);
+	free(time);
 	return (0);
 }
 

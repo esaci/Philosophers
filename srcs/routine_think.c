@@ -1,14 +1,17 @@
 #include "../lib/libphi.h"
 
-int	routine_think(t_game *g, t_philo *p, int id_p)
+int	routine_think(t_game *g, t_philo *p, signed int *time)
 {
-	if (show_state(g, p, "is thinking", id_p))
+	int	id_p;
+
+	id_p = time[1];
+	if (show_state(g, p, "is thinking", time))
 		return (1);
 	while (p->t_eat[(g->waiter.order + 1) % 2] != p->t_eat[id_p])
 		;
-	p->t_think[id_p]++;
-	if (p->t_eat[id_p] == p->n_eat)
+	if (update_time(g, p, time))
 		return (1);
+	p->t_think[id_p]++;
 	return (0);
 }
 

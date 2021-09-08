@@ -12,6 +12,19 @@
 
 #include "../lib/libphi.h"
 
+int	update_time(t_game *game, t_philo *philo, signed int *time)
+{
+	struct timeval	*c_time;
+
+	c_time = init_timeval(game, philo);
+	if (!c_time)
+		return (return_free_time(time));
+	time[0] = time_calcul(c_time->tv_sec - game->s_time.tv_sec,
+				c_time->tv_usec - game->s_time.tv_usec);
+	free(c_time);
+	return (0);
+}
+
 signed int	checker_str(t_game *game, t_philo *philo, char *str)
 {
 	if (!ft_memcmp(str, "is sleeping", 11))
@@ -20,34 +33,26 @@ signed int	checker_str(t_game *game, t_philo *philo, char *str)
 		return (custom_usleep(game, philo, game->t_eat * 1000));
 	if (!ft_memcmp(str, "is thinking", 11))
 		return (custom_usleep(game, philo, 0));
+	if (!ft_memcmp(str, "died", 4))
+		return (custom_usleep(game, philo, 0));
 	return (-1);
 }
 
-int	show_state(t_game *game, t_philo *philo, char *str, int id_p)
+int	show_state(t_game *game, t_philo *philo, char *str, signed int *time)
 {
 	char			*ptr;
-/* 	struct timeval	*c_time; */
-/* 	signed int		time; */
 
-/* 	c_time = malloc(sizeof(c_time) * 2); */
-/* 	if (!c_time)
-		return (stopper(game, philo, "malloc", NULL)); */
-	ptr = ft_itoa(*game->time);
+	ptr = ft_itoa(time[0]);
 	pthread_mutex_lock(&game->mutex_id);
-/* 	if (gettimeofday(c_time, NULL))
-		return (stopper(game, philo, "gettimeofday a renvoye NULL", NULL)); */
 	print_str(ptr, 2);
 	free(ptr);
-	ptr = ft_itoa(id_p + 1);
+	ptr = ft_itoa(time[1] + 1);
 	print_str(ptr, 2);
 	print_str(str, 1);
 	pthread_mutex_unlock(&game->mutex_id);
 	free(ptr);
-	*game->time = checker_str(game, philo, str);
-	if (*game->time == -1)
+	time[0] = checker_str(game, philo, str);
+	if (time[0] == -1)
 		return (1);
-/* 	free(c_time); */
 	return (0);
 }
-	/* ptr = ft_itoa(time_calcul(c_time->tv_sec - game->s_time.tv_sec,
-				c_time->tv_usec - game->s_time.tv_usec)); */
