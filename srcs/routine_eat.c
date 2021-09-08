@@ -35,6 +35,7 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 		return (1);
 	p->s_fork[id_p] = 0;
 	p->s_fork[id_p2] = 0;
+	p->eat_time[id_p] = time[0];
 	if (show_state(g, p, "is eating", time))
 		return (1);
 	p->t_eat[id_p]++;

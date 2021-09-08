@@ -35,7 +35,6 @@ int		check_sp_ord(t_game *g, int id_p)
 		pthread_mutex_lock(&g->waiter.mutex_spw);
 		return (1);
 	}
-	koii(id_p + 1, g);
 	pthread_mutex_unlock(&g->mutex_f[id_p]);
 	pthread_mutex_lock(&g->waiter.mutex_spw);
 	pthread_mutex_lock(&g->mutex_f[id_p]);

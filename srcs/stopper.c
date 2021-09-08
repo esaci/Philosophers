@@ -37,6 +37,7 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 	free(p->t_sleep);
 	free(p->t_think);
 	free(p->s_fork);
+	free(p->eat_time);
 	pthread_mutex_destroy(&g->mutex_show);
 	pthread_mutex_destroy(&g->mutex_id);
 	pthread_mutex_destroy(&g->waiter.mutex_w);

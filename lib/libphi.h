@@ -21,15 +21,17 @@
 
 typedef struct	s_waiter
 {
-	int			order;
-	int			sp_ord;
+	int					order;
+	int					sp_ord;
 	pthread_mutex_t		mutex_w;
 	pthread_mutex_t		mutex_w2;
 	pthread_mutex_t		mutex_spw;
 }				t_waiter;
+
 typedef struct	s_game
 {
 	t_waiter			waiter;
+	pthread_t			*th_ph;
 	pthread_mutex_t		mutex_id;
 	pthread_mutex_t		mutex_show;
 	pthread_mutex_t		*mutex_f;
@@ -38,7 +40,6 @@ typedef struct	s_game
 	signed int			t_sleeping;
 	signed int			t_die;
 	int					nbr_philo;
-	pthread_t *th_ph;
 }				t_game;
 
 typedef struct	s_philo
@@ -49,6 +50,7 @@ typedef struct	s_philo
 	int					*t_sleep;
 	int					*t_think;
 	int					*s_fork;
+	signed int			*eat_time;
 	int					n_eat;
 }				t_philo;
 

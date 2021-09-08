@@ -25,9 +25,21 @@ int	init_philo3(t_philo *philo, int nbr_philo)
 		free(philo->t_sleep);
 		return (1);
 	}
+	philo->eat_time = malloc(sizeof(signed int) * nbr_philo);
+	if (philo->eat_time == NULL)
+	{
+		free(philo->s_fork);
+		free(philo->t_think);
+		free(philo->t_eat);
+		free(philo->t_die);
+		free(philo->philo_id);
+		free(philo->t_sleep);
+		return (1);
+	}
 	count = 0;
 	while (count < nbr_philo)
 	{
+		philo->eat_time[count] = 0;
 		philo->s_fork[count] = 1;
 		philo->philo_id[count] = 0;
 		philo->t_die[count] = 0;
