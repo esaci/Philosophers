@@ -27,15 +27,12 @@ int	show_state(t_game *game, t_philo *philo, char *str, int id_p)
 {
 	char			*ptr;
 /* 	struct timeval	*c_time; */
-	signed int		time;
+/* 	signed int		time; */
 
-	time = checker_str(game, philo, str);
-	if (time == -1)
-		return (1);
 /* 	c_time = malloc(sizeof(c_time) * 2); */
 /* 	if (!c_time)
 		return (stopper(game, philo, "malloc", NULL)); */
-	ptr = ft_itoa(time);
+	ptr = ft_itoa(*game->time);
 	pthread_mutex_lock(&game->mutex_id);
 /* 	if (gettimeofday(c_time, NULL))
 		return (stopper(game, philo, "gettimeofday a renvoye NULL", NULL)); */
@@ -46,6 +43,9 @@ int	show_state(t_game *game, t_philo *philo, char *str, int id_p)
 	print_str(str, 1);
 	pthread_mutex_unlock(&game->mutex_id);
 	free(ptr);
+	*game->time = checker_str(game, philo, str);
+	if (*game->time == -1)
+		return (1);
 /* 	free(c_time); */
 	return (0);
 }

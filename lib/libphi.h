@@ -35,6 +35,7 @@ typedef struct	s_game
 	signed int			t_sleeping;
 	signed int			t_die;
 	int					nbr_philo;
+	signed int			*time;
 	t_waiter			waiter;
 	pthread_t *th_ph;
 }				t_game;
@@ -78,7 +79,7 @@ int				custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp_time, vo
 void			waiter_eat(t_game *game, t_philo *philo, int id_p, int id_p2);
 int				routine_eat(t_game *game, t_philo *philo, int id_p);
 int				routine_sleep(t_game *game, t_philo *philo, int id_p);
-int				routine_think(t_game *g, t_philo *p, int nb_p);
+int				routine_think(t_game *g, t_philo *p, int id_p);
 int				c_int(char *nbr);
 int				full_check_int(char *av[], int ac);
 #endif
