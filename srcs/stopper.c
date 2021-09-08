@@ -14,11 +14,11 @@
 
 int	koi(char	*str, t_game *game)
 {
-	pthread_mutex_lock(&game->mutex_id);
+	pthread_mutex_lock(&game->mutex_show);
 	write(1, "|", 1);
 	write(1, str, ft_strlen(str));
 	write(1, "|\n", 2);
-	pthread_mutex_unlock(&game->mutex_id);
+	pthread_mutex_unlock(&game->mutex_show);
 	return (0);
 }
 
@@ -37,7 +37,7 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 	free(p->t_sleep);
 	free(p->t_think);
 	free(p->s_fork);
-	pthread_mutex_destroy(&g->mutex_d);
+	pthread_mutex_destroy(&g->mutex_show);
 	pthread_mutex_destroy(&g->mutex_id);
 	pthread_mutex_destroy(&g->waiter.mutex_w);
 	if (str2)

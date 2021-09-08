@@ -43,13 +43,13 @@ int	show_state(t_game *game, t_philo *philo, char *str, signed int *time)
 	char			*ptr;
 
 	ptr = ft_itoa(time[0]);
-	pthread_mutex_lock(&game->mutex_id);
+	pthread_mutex_lock(&game->mutex_show);
 	print_str(ptr, 2);
 	free(ptr);
 	ptr = ft_itoa(time[1] + 1);
 	print_str(ptr, 2);
 	print_str(str, 1);
-	pthread_mutex_unlock(&game->mutex_id);
+	pthread_mutex_unlock(&game->mutex_show);
 	free(ptr);
 	time[0] = checker_str(game, philo, str);
 	if (time[0] == -1)

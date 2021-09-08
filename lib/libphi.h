@@ -28,10 +28,9 @@ typedef struct	s_game
 {
 	t_waiter			waiter;
 	pthread_mutex_t		mutex_id;
-	pthread_mutex_t		mutex_d;
+	pthread_mutex_t		mutex_show;
 	pthread_mutex_t		*mutex_f;
 	struct timeval		s_time;
-	struct timeval		*tmp_time;
 	signed int			t_eat;
 	signed int			t_sleeping;
 	signed int			t_die;
