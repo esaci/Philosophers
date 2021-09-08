@@ -39,25 +39,26 @@ int	init_game2(t_game *game, t_philo *philo)
 	return (0);
 }
 
-int	init_game(char *av[], t_game *game, t_philo *philo)
+int	init_game(char *av[], t_game *g, t_philo *philo)
 {
 	int			count;
 
-	game->nbr_philo = ft_atoi(av[1]);
-	game->t_eat = ft_atoi(av[3]);
-	game->t_sleeping = ft_atoi(av[4]);
-	game->t_die = ft_atoi(av[2]);
-	game->th_ph = malloc(sizeof(pthread_t) * (game->nbr_philo + 1));
-	if (!game->th_ph)
-		return (stopper(game, philo, "malloc", NULL));
-	game->mutex_f = malloc(sizeof(pthread_mutex_t) * game->nbr_philo);
-	if (!game->mutex_f)
-		return (stopper(game, philo, "malloc", NULL));
+	g->nbr_philo = ft_atoi(av[1]);
+	g->waiter.sp_ord = g->nbr_philo % 2;
+	g->t_eat = ft_atoi(av[3]);
+	g->t_sleeping = ft_atoi(av[4]);
+	g->t_die = ft_atoi(av[2]);
+	g->th_ph = malloc(sizeof(pthread_t) * (g->nbr_philo + 1));
+	if (!g->th_ph)
+		return (stopper(g, philo, "malloc", NULL));
+	g->mutex_f = malloc(sizeof(pthread_mutex_t) * g->nbr_philo);
+	if (!g->mutex_f)
+		return (stopper(g, philo, "malloc", NULL));
 	count = 0;
-	while (count < game->nbr_philo)
+	while (count < g->nbr_philo)
 	{
-		pthread_mutex_init(&game->mutex_f[count], NULL);
+		pthread_mutex_init(&g->mutex_f[count], NULL);
 		count++;
 	}
-	return (init_game2(game, philo));
+	return (init_game2(g, philo));
 }

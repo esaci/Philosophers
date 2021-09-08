@@ -22,7 +22,10 @@
 typedef struct	s_waiter
 {
 	int			order;
+	int			sp_ord;
 	pthread_mutex_t		mutex_w;
+	pthread_mutex_t		mutex_w2;
+	pthread_mutex_t		mutex_spw;
 }				t_waiter;
 typedef struct	s_game
 {

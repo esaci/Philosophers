@@ -46,20 +46,22 @@ signed int	custom_usleep(t_game *game, t_philo *philo, signed int	time)
 	struct timeval		*c_time;
 	struct timeval		*tmp_time;
 	signed int			tmp;
+	signed int			tmp2;
 
+	tmp2 = 4 / 10;
 	c_time = init_timeval(game, philo);
 	if (!c_time)
 		return (-1);
 	tmp_time = init_timeval(game, philo);
 	if (!tmp_time)
 		return (-1);
-	usleep(9 * (time / 10));
+	usleep((time * 8) / 10);
 	custom_gettime(game, philo, tmp_time, c_time);
 	tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 			tmp_time->tv_usec - c_time->tv_usec) * 1000;
 	while (tmp < time)
 	{
-		usleep((time - tmp) * 2 / 10);
+		usleep((time - tmp) * tmp2);
 		custom_gettime(game, philo, tmp_time, c_time);
 		tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 				tmp_time->tv_usec - c_time->tv_usec) * 1000;
