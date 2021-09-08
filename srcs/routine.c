@@ -27,8 +27,8 @@ int	routine_id(t_game *game, t_philo *philo)
 
 int	return_free_time(signed int *time)
 {
-	return (1);
 	free(time);
+	return (1);
 }
 
 int	loop_routine(t_game *game, t_philo *philo, int id_p)
