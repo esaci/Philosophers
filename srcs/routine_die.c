@@ -26,6 +26,19 @@ void	show_die(t_game *game, signed int *time)
 	free(ptr);
 }
 
+void	unlocker_die_mutex(t_game *g, signed int *time)
+{
+	int	id_p;
+
+	id_p = time[1];
+	if ((id_p + (1 - g->waiter.order) + g->nbr_philo % 2 == (g->nbr_philo - 1)))
+		pthread_mutex_unlock(&g->waiter.mutex_w);
+	if ((id_p == 0 || id_p == g->nbr_philo -1) && g->waiter.sp_ord)
+		pthread_mutex_unlock(&g->waiter.mutex_spw);
+	if (id_p + g->waiter.order == 1)
+		pthread_mutex_unlock(&g->waiter.mutex_w2);
+}
+
 int	routine_die(t_game *game, t_philo *philo, signed int *time)
 {
 	int	id_p;
@@ -34,8 +47,12 @@ int	routine_die(t_game *game, t_philo *philo, signed int *time)
 	id_p = time[1];
 	if (time[0] - philo->eat_time[id_p] < game->t_die && !philo->t_die[id_p])
 		return (0);
+	unlocker_die_mutex(game, time);
 	if (philo->t_die[id_p])
+	{
+		pthread_mutex_unlock(&game->mutex_show);
 		return (1);
+	}
 	if (!philo->t_die[id_p])
 	{
 		count = 0;

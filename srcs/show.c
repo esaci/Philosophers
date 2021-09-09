@@ -42,10 +42,10 @@ int	show_state(t_game *game, t_philo *philo, char *str, signed int *time)
 {
 	char			*ptr;
 
-	ptr = ft_itoa(time[0]);
 	pthread_mutex_lock(&game->mutex_show);
 	if (routine_die(game, philo, time))
 		return (1);
+	ptr = ft_itoa(time[0]);
 	print_str(ptr, 2);
 	free(ptr);
 	ptr = ft_itoa(time[1] + 1);

@@ -12,7 +12,7 @@
 
 #include "../lib/libphi.h"
 
-int	init_time(t_game *game, t_philo *philo, signed int	*time, int count)
+int	init_time(t_game *game, t_philo *philo, signed int	*time, signed int count)
 {
 	time[1] = count;
 	if (update_time(game, philo, time))
@@ -20,27 +20,22 @@ int	init_time(t_game *game, t_philo *philo, signed int	*time, int count)
 	return (0);
 }
 
-int	check_death(t_game *game, t_philo *philo, int *ptr)
+int	check_death(t_game *game, t_philo *philo, int *ptr, signed int *time)
 {
-	int			count;
-	signed int	*time;
+	signed int	count;
 
-	time = malloc(sizeof(signed int) * 3);
-	if (!time)
-		return (1);
 	count = 0;
 	if (init_time(game, philo, time, count))
 		return_free_time(time);
 	while (count < game->nbr_philo)
 	{
-		if (ptr[count] == 1)
-			return (1);
 		time[1] = count;
+		if (ptr[count] == 1)
+			return (0);
 		if (routine_die(game, philo, time))
-			return_free_time(time);
+			return (0);
 		count++;
 	}
-	free(time);
 	return (0);
 }
 
@@ -48,6 +43,7 @@ int	init_game2(t_game *game, t_philo *philo)
 {
 	int			count;
 	t_dstruct	dstruct;
+	signed int	*time;
 
 	game->waiter.order = -1;
 	dstruct.game = game;
@@ -68,11 +64,18 @@ int	init_game2(t_game *game, t_philo *philo)
 			return (stopper(game, philo, "Thread detach failed", NULL));
 		count++;
 	}
+	time = malloc(sizeof(signed int) * 3);
+	if (!time)
+		return (1);
 	while (game->philo_a_table > 0)
 	{
-		if(check_death(game, philo, philo->t_die))
-			return (0);
+		if(!philo->t_die[0])
+		{
+			if (check_death(game, philo, philo->t_die, time))
+				return (1);
+		}
 	}
+	free(time);
 	return (0);
 }
 
