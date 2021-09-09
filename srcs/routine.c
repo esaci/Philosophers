@@ -63,7 +63,9 @@ void	*routine(void *dstruct)
 	philo = (t_philo *)dst->philo;
 	game = (t_game *)dst->game;
 	id_p = routine_id(game, philo);
-	if (loop_routine(game, philo, id_p))
-		return (NULL);
+	loop_routine(game, philo, id_p);
+	pthread_mutex_lock(&game->mutex_table);
+	game->philo_a_table--;
+	pthread_mutex_unlock(&game->mutex_table);
 	return (NULL);
 }

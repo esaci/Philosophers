@@ -32,10 +32,12 @@ int	init_game2(t_game *game, t_philo *philo)
 	count = 0;
 	while (count < game->nbr_philo)
 	{
-		if (pthread_join(game->th_ph[count], NULL))
-			return (stopper(game, philo, "Thread joining failed", NULL));
+		if (pthread_detach(game->th_ph[count]))
+			return (stopper(game, philo, "Thread detach failed", NULL));
 		count++;
 	}
+	while (game->philo_a_table > 0)
+		;
 	return (0);
 }
 
@@ -44,6 +46,7 @@ int	init_game(char *av[], t_game *g, t_philo *philo)
 	int			count;
 
 	g->nbr_philo = ft_atoi(av[1]);
+	g->philo_a_table = g->nbr_philo;
 	g->waiter.sp_ord = g->nbr_philo % 2;
 	g->t_eat = ft_atoi(av[3]);
 	g->t_sleeping = ft_atoi(av[4]);
