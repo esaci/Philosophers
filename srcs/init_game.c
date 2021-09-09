@@ -12,17 +12,35 @@
 
 #include "../lib/libphi.h"
 
-int	check_death(t_game *game, int *ptr)
+int	init_time(t_game *game, t_philo *philo, signed int	*time, int count)
 {
-	int	count;
+	time[1] = count;
+	if (update_time(game, philo, time))
+		return (1);
+	return (0);
+}
 
+int	check_death(t_game *game, t_philo *philo, int *ptr)
+{
+	int			count;
+	signed int	*time;
+
+	time = malloc(sizeof(signed int) * 3);
+	if (!time)
+		return (1);
 	count = 0;
+	if (init_time(game, philo, time, count))
+		return_free_time(time);
 	while (count < game->nbr_philo)
 	{
 		if (ptr[count] == 1)
-			return (1);
+			return_free_time(time);
+		time[1] = count;
+		if (routine_die(game, philo, time))
+			return_free_time(time);
 		count++;
 	}
+	free(time);
 	return (0);
 }
 
@@ -52,7 +70,7 @@ int	init_game2(t_game *game, t_philo *philo)
 	}
 	while (game->philo_a_table > 0)
 	{
-		if(check_death(game, philo->t_die))
+		if(check_death(game, philo, philo->t_die))
 			return (0);
 	}
 	return (0);
