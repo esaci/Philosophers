@@ -34,7 +34,7 @@ int	check_death(t_game *game, t_philo *philo, int *ptr)
 	while (count < game->nbr_philo)
 	{
 		if (ptr[count] == 1)
-			return_free_time(time);
+			return (1);
 		time[1] = count;
 		if (routine_die(game, philo, time))
 			return_free_time(time);
