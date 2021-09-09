@@ -16,8 +16,7 @@ int		init_waiter(t_game *game, t_philo *philo)
 {
 	game->waiter.order = -1;
 	return (0);
-	if (1 == 2)
-		return (philo->n_eat);
+	return (philo->n_eat);
 }
 
 int		check_sp_ord(t_game *g, int id_p)
@@ -26,16 +25,17 @@ int		check_sp_ord(t_game *g, int id_p)
 		return (0);
 	if (id_p != 0 && id_p != g->nbr_philo - 1)
 		return (0);
-	pthread_mutex_lock(&g->waiter.mutex_spw);
+	pthread_mutex_unlock(&g->mutex_f[id_p]);
+	pthread_mutex_lock(&g->mutex_id);
 	if (g->waiter.sp_ord == 1)
 		g->waiter.sp_ord = id_p + 2;
-	pthread_mutex_unlock(&g->waiter.mutex_spw);
+	pthread_mutex_unlock(&g->mutex_id);
 	if (id_p + 2 == g->waiter.sp_ord)
 	{
+		pthread_mutex_lock(&g->mutex_f[id_p]);
 		pthread_mutex_lock(&g->waiter.mutex_spw);
 		return (1);
 	}
-	pthread_mutex_unlock(&g->mutex_f[id_p]);
 	pthread_mutex_lock(&g->waiter.mutex_spw);
 	pthread_mutex_lock(&g->mutex_f[id_p]);
 	return (1);
