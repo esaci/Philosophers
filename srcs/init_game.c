@@ -12,6 +12,20 @@
 
 #include "../lib/libphi.h"
 
+int	check_death(t_game *game, int *ptr)
+{
+	int	count;
+
+	count = 0;
+	while (count < game->nbr_philo)
+	{
+		if (ptr[count] == 1)
+			return (1);
+		count++;
+	}
+	return (0);
+}
+
 int	init_game2(t_game *game, t_philo *philo)
 {
 	int			count;
@@ -37,7 +51,10 @@ int	init_game2(t_game *game, t_philo *philo)
 		count++;
 	}
 	while (game->philo_a_table > 0)
-		;
+	{
+		if(check_death(game, philo->t_die))
+			return (0);
+	}
 	return (0);
 }
 
