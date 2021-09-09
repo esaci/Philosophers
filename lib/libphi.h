@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <sys/time.h>
+# include <string.h>
 
 typedef struct	s_waiter
 {
@@ -87,6 +88,7 @@ int				custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp_time, vo
 int				routine_eat(t_game *game, t_philo *philo, signed int *time);
 int				routine_sleep(t_game *game, t_philo *philo, signed int *time);
 int				routine_think(t_game *g, t_philo *p, signed int *time);
+int				routine_die(t_game *game, t_philo *philo, signed int *time, int i);
 int				c_int(char *nbr);
 int				full_check_int(char *av[], int ac);
 #endif

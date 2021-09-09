@@ -10,10 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../lib/libphi.h"
 
-int	routine_die(t_game *game, t_philo *philo, signed int *time)
+int	routine_die(t_game *game, t_philo *philo, signed int *time, int i)
 {
-	if ()
+	int	count;
+	int	id_p;
+
+	id_p = time[1];
+	count = 0;
+	koii(time[1] - philo->eat_time[id_p], game);
+	if (time[1] - philo->eat_time[id_p] < game->t_die && !philo->t_die[id_p])
+		return (0);
+	koii(i, game);
+	if (!philo->t_die[id_p])
+		memset(philo->t_die, 1, id_p);
 	if (show_state(game, philo, "died", time))
 		return (1);
+	return (1);
 }

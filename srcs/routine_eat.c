@@ -21,6 +21,8 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	id_p2 = id_p + 1;
 	if (id_p == g->nbr_philo - 1)
 		id_p2 = 0;
+	if (routine_die(g, p, time, 0))
+		return (1);
 	pthread_mutex_lock(&g->mutex_f[id_p]);
 	if (g->waiter.order == -1)
 	{
