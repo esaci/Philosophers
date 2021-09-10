@@ -12,11 +12,11 @@ int	routine_think(t_game *g, t_philo *p, signed int *time)
 		pthread_mutex_lock(&g->waiter.mutex_w2);
 		pthread_mutex_unlock(&g->waiter.mutex_w2);
 	}
-	if (g->waiter.sp_ord && ((id_p + 2 == g->waiter.sp_ord) || (id_p % 2 == g->waiter.order)))
+/* 	if (g->waiter.sp_ord && ((id_p + 2 == g->waiter.sp_ord) || (id_p % 2 == g->waiter.order)))
 	{
 		pthread_mutex_lock(&g->waiter.mutex_spw);
 		pthread_mutex_unlock(&g->waiter.mutex_spw);
-	}
+	} */
 	p->t_think[id_p]++;
 	return (0);
 }

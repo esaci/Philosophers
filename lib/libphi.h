@@ -27,6 +27,7 @@ typedef struct	s_waiter
 	pthread_mutex_t		mutex_w;
 	pthread_mutex_t		mutex_w2;
 	pthread_mutex_t		mutex_spw;
+	pthread_mutex_t		mutex_check_spw;
 }				t_waiter;
 
 typedef struct	s_game
