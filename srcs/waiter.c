@@ -50,8 +50,6 @@ int		check_sp_ord3(t_game *g, t_philo *p, int id_p)
 		pthread_mutex_lock(&g->mutex_f[id_p]);
 		return (1);
 	}
-	if (id_p % 2 != order && id_p + order == 1)
-		pthread_mutex_lock(&g->waiter.mutex_w2);
 	if (id_p % 2 == order) // STEP2
 	{
 		if (id_p + 2 == g->waiter.sp_ord)
@@ -71,6 +69,8 @@ int		check_sp_ord3(t_game *g, t_philo *p, int id_p)
 		pthread_mutex_lock(&g->waiter.mutex_w);
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 	}
+	if (id_p + order == 1)
+		pthread_mutex_lock(&g->waiter.mutex_w2);
 	pthread_mutex_lock(&g->mutex_f[id_p]);
 	return (1);
 }
