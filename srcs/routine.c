@@ -35,9 +35,8 @@ int	loop_routine(t_game *game, t_philo *philo, int id_p)
 {
 	signed int		*time;
 
-	time = malloc(sizeof(signed int) * 5);
+	time = malloc(sizeof(signed int) * 10);
 	time[1] = (signed int)id_p;
-	time[3] = (signed int)id_p;
 	if (update_time(game, philo, time))
 		return (return_free_time(time));
 	while (1)
