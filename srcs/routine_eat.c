@@ -30,10 +30,9 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	}
 	pthread_mutex_lock(&g->mutex_f[id_p]);
 	if (g->waiter.order == -1)
-	{
 		g->waiter.order = id_p;
+	if (g->waiter.order == id_p)
 		pthread_mutex_lock(&g->waiter.mutex_w);
-	}
 	order = g->waiter.order % 2;
 	waiter_eat(g, p, time);
 	if (g->waiter.sp_ord && id_p == 0)
