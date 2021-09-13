@@ -21,6 +21,7 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	id_p2 = id_p + 1;
 	if (id_p == g->nbr_philo - 1)
 		id_p2 = 0;
+	time[2] = (signed int)id_p2;
 	if (id_p2 == id_p)
 	{
 		while (!p->t_die[id_p])
@@ -32,7 +33,7 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	{
 		g->waiter.order = id_p % 2;
 		pthread_mutex_lock(&g->waiter.mutex_w);
-		koii(g->waiter.order, g);
+/* 		koii(1 - g->waiter.order, g); */
 	}
 	waiter_eat(g, p, time);
 	if (g->waiter.sp_ord && id_p == 0)
