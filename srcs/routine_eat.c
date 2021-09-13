@@ -52,9 +52,9 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 	if (id_p + order == 1)
 		pthread_mutex_unlock(&g->waiter.mutex_w2);
-	if (g->waiter.sp_ord)
-		unlocker_mutexsp(g, time);
 	pthread_mutex_unlock(&g->mutex_f[id_p2]);
 	pthread_mutex_unlock(&g->mutex_f[id_p]);
+	if (g->waiter.sp_ord)
+		unlocker_mutexsp(g, time);
 	return (0);
 }
