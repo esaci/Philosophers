@@ -21,7 +21,6 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	id_p2 = id_p + 1;
 	if (id_p == g->nbr_philo - 1)
 		id_p2 = 0;
-	time[3] = (signed int)id_p2;
 	if (id_p2 == id_p)
 	{
 		while (!p->t_die[id_p])
