@@ -17,6 +17,7 @@ void	init_mutex(t_game *game)
 	pthread_mutex_init(&game->mutex_show, NULL);
 	pthread_mutex_init(&game->waiter.mutex_w, NULL);
 	pthread_mutex_init(&game->waiter.mutex_w2, NULL);
+	pthread_mutex_init(&game->waiter.mutex_w3, NULL);
 	pthread_mutex_init(&game->waiter.mutex_spw, NULL);
 	pthread_mutex_init(&game->waiter.mutex_check_spw, NULL);
 	pthread_mutex_init(&game->mutex_id, NULL);

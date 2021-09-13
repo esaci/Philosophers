@@ -26,6 +26,7 @@ typedef struct	s_waiter
 	int					sp_ord;
 	pthread_mutex_t		mutex_w;
 	pthread_mutex_t		mutex_w2;
+	pthread_mutex_t		mutex_w3;
 	pthread_mutex_t		mutex_spw;
 	pthread_mutex_t		mutex_check_spw;
 }				t_waiter;
@@ -68,6 +69,7 @@ int				init_philo(int ac, char *av[], t_philo *philo);
 int				init_game(char *av[], t_game *game, t_philo *philo);
 int				init_waiter(t_game *game, t_philo *philo);
 void			waiter_eat(t_game *game, t_philo *philo, signed int *time);
+void			unlocker_mutexsp(t_game *g, signed int *time);
 int				ft_strlen(const char *s);
 int				ft_atoi(const char *str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
