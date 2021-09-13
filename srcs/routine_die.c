@@ -30,16 +30,15 @@ void	unlocker_die_mutex(t_game *g, signed int *time)
 {
 	signed int	id_p;
 	signed int	id_p2;
-	
+
 	id_p = time[1];
-	id_p2 = time[2];
+	id_p2 = time[3];
 /* 	if ((id_p + (1 - g->waiter.order) + g->nbr_philo % 2 == (g->nbr_philo - 1)))
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 	if ((id_p == 0 || id_p == g->nbr_philo -1) && g->waiter.sp_ord)
 		pthread_mutex_unlock(&g->waiter.mutex_spw);
 	if (id_p + g->waiter.order == 1)
 		pthread_mutex_unlock(&g->waiter.mutex_w2); */
-	koii(id_p + 1, g);
 	if ((id_p == 0 || id_p == g->nbr_philo -1) && g->waiter.sp_ord)
 		pthread_mutex_unlock(&g->waiter.mutex_spw);
 	if ((id_p + (1 - g->waiter.order) + g->nbr_philo % 2 == (g->nbr_philo - 1)))
