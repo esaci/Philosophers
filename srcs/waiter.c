@@ -54,7 +54,6 @@ int		check_sp_ord3(t_game *g, t_philo *p, int id_p)
 		pthread_mutex_lock(&g->mutex_f[id_p]);
 		return (1);
 	}
-
 	if (p->t_eat[id_p - 1] <= p->t_eat[id_p] && id_p != 0)
 	{
 		pthread_mutex_lock(&g->waiter.mutex_w);
@@ -65,8 +64,6 @@ int		check_sp_ord3(t_game *g, t_philo *p, int id_p)
 		pthread_mutex_lock(&g->waiter.mutex_w);
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 	}
-	if (id_p + order == 1)
-		pthread_mutex_lock(&g->waiter.mutex_w2);
 	pthread_mutex_lock(&g->mutex_f[id_p]);
 	return (1);
 }
