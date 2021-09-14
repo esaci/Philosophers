@@ -39,7 +39,7 @@ void	unlocker_die_mutex(t_game *g,signed int *time)
 		id_p2 = 0;
 	if (id_p == g->waiter.order)
 		pthread_mutex_unlock(&g->waiter.mutex_w);
-	if (id_p + order == 1 && !g->waiter.sp_ord)
+	if (id_p + order == 1)
 		pthread_mutex_unlock(&g->waiter.mutex_w2);
 	if (g->waiter.sp_ord)
 		unlocker_mutexsp(g, time);

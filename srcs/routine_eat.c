@@ -32,13 +32,11 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	if (g->waiter.order == -1)
 		g->waiter.order = id_p;
 	order = g->waiter.order % 2;
-	if (id_p + order == 1 && g->waiter.sp_ord)
-		pthread_mutex_lock(&g->waiter.mutex_w2);
-	if (g->waiter.order == id_p)
+	if (id_p == g->waiter.order)
 		pthread_mutex_lock(&g->waiter.mutex_w);
-	if (g->waiter.order == id_p && g->waiter.sp_ord && p->t_eat[id_p] != 0)
+	waiter_eat(g, p, time);
+	if (id_p == g->waiter.order && p->t_eat[id_p] > 0 && g->waiter.sp_ord)
 		pthread_mutex_unlock(&g->waiter.mutex_check_spw);
-	waiter_eat(g, p, time); //
 	if (g->waiter.sp_ord && id_p == 0)
 		id_p2 = g->nbr_philo - 1;
 	pthread_mutex_lock(&g->mutex_f[id_p2]);
