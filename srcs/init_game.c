@@ -12,25 +12,18 @@
 
 #include "../lib/libphi.h"
 
-int	init_time(t_game *game, t_philo *philo, signed int	*time, signed int count)
-{
-	time[1] = count;
-	if (update_time(game, philo, time))
-		return (1);
-	return (0);
-}
-
-int	check_death(t_game *game, t_philo *philo, int *ptr, signed int *time)
+int	check_death(t_game *game, t_philo *philo, signed int *time, struct timeval *c_time)
 {
 	signed int	count;
 
 	count = 0;
-	if (init_time(game, philo, time, count))
+	time[1] = count;
+	if (update_time2(game, time, c_time))
 		return_free_time(time);
 	while (count < game->nbr_philo)
 	{
 		time[1] = count;
-		if (ptr[count] == 1)
+		if (philo->t_die[count] == 1)
 			return (0);
 		if (routine_die(game, philo, time))
 			return (0);
@@ -44,6 +37,7 @@ int	init_game2(t_game *game, t_philo *philo)
 	int			count;
 	t_dstruct	dstruct;
 	signed int	*time;
+	struct timeval	c_time;
 
 	game->waiter.order = -1;
 	dstruct.game = game;
@@ -71,7 +65,7 @@ int	init_game2(t_game *game, t_philo *philo)
 	{
 		if(!philo->t_die[0])
 		{
-			if (check_death(game, philo, philo->t_die, time))
+			if (check_death(game, philo, time, &c_time))
 				return (1);
 		}
 	}

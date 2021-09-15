@@ -25,33 +25,3 @@ int	routine_think(t_game *g, t_philo *p, signed int *time)
 	p->t_think[id_p]++;
 	return (0);
 }
-
-
-
-
-
-
-/*  */
-	/* if (g->waiter.sp_ord)
-	{
-		if (id_p + order == 1)
-			pthread_mutex_lock(&g->waiter.mutex_w2);
-		if (id_p == g->waiter.order)
-			pthread_mutex_lock(&g->waiter.mutex_check_spw);
-		pthread_mutex_lock(&g->waiter.mutex_w3);
-		if (id_p % 2 != order || ((id_p == 0 || id_p == g->nbr_philo - 1) && id_p + 2 != g->waiter.sp_ord))
-		{
-			pthread_mutex_lock(&g->waiter.mutex_check_spw);
-			pthread_mutex_unlock(&g->waiter.mutex_check_spw);
-			pthread_mutex_lock(&g->waiter.mutex_w);
-			pthread_mutex_unlock(&g->waiter.mutex_w);
-		}
-		 if ((id_p == 0 || id_p == g->nbr_philo - 1) && id_p + 2 != g->waiter.sp_ord)
-		{
-			koii(id_p + 1, g);
-			pthread_mutex_lock(&g->waiter.mutex_w2);
-			pthread_mutex_unlock(&g->waiter.mutex_w2);
-		}
-		else
-			pthread_mutex_unlock(&g->waiter.mutex_w3);
-	} */

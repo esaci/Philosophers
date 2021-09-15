@@ -29,8 +29,6 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	}
 	pthread_mutex_lock(&g->mutex_f[id_p]);
 	waiter_eat(g, p, time);
-	if (id_p == g->waiter.order && p->t_eat[id_p] > 0 && g->waiter.sp_ord)
-		pthread_mutex_unlock(&g->waiter.mutex_check_spw);
 	if (g->waiter.sp_ord && id_p == 0)
 		id_p2 = g->nbr_philo - 1;
 	pthread_mutex_lock(&g->mutex_f[id_p2]);

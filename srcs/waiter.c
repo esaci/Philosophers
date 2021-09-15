@@ -19,15 +19,6 @@ int		init_waiter(t_game *game, t_philo *philo)
 	return (philo->n_eat);
 }
 
-void	unlocker_mutexsp(t_game *g , signed int *time)
-{
-	int	id_p;
-
-	id_p = time[1];
-	if ((id_p == 0 || id_p == g->nbr_philo -1) && id_p + 2 != g->waiter.sp_ord)
-		pthread_mutex_unlock(&g->waiter.mutex_w3);
-}
-
 int		check_sp_ord3(t_game *g, int id_p)
 {
 	if (!g->waiter.sp_ord)

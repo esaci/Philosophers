@@ -21,6 +21,8 @@ int	routine_id(t_game *game, t_philo *philo)
 	while (philo->philo_id[id_p] == 1)
 		id_p++;
 	philo->philo_id[id_p] = 1;
+	if (game->waiter.sp_ord)
+		lock_wave3(game, id_p);
 	pthread_mutex_unlock(&game->mutex_id);
 	return (id_p);
 }
@@ -63,8 +65,6 @@ void	*routine(void *dstruct)
 	philo = (t_philo *)dst->philo;
 	game = (t_game *)dst->game;
 	id_p = routine_id(game, philo);
-	if (game->waiter.sp_ord)
-		lock_wave3(game, id_p);
 	lock_wave(game, id_p);
 	lock_wave2(game, id_p);
 	loop_routine(game, philo, id_p);

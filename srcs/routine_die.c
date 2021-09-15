@@ -30,19 +30,15 @@ void	unlocker_die_mutex(t_game *g,signed int *time)
 {
 	int	id_p;
 	int	id_p2;
-	int	order;
 
-	order = g->waiter.order % 2;
 	id_p = (int)time[1];
 	id_p2 = id_p + 1;
 	if (id_p == g->nbr_philo - 1)
 		id_p2 = 0;
-	if (id_p == g->waiter.order)
-		pthread_mutex_unlock(&g->waiter.mutex_w);
-	if (id_p + order == 1)
-		pthread_mutex_unlock(&g->waiter.mutex_w2);
+	unlock_wave(g, id_p);
+	unlock_wave2(g, id_p);
 	if (g->waiter.sp_ord)
-		unlocker_mutexsp(g, time);
+		unlock_wave3(g, id_p);
 	pthread_mutex_unlock(&g->mutex_f[id_p]);
 	pthread_mutex_unlock(&g->mutex_f[id_p2]);
 }
