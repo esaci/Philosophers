@@ -16,7 +16,6 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 {
 	int		id_p2;
 	int		id_p;
-	int		order;
 
 	id_p = (int)time[1];
 	id_p2 = id_p + 1;
@@ -29,13 +28,6 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 		return (1);
 	}
 	pthread_mutex_lock(&g->mutex_f[id_p]);
-	if (g->waiter.order == -1)
-		g->waiter.order = id_p;
-	order = g->waiter.order % 2;
-	if (id_p + order == 1 && p->t_eat[id_p] == 0 && g->waiter.sp_ord)
-		pthread_mutex_lock(&g->waiter.mutex_w2);
-	if (id_p == g->waiter.order)
-		pthread_mutex_lock(&g->waiter.mutex_w);
 	waiter_eat(g, p, time);
 	if (id_p == g->waiter.order && p->t_eat[id_p] > 0 && g->waiter.sp_ord)
 		pthread_mutex_unlock(&g->waiter.mutex_check_spw);
@@ -52,13 +44,11 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	p->t_eat[id_p]++;
 	p->s_fork[id_p] = 1;
 	p->s_fork[id_p2] = 1;
-	if (id_p == g->waiter.order)
-		pthread_mutex_unlock(&g->waiter.mutex_w);
-	if (id_p + order == 1)
-		pthread_mutex_unlock(&g->waiter.mutex_w2);
 	pthread_mutex_unlock(&g->mutex_f[id_p2]);
 	pthread_mutex_unlock(&g->mutex_f[id_p]);
+	unlock_wave(g, id_p);
+	unlock_wave2(g, id_p);
 	if (g->waiter.sp_ord)
-		unlocker_mutexsp(g, time);
+		unlock_wave3(g, id_p);
 	return (0);
 }

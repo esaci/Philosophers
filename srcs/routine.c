@@ -64,17 +64,9 @@ void	*routine(void *dstruct)
 	game = (t_game *)dst->game;
 	id_p = routine_id(game, philo);
 	if (game->waiter.sp_ord)
-	{
-		if (id_p == 0 || id_p == game->nbr_philo - 1)
-		{
-			pthread_mutex_lock(&game->waiter.mutex_check_spw);
-			if (game->waiter.sp_ord == 1)
-				game->waiter.sp_ord = id_p + 2;
-			else
-				pthread_mutex_lock(&game->waiter.mutex_w3);
-			pthread_mutex_unlock(&game->waiter.mutex_check_spw);
-		}
-	}
+		lock_wave3(game, id_p);
+	lock_wave(game, id_p);
+	lock_wave2(game, id_p);
 	loop_routine(game, philo, id_p);
 	pthread_mutex_lock(&game->mutex_table);
 	game->philo_a_table--;

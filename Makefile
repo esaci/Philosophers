@@ -21,6 +21,7 @@ SRC =	$(SRCD)init_philo.c		\
 		$(SRCD)utils.c		\
 		$(SRCD)utils2.c		\
 		$(SRCD)utils3.c		\
+		$(SRCD)unlock_waves.c	\
 		$(SRCD)stopper.c	\
 		$(SRCD)routine.c	\
 		$(SRCD)show.c		\
@@ -29,7 +30,10 @@ SRC =	$(SRCD)init_philo.c		\
 		$(SRCD)routine_sleep.c \
 		$(SRCD)routine_think.c \
 		$(SRCD)routine_die.c \
-		$(SRCD)waiter.c
+		$(SRCD)waiter.c			\
+		$(SRCD)waiter_w.c			\
+		$(SRCD)waiter_w2.c			\
+		$(SRCD)waiter_w3.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -14,7 +14,25 @@ int	routine_think(t_game *g, t_philo *p, signed int *time)
 		pthread_mutex_lock(&g->waiter.mutex_w2);
 		pthread_mutex_unlock(&g->waiter.mutex_w2);
 	}
+	lock_wave(g, id_p);
+	lock_wave2(g, id_p);
 	if (g->waiter.sp_ord)
+	{
+		pthread_mutex_lock(&g->waiter.mutex_w3);
+		if (!(part_of_wave3(g, id_p)))
+			pthread_mutex_unlock(&g->waiter.mutex_w3);
+	}
+	p->t_think[id_p]++;
+	return (0);
+}
+
+
+
+
+
+
+/*  */
+	/* if (g->waiter.sp_ord)
 	{
 		if (id_p + order == 1)
 			pthread_mutex_lock(&g->waiter.mutex_w2);
@@ -36,8 +54,4 @@ int	routine_think(t_game *g, t_philo *p, signed int *time)
 		}
 		else
 			pthread_mutex_unlock(&g->waiter.mutex_w3);
-	}
-	p->t_think[id_p]++;
-	return (0);
-}
-
+	} */
