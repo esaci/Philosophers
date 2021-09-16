@@ -46,10 +46,10 @@ void	waiter_eat(t_game *g, t_philo *p, signed int *time)
 	int	id_p;
 	int	order;
 
-	order = g->waiter.order % 2;
 	id_p = (int)time[1];
 	if (check_sp_ord3(g, id_p))
 		return ;
+	order = g->waiter.order % 2;
 	if (id_p % 2 == order)
 		return ;
 	pthread_mutex_unlock(&g->mutex_f[id_p]);

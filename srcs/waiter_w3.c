@@ -27,3 +27,19 @@ void	lock_wave3(t_game *game, int id_p)
 			pthread_mutex_lock(&game->waiter.mutex_w3);
 }
 
+void	fast_wait_wave3(t_game *g)
+{
+	pthread_mutex_lock(&g->waiter.mutex_w3);
+	pthread_mutex_unlock(&g->waiter.mutex_w3);
+}
+
+void	wave_lock_wave2(t_game *g, int id_p)
+{
+	if (id_p == g->waiter.order)
+		pthread_mutex_lock(&g->waiter.mutex_w_w2);
+}
+void	wave_unlock_wave2(t_game *g, int id_p)
+{
+	if (id_p == g->waiter.order)
+		pthread_mutex_unlock(&g->waiter.mutex_w_w2);
+}

@@ -28,6 +28,6 @@ void	unlock_wave2(t_game *g, int id_p)
 
 void	unlock_wave3(t_game *g, int id_p)
 {
-	if ((id_p == 0 || id_p == g->nbr_philo -1) && id_p + 2 != g->waiter.sp_ord)
+	if (part_of_wave3(g, id_p))
 		pthread_mutex_unlock(&g->waiter.mutex_w3);
 }

@@ -40,10 +40,11 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 	free(p->eat_time);
 	pthread_mutex_destroy(&g->mutex_show);
 	pthread_mutex_destroy(&g->mutex_id);
-	pthread_mutex_destroy(&g->waiter.mutex_w);
 	pthread_mutex_destroy(&g->mutex_table);
+	pthread_mutex_destroy(&g->waiter.mutex_w);
 	pthread_mutex_destroy(&g->waiter.mutex_w2);
 	pthread_mutex_destroy(&g->waiter.mutex_w3);
+	pthread_mutex_destroy(&g->waiter.mutex_w_w2);
 	if (str2)
 		free(str2);
 	if (g->mutex_f)

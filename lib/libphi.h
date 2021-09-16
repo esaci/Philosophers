@@ -27,6 +27,7 @@ typedef struct	s_waiter
 	pthread_mutex_t		mutex_w;
 	pthread_mutex_t		mutex_w2;
 	pthread_mutex_t		mutex_w3;
+	pthread_mutex_t		mutex_w_w2;
 }				t_waiter;
 
 typedef struct	s_game
@@ -70,6 +71,7 @@ void			waiter_eat(t_game *game, t_philo *philo, signed int *time);
 void			wait_wave(t_game *g, t_philo *p, int id_p);
 void			fast_wait_wave(t_game *g);
 void			fast_wait_wave2(t_game *g);
+void			fast_wait_wave3(t_game *g);
 void			lock_wave(t_game *game, int id_p);
 void			lock_wave2(t_game *g, int id_p);
 void			lock_wave3(t_game *game, int id_p);
@@ -78,6 +80,8 @@ void			unlock_wave2(t_game *g, int id_p);
 void			unlock_wave3(t_game *g, int id_p);
 int				part_of_wave(t_game *g, int id_p);
 int				part_of_wave3(t_game *g, int id_p);
+void			wave_lock_wave2(t_game *g, int id_p);
+void			wave_unlock_wave2(t_game *g, int id_p);
 int				ft_strlen(const char *s);
 int				ft_atoi(const char *str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
