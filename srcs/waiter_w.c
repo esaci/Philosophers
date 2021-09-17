@@ -22,16 +22,21 @@ void	lock_wave(t_game *g, int id_p)
 
 void	wait_wave(t_game *g, t_philo *p, int id_p)
 {
+	pthread_mutex_lock(&g->mutex_eat_t);
 	if (id_p == 0 && p->t_eat[g->nbr_philo - 1] <= p->t_eat[id_p])
 	{
+		pthread_mutex_unlock(&g->mutex_eat_t);
 		pthread_mutex_lock(&g->waiter.mutex_w);
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 	}
-	if (p->t_eat[id_p - 1] <= p->t_eat[id_p] && id_p != 0)
+	else if (p->t_eat[id_p - 1] <= p->t_eat[id_p] && id_p != 0)
 	{
+		pthread_mutex_unlock(&g->mutex_eat_t);
 		pthread_mutex_lock(&g->waiter.mutex_w);
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 	}
+	else
+		pthread_mutex_unlock(&g->mutex_eat_t);
 }
 
 void	fast_wait_wave(t_game *g)

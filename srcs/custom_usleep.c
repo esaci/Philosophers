@@ -41,27 +41,40 @@ int	custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp, void *c)
 	return (0);
 }
 
+signed int	custom_value(t_game *g, signed int time, signed int tmp, int mode)
+{
+	signed int	tmp2;
+
+	if (mode == 0)
+	{
+		tmp2 = time / 2;
+		if (tmp2 < 600)
+			return (time);
+		return (tmp2);
+	}
+	return (10 * g->nbr_philo);
+	return ((time - tmp) * 0.5);
+}
+
 signed int	custom_usleep(t_game *game, t_philo *philo, signed int	time)
 {
 	struct timeval		*c_time;
 	struct timeval		*tmp_time;
 	signed int			tmp;
-	signed int			tmp2;
 
-	tmp2 = 4 / 10;
 	c_time = init_timeval(game, philo);
 	if (!c_time)
 		return (-1);
 	tmp_time = init_timeval(game, philo);
 	if (!tmp_time)
 		return (-1);
-	usleep((time * 8) / 10);
+	usleep(custom_value(game, time, 0, 0));
 	custom_gettime(game, philo, tmp_time, c_time);
 	tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 			tmp_time->tv_usec - c_time->tv_usec) * 1000;
-	while (tmp < time)
+	while (tmp < time - (100 * game->nbr_philo))
 	{
-		usleep((time - tmp) * tmp2);
+		usleep(custom_value(game, time, tmp, 1));
 		custom_gettime(game, philo, tmp_time, c_time);
 		tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 				tmp_time->tv_usec - c_time->tv_usec) * 1000;

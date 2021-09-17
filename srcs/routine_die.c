@@ -47,9 +47,15 @@ int	routine_die(t_game *game, t_philo *philo, signed int *time)
 {
 	int	id_p;
 	int	count;
+	signed int	tmp;
+	signed int	tmp2;
 
 	id_p = time[1];
-	if (time[0] - philo->eat_time[id_p] < game->t_die && !philo->t_die[id_p])
+	pthread_mutex_lock(&game->mutex_eat_t);
+	tmp = time[0] - philo->eat_time[id_p];
+	tmp2 = philo->t_die[id_p];
+	pthread_mutex_unlock(&game->mutex_eat_t);
+	if (tmp < game->t_die && !tmp2)
 		return (0);
 	unlocker_die_mutex(game, time);
 	if (philo->t_die[id_p])

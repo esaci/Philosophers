@@ -27,21 +27,19 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 			;
 		return (1);
 	}
-	pthread_mutex_lock(&g->mutex_f[id_p]);
 	waiter_eat(g, p, time);
+	pthread_mutex_lock(&g->mutex_f[id_p]);
 	if (g->waiter.sp_ord && id_p == 0)
 		id_p2 = g->nbr_philo - 1;
 	pthread_mutex_lock(&g->mutex_f[id_p2]);
 	if (update_time(g, p, time))
 		return (1);
-	p->s_fork[id_p] = 0;
-	p->s_fork[id_p2] = 0;
+	pthread_mutex_lock(&g->mutex_eat_t);
 	p->eat_time[id_p] = time[0];
+	p->t_eat[id_p]++;
+	pthread_mutex_unlock(&g->mutex_eat_t);
 	if (show_state(g, p, "is eating", time))
 		return (1);
-	p->t_eat[id_p]++;
-	p->s_fork[id_p] = 1;
-	p->s_fork[id_p2] = 1;
 	pthread_mutex_unlock(&g->mutex_f[id_p2]);
 	pthread_mutex_unlock(&g->mutex_f[id_p]);
 	unlock_wave(g, id_p);

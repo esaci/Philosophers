@@ -23,21 +23,15 @@ int		check_sp_ord3(t_game *g, int id_p)
 {
 	if (!g->waiter.sp_ord)
 		return (0);
-	pthread_mutex_unlock(&g->mutex_f[id_p]);
 	if (part_of_wave3(g, id_p))
 	{
 		fast_wait_wave(g);
 		fast_wait_wave2(g);
-		pthread_mutex_lock(&g->mutex_f[id_p]);
 		return (1);
 	}
 	if (part_of_wave(g, id_p))
-	{
-		pthread_mutex_lock(&g->mutex_f[id_p]);
 		return (1);
-	}
 	fast_wait_wave(g);
-	pthread_mutex_lock(&g->mutex_f[id_p]);
 	return (1);
 }
 
@@ -52,8 +46,6 @@ void	waiter_eat(t_game *g, t_philo *p, signed int *time)
 	order = g->waiter.order % 2;
 	if (id_p % 2 == order)
 		return ;
-	pthread_mutex_unlock(&g->mutex_f[id_p]);
 	wait_wave(g, p, id_p);
-	pthread_mutex_lock(&g->mutex_f[id_p]);
 	return ;
 }

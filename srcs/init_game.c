@@ -15,7 +15,8 @@
 int	check_death(t_game *game, t_philo *philo, signed int *time, struct timeval *c_time)
 {
 	signed int	count;
-
+	int			res;
+	
 	count = 0;
 	time[1] = count;
 	if (update_time2(game, time, c_time))
@@ -25,8 +26,11 @@ int	check_death(t_game *game, t_philo *philo, signed int *time, struct timeval *
 		time[1] = count;
 		if (philo->t_die[count] == 1)
 			return (0);
-		if (routine_die(game, philo, time))
+		pthread_mutex_lock(&game->mutex_show);
+		res = routine_die(game, philo, time);
+		if (res)
 			return (0);
+		pthread_mutex_unlock(&game->mutex_show);
 		count++;
 	}
 	return (0);
@@ -61,9 +65,13 @@ int	init_game2(t_game *game, t_philo *philo)
 	time = malloc(sizeof(signed int) * 3);
 	if (!time)
 		return (1);
-	while (game->philo_a_table > 0)
+	count = game->nbr_philo;
+	while (count > 0)
 	{
-		if(!philo->t_die[0])
+		pthread_mutex_lock(&game->mutex_table);
+		count = game->philo_a_table;
+		pthread_mutex_unlock(&game->mutex_table);
+		if (!philo->t_die[0])
 		{
 			if (check_death(game, philo, time, &c_time))
 				return (1);
