@@ -28,10 +28,10 @@ int	routine_id(t_game *game, t_philo *philo)
 	return (id_p);
 }
 
-int	return_free_time(signed int *time)
+int	return_free_time(signed int *time, int i)
 {
 	free(time);
-	return (1);
+	return (i);
 }
 
 int	loop_routine(t_game *game, t_philo *philo, int id_p)
@@ -41,15 +41,15 @@ int	loop_routine(t_game *game, t_philo *philo, int id_p)
 	time = malloc(sizeof(signed int) * 3);
 	time[1] = (signed int)id_p;
 	if (update_time(game, philo, time))
-		return (return_free_time(time));
+		return (return_free_time(time, 1));
 	while (1)
 	{
 		if (routine_eat(game, philo, time))
-			return (return_free_time(time));
+			return (return_free_time(time, 1));
 		if (routine_sleep(game, philo, time))
-			return (return_free_time(time));
+			return (return_free_time(time, 1));
 		if (routine_think(game, philo, time))
-			return (return_free_time(time));
+			return (return_free_time(time, 1));
 	}
 	free(time);
 	return (0);

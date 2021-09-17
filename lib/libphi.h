@@ -67,14 +67,14 @@ typedef struct s_dstruct
 }				t_dstruct;
 
 int				init_philo(int ac, char *av[], t_philo *philo);
-int				init_game(char *av[], t_game *game, t_philo *philo);
+int				init_game(char *av[], t_game *game, t_philo *philo, int count);
 void			*routine(void *philo);
-int				return_free_time(signed int *time);
+int				return_free_time(signed int *time, int i);
 int				routine_eat(t_game *game, t_philo *philo, signed int *time);
 void			waiter_eat(t_game *game, t_philo *philo, signed int *time);
 int				routine_sleep(t_game *game, t_philo *philo, signed int *time);
 int				routine_think(t_game *g, t_philo *p, signed int *time);
-int				routine_die(t_game *game, t_philo *philo, signed int *time, int mode);
+int				routine_die(t_game *g, t_philo *p, signed int *time, int m);
 int				part_of_wave(t_game *g, int id_p);
 int				part_of_wave3(t_game *g, int id_p);
 void			fast_wait_wave(t_game *g);
@@ -111,4 +111,5 @@ int				custom_gettime(t_game *g, t_philo *p,
 void			unlocker_die_mutex(t_game *g, signed int *time);
 int				c_int(char *nbr);
 int				full_check_int(char *av[], int ac);
+int				refresh_space(t_game *game);
 #endif

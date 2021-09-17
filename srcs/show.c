@@ -15,7 +15,7 @@
 int	update_time2(t_game *game, signed int *time, struct timeval *c_time)
 {
 	if (gettimeofday(c_time, NULL))
-		return (return_free_time(time));
+		return (return_free_time(time, 1));
 	time[0] = time_calcul(c_time->tv_sec - game->s_time.tv_sec,
 			c_time->tv_usec - game->s_time.tv_usec);
 	return (0);
@@ -27,7 +27,7 @@ int	update_time(t_game *game, t_philo *philo, signed int *time)
 
 	c_time = init_timeval(game, philo);
 	if (!c_time)
-		return (return_free_time(time));
+		return (return_free_time(time, 1));
 	time[0] = time_calcul(c_time->tv_sec - game->s_time.tv_sec,
 			c_time->tv_usec - game->s_time.tv_usec);
 	free(c_time);
@@ -59,11 +59,9 @@ int	take_2_fork(t_game *g, signed int *time)
 	while (count < 2)
 	{
 		ft_itoa(&g->show_ptr[tmp + 1], time[0]);
-		tmp = ft_strlen(g->show_ptr);
-		g->show_ptr[tmp] = ' ';
+		tmp = refresh_space(g);
 		ft_itoa(&g->show_ptr[tmp + 1], time[1] + 1);
-		tmp = ft_strlen(g->show_ptr);
-		g->show_ptr[tmp] = ' ';
+		tmp = refresh_space(g);
 		merge_twoarray(&g->show_ptr[tmp + 1], "has taken a fork");
 		tmp = ft_strlen(g->show_ptr);
 		g->show_ptr[tmp] = '\n';
@@ -90,11 +88,9 @@ int	show_state(t_game *game, t_philo *philo, char *str, signed int *time)
 		return (1);
 	tmp = ft_strlen(game->show_ptr);
 	ft_itoa(&game->show_ptr[tmp], time[0]);
-	tmp = ft_strlen(game->show_ptr);
-	game->show_ptr[tmp] = ' ';
+	tmp = refresh_space(game);
 	ft_itoa(&game->show_ptr[tmp + 1], time[1] + 1);
-	tmp = ft_strlen(game->show_ptr);
-	game->show_ptr[tmp] = ' ';
+	tmp = refresh_space(game);
 	merge_twoarray(&game->show_ptr[tmp + 1], str);
 	print_str(game->show_ptr, 1);
 	pthread_mutex_unlock(&game->mutex_show);

@@ -79,3 +79,12 @@ void	full_reset_showptr(t_game *g)
 		count++;
 	}
 }
+
+int	refresh_space(t_game *game)
+{
+	int	tmp;
+
+	tmp = ft_strlen(game->show_ptr);
+	game->show_ptr[tmp] = ' ';
+	return (tmp);
+}

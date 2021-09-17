@@ -39,7 +39,7 @@ int	main(int ac, char *av[])
 	init_mutex(&g);
 	if (init_philo(ac, av, &p))
 		return (1);
-	if (init_game(av, &g, &p))
+	if (init_game(av, &g, &p, 0))
 		return (1);
 	stopper(&g, &p, "FIN", NULL);
 	return (0);
