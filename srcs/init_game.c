@@ -16,7 +16,7 @@ int	check_death(t_game *game, t_philo *philo, signed int *time, struct timeval *
 {
 	signed int	count;
 	int			res;
-	
+
 	count = 0;
 	time[1] = count;
 	if (update_time2(game, time, c_time))
@@ -28,6 +28,8 @@ int	check_death(t_game *game, t_philo *philo, signed int *time, struct timeval *
 			return (0);
 		pthread_mutex_lock(&game->mutex_show);
 		res = routine_die(game, philo, time);
+		if (res == 2)
+			unlocker_die_mutex(game,time);
 		if (res)
 			return (0);
 		pthread_mutex_unlock(&game->mutex_show);

@@ -61,7 +61,7 @@ int	routine_die(t_game *game, t_philo *philo, signed int *time)
 	if (philo->t_die[id_p])
 	{
 		pthread_mutex_unlock(&game->mutex_show);
-		return (1);
+		return (2);
 	}
 	if (!philo->t_die[id_p])
 	{
