@@ -45,6 +45,7 @@ typedef struct	s_game
 	signed int			t_sleeping;
 	signed int			t_die;
 	int					nbr_philo;
+	char				*show_ptr;
 }				t_game;
 
 typedef struct	s_philo
@@ -86,7 +87,8 @@ void			wave_unlock_wave2(t_game *g, int id_p);
 int				ft_strlen(const char *s);
 int				ft_atoi(const char *str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
-char			*ft_itoa(signed int n);
+int				ft_itoa(char *str, signed int n);
+void			full_reset_showptr(t_game *g);
 int				stopper(t_game *game, t_philo *philo, char *str, void *str2);
 int				koi(char	*str, t_game *game);
 int				print_return(char *str, int code);

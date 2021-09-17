@@ -52,6 +52,8 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 		free(g->mutex_f);
 	if (g->th_ph)
 		free(g->th_ph);
+	if (g->show_ptr)
+		free(g->show_ptr);
 	return (0);
 	koi(str, g);
 }

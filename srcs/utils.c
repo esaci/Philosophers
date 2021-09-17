@@ -75,27 +75,23 @@ char	*ft_calcul(char *dst, signed int val)
 	return (dst);
 }
 
-char	*ft_itoa(signed int n)
+int		ft_itoa(char *str, signed int n)
 {
-	char	*dst;
 	size_t	count;
 	char	swotch;
 
-	dst = malloc(sizeof(char) * 34);
-	if (!(dst))
-		return (NULL);
-	dst = ft_calcul(dst, n);
-	count = ft_strlen(dst) - 1;
+	str = ft_calcul(str, n);
+	count = ft_strlen(str) - 1;
 	n = 0;
-	if (dst[0] == '-')
+	if (str[0] == '-')
 		n++;
 	while ((size_t)n < count)
 	{
-		swotch = dst[count];
-		dst[count] = dst[n];
-		dst[n] = swotch;
+		swotch = str[count];
+		str[count] = str[n];
+		str[n] = swotch;
 		n++;
 		count--;
 	}
-	return (dst);
+	return (0);
 }

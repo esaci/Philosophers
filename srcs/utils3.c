@@ -19,10 +19,13 @@ int	c_int(char *nbr)
 	char	*temp;
 	int		fix;
 
+	temp = malloc(sizeof(char) * 100);
+	if (!temp)
+		return (1);
 	fix = 0;
 	if (nbr[0] == '-')
 		fix = 1;
-	temp = ft_itoa(ft_atoi(nbr));
+	ft_itoa(temp, ft_atoi(nbr));
 	if (ft_strncmp(temp, nbr, ft_strlen(nbr)))
 	{
 		if (nbr[fix] == '0')
@@ -49,4 +52,16 @@ int	full_check_int(char *av[], int ac)
 		count++;
 	}
 	return (0);
+}
+
+void	full_reset_showptr(t_game *g)
+{
+	int		count;
+
+	count = 0;
+	while (count < 2000)
+	{
+		g->show_ptr[count] = 0;
+		count++;
+	}
 }

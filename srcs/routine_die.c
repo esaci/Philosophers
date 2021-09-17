@@ -12,18 +12,21 @@
 
 #include "../lib/libphi.h"
 
-void	show_die(t_game *game, signed int *time)
+void	show_die(t_game *g, signed int *time)
 {
-	char	*ptr;
+	int		tmp;
 
-	ptr = ft_itoa(time[0]);
-	print_str(ptr, 2);
-	free(ptr);
-	ptr = ft_itoa(time[1] + 1);
-	print_str(ptr, 2);
-	print_str("died", 1);
-	pthread_mutex_unlock(&game->mutex_show);
-	free(ptr);
+	full_reset_showptr(g);
+	tmp = -1;
+	ft_itoa(&g->show_ptr[tmp + 1], time[0]);
+	tmp = ft_strlen(g->show_ptr);
+	g->show_ptr[tmp] = ' ';
+	ft_itoa(&g->show_ptr[tmp + 1], time[1] + 1);
+	tmp = ft_strlen(g->show_ptr);
+	g->show_ptr[tmp] = ' ';
+	merge_twoarray(&g->show_ptr[tmp + 1], "died");
+	print_str(g->show_ptr, 1);
+	pthread_mutex_unlock(&g->mutex_show);
 }
 
 void	unlocker_die_mutex(t_game *g,signed int *time)

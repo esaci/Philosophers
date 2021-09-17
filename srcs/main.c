@@ -24,6 +24,7 @@ void	init_mutex(t_game *game)
 	pthread_mutex_init(&game->mutex_eat_t, NULL);
 	game->mutex_f = 0;
 	game->th_ph = 0;
+	game->show_ptr = 0;
 }
 
 int	main(int ac, char *av[])

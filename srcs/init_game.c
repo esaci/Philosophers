@@ -94,6 +94,9 @@ int	init_game(char *av[], t_game *g, t_philo *philo)
 	g->th_ph = malloc(sizeof(pthread_t) * (g->nbr_philo + 1));
 	if (!g->th_ph)
 		return (stopper(g, philo, "malloc", NULL));
+	g->show_ptr = malloc(sizeof(char) * 2000);
+	if (!g->show_ptr)
+		return (stopper(g, philo, "malloc", NULL));
 	g->mutex_f = malloc(sizeof(pthread_mutex_t) * g->nbr_philo);
 	if (!g->mutex_f)
 		return (stopper(g, philo, "malloc", NULL));
