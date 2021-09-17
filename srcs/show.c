@@ -66,6 +66,7 @@ int	take_2_fork(signed int *time)
 		if (!ptr)
 			return (1);
 		print_str(ptr, 2);
+		free(ptr);
 		print_str("has taken a fork", 1);
 		count++;
 	}
