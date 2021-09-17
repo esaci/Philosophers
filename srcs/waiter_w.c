@@ -45,7 +45,7 @@ void	fast_wait_wave(t_game *g)
 	pthread_mutex_unlock(&g->waiter.mutex_w);
 }
 
-int		part_of_wave(t_game *g, int id_p)
+int	part_of_wave(t_game *g, int id_p)
 {
 	int	order;
 

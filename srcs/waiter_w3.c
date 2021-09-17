@@ -24,7 +24,7 @@ void	lock_wave3(t_game *game, int id_p)
 	if (game->waiter.sp_ord == 1)
 		game->waiter.sp_ord = id_p + 2;
 	if (part_of_wave3(game, id_p))
-			pthread_mutex_lock(&game->waiter.mutex_w3);
+		pthread_mutex_lock(&game->waiter.mutex_w3);
 }
 
 void	fast_wait_wave3(t_game *g)
@@ -38,6 +38,7 @@ void	wave_lock_wave2(t_game *g, int id_p)
 	if (id_p == g->waiter.order)
 		pthread_mutex_lock(&g->waiter.mutex_w_w2);
 }
+
 void	wave_unlock_wave2(t_game *g, int id_p)
 {
 	if (id_p == g->waiter.order)

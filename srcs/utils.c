@@ -75,7 +75,7 @@ char	*ft_calcul(char *dst, signed int val)
 	return (dst);
 }
 
-int		ft_itoa(char *str, signed int n)
+int	ft_itoa(char *str, signed int n)
 {
 	size_t	count;
 	char	swotch;

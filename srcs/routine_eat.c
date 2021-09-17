@@ -12,6 +12,23 @@
 
 #include "../lib/libphi.h"
 
+int	routine_eat2(t_game *g, t_philo *p, signed int *time, int id_p2)
+{
+	int		id_p;
+
+	id_p = (int)time[1];
+	pthread_mutex_unlock(&g->mutex_eat_t);
+	if (show_state(g, p, "is eating", time))
+		return (1);
+	pthread_mutex_unlock(&g->mutex_f[id_p2]);
+	pthread_mutex_unlock(&g->mutex_f[id_p]);
+	unlock_wave(g, id_p);
+	unlock_wave2(g, id_p);
+	if (g->waiter.sp_ord)
+		unlock_wave3(g, id_p);
+	return (0);
+}
+
 int	routine_eat(t_game *g, t_philo *p, signed int *time)
 {
 	int		id_p2;
@@ -37,14 +54,5 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	pthread_mutex_lock(&g->mutex_eat_t);
 	p->eat_time[id_p] = time[0];
 	p->t_eat[id_p]++;
-	pthread_mutex_unlock(&g->mutex_eat_t);
-	if (show_state(g, p, "is eating", time))
-		return (1);
-	pthread_mutex_unlock(&g->mutex_f[id_p2]);
-	pthread_mutex_unlock(&g->mutex_f[id_p]);
-	unlock_wave(g, id_p);
-	unlock_wave2(g, id_p);
-	if (g->waiter.sp_ord)
-		unlock_wave3(g, id_p);
-	return (0);
+	return (routine_eat2(g, p, time, id_p2));
 }

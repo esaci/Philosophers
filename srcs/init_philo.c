@@ -12,10 +12,26 @@
 
 #include "../lib/libphi.h"
 
-int	init_philo3(t_philo *philo, int nbr_philo)
+void	set_philo_ptr(t_philo *philo, int nbr_philo)
 {
 	int	count;
 
+	count = 0;
+	while (count < nbr_philo)
+	{
+		philo->eat_time[count] = 0;
+		philo->s_fork[count] = 1;
+		philo->philo_id[count] = 0;
+		philo->t_die[count] = 0;
+		philo->t_eat[count] = 0;
+		philo->t_sleep[count] = 0;
+		philo->t_think[count] = 0;
+		count++;
+	}
+}
+
+int	init_philo3(t_philo *philo, int nbr_philo)
+{
 	if (philo->s_fork == NULL)
 	{
 		free(philo->t_think);
@@ -36,18 +52,7 @@ int	init_philo3(t_philo *philo, int nbr_philo)
 		free(philo->t_sleep);
 		return (1);
 	}
-	count = 0;
-	while (count < nbr_philo)
-	{
-		philo->eat_time[count] = 0;
-		philo->s_fork[count] = 1;
-		philo->philo_id[count] = 0;
-		philo->t_die[count] = 0;
-		philo->t_eat[count] = 0;
-		philo->t_sleep[count] = 0;
-		philo->t_think[count] = 0;
-		count++;
-	}
+	set_philo_ptr(philo, nbr_philo);
 	return (0);
 }
 
@@ -81,7 +86,6 @@ int	init_philo(int ac, char *av[], t_philo *philo)
 	philo->n_eat = -1;
 	if (ac == 6)
 		philo->n_eat = ft_atoi(av[5]);
-
 	nbr_philo = ft_atoi(av[1]);
 	if (nbr_philo <= 0)
 		return (1);

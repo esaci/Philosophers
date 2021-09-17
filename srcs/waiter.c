@@ -12,14 +12,7 @@
 
 #include "../lib/libphi.h"
 
-int		init_waiter(t_game *game, t_philo *philo)
-{
-	game->waiter.order = -1;
-	return (0);
-	return (philo->n_eat);
-}
-
-int		check_sp_ord3(t_game *g, int id_p)
+int	check_sp_ord3(t_game *g, int id_p)
 {
 	if (!g->waiter.sp_ord)
 		return (0);

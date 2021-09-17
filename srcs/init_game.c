@@ -12,56 +12,35 @@
 
 #include "../lib/libphi.h"
 
-int	check_death(t_game *game, t_philo *philo, signed int *time, struct timeval *c_time)
+int	check_death(t_game *g, t_philo *p, signed int *time, struct timeval *c_time)
 {
 	signed int	count;
 	int			res;
 
 	count = 0;
 	time[1] = count;
-	if (update_time2(game, time, c_time))
+	if (update_time2(g, time, c_time))
 		return_free_time(time);
-	while (count < game->nbr_philo)
+	while (count < g->nbr_philo)
 	{
 		time[1] = count;
-		if (philo->t_die[count] == 1)
+		if (p->t_die[count] == 1)
 			return (0);
-		pthread_mutex_lock(&game->mutex_show);
-		res = routine_die(game, philo, time);
+		pthread_mutex_lock(&g->mutex_show);
+		res = routine_die(g, p, time);
 		if (res)
 			return (0);
-		pthread_mutex_unlock(&game->mutex_show);
+		pthread_mutex_unlock(&g->mutex_show);
 		count++;
 	}
 	return (0);
 }
 
-int	init_game2(t_game *game, t_philo *philo)
+int	init_game3(t_game *game, t_philo *philo, int count)
 {
-	int			count;
-	t_dstruct	dstruct;
-	signed int	*time;
+	signed int		*time;
 	struct timeval	c_time;
 
-	game->waiter.order = -1;
-	dstruct.game = game;
-	dstruct.philo = philo;
-	count = 0;
-	if (gettimeofday(&game->s_time, NULL))
-		return (stopper(game, philo, "time", NULL));
-	while (count < game->nbr_philo)
-	{
-		if (pthread_create(game->th_ph + count, NULL, &routine, &dstruct))
-			return (stopper(game, philo, "Thread creation failed", NULL));
-		count++;
-	}
-	count = 0;
-	while (count < game->nbr_philo)
-	{
-		if (pthread_detach(game->th_ph[count]))
-			return (stopper(game, philo, "Thread detach failed", NULL));
-		count++;
-	}
 	time = malloc(sizeof(signed int) * 3);
 	if (!time)
 		return (1);
@@ -79,6 +58,31 @@ int	init_game2(t_game *game, t_philo *philo)
 	}
 	free(time);
 	return (0);
+}
+
+int	init_game2(t_game *game, t_philo *philo, int count)
+{
+	t_dstruct		dst;
+
+	game->waiter.order = -1;
+	dst.game = game;
+	dst.philo = philo;
+	if (gettimeofday(&game->s_time, NULL))
+		return (stopper(game, philo, "time", NULL));
+	while (count < game->nbr_philo)
+	{
+		if (pthread_create(game->th_ph + count, NULL, &routine, &dst))
+			return (stopper(game, philo, "Thread creation failed", NULL));
+		count++;
+	}
+	count = 0;
+	while (count < game->nbr_philo)
+	{
+		if (pthread_detach(game->th_ph[count]))
+			return (stopper(game, philo, "Thread detach failed", NULL));
+		count++;
+	}
+	return (init_game3(game, philo, count));
 }
 
 int	init_game(char *av[], t_game *g, t_philo *philo)
@@ -106,5 +110,5 @@ int	init_game(char *av[], t_game *g, t_philo *philo)
 		pthread_mutex_init(&g->mutex_f[count], NULL);
 		count++;
 	}
-	return (init_game2(g, philo));
+	return (init_game2(g, philo, 0));
 }

@@ -17,6 +17,7 @@ void	unlock_wave(t_game *g, int id_p)
 	if (id_p == g->waiter.order)
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 }
+
 void	unlock_wave2(t_game *g, int id_p)
 {
 	int	order;
