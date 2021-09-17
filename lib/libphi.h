@@ -74,7 +74,7 @@ int				routine_eat(t_game *game, t_philo *philo, signed int *time);
 void			waiter_eat(t_game *game, t_philo *philo, signed int *time);
 int				routine_sleep(t_game *game, t_philo *philo, signed int *time);
 int				routine_think(t_game *g, t_philo *p, signed int *time);
-int				routine_die(t_game *game, t_philo *philo, signed int *time);
+int				routine_die(t_game *game, t_philo *philo, signed int *time, int mode);
 int				part_of_wave(t_game *g, int id_p);
 int				part_of_wave3(t_game *g, int id_p);
 void			fast_wait_wave(t_game *g);

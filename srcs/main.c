@@ -29,20 +29,18 @@ void	init_mutex(t_game *game)
 
 int	main(int ac, char *av[])
 {
-	t_game	game;
-	t_philo	philo;
+	t_game	g;
+	t_philo	p;
 
 	if (ac < 5 || ac > 6)
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
 	if (full_check_int(av, ac))
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
-	init_mutex(&game);
-	if (init_philo(ac, av, &philo))
+	init_mutex(&g);
+	if (init_philo(ac, av, &p))
 		return (1);
-	if (philo.n_eat == 0)
-		return (stopper(&game, &philo, "n_eat", NULL));
-	if (init_game(av, &game, &philo))
+	if (init_game(av, &g, &p))
 		return (1);
-	stopper(&game, &philo, "FIN", NULL);
+	stopper(&g, &p, "FIN", NULL);
 	return (0);
 }

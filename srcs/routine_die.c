@@ -46,7 +46,7 @@ void	unlocker_die_mutex(t_game *g, signed int *time)
 	pthread_mutex_unlock(&g->mutex_f[id_p2]);
 }
 
-int	routine_die(t_game *game, t_philo *philo, signed int *time)
+int	routine_die(t_game *game, t_philo *philo, signed int *time, int mode)
 {
 	signed int	tmp;
 	signed int	tmp2;
@@ -57,7 +57,8 @@ int	routine_die(t_game *game, t_philo *philo, signed int *time)
 	pthread_mutex_unlock(&game->mutex_eat_t);
 	if (tmp < game->t_die && !tmp2)
 		return (0);
-	unlocker_die_mutex(game, time);
+	if (mode == 2)
+		unlocker_die_mutex(game, time);
 	if (philo->t_die[time[1]])
 	{
 		pthread_mutex_unlock(&game->mutex_show);

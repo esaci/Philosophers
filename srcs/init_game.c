@@ -27,7 +27,7 @@ int	check_death(t_game *g, t_philo *p, signed int *time, struct timeval *c_time)
 		if (p->t_die[count] == 1)
 			return (0);
 		pthread_mutex_lock(&g->mutex_show);
-		res = routine_die(g, p, time);
+		res = routine_die(g, p, time, 0);
 		if (res)
 			return (0);
 		pthread_mutex_unlock(&g->mutex_show);
@@ -53,7 +53,15 @@ int	init_game3(t_game *game, t_philo *philo, int count)
 		if (!philo->t_die[0])
 		{
 			if (check_death(game, philo, time, &c_time))
-				return (1);
+			{
+				while (count > 0)
+				{
+					pthread_mutex_lock(&game->mutex_table);
+					count = game->philo_a_table;
+					pthread_mutex_unlock(&game->mutex_table);
+				}
+				return (0);
+			}
 		}
 	}
 	free(time);

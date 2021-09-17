@@ -79,13 +79,15 @@ int	show_state(t_game *game, t_philo *philo, char *str, signed int *time)
 
 	pthread_mutex_lock(&game->mutex_show);
 	full_reset_showptr(game);
-	if (routine_die(game, philo, time))
-		return (1);
 	if (!ft_memcmp(str, "is eating", 9))
 	{
+		if (routine_die(game, philo, time, 2))
+			return (1);
 		if (take_2_fork(game, time))
 			return (1);
 	}
+	else if (routine_die(game, philo, time, 1))
+		return (1);
 	tmp = ft_strlen(game->show_ptr);
 	ft_itoa(&game->show_ptr[tmp], time[0]);
 	tmp = ft_strlen(game->show_ptr);
