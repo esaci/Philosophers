@@ -72,7 +72,7 @@ signed int	custom_usleep(t_game *game, t_philo *philo, signed int	time)
 	custom_gettime(game, philo, tmp_time, c_time);
 	tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 			tmp_time->tv_usec - c_time->tv_usec) * 1000;
-	while (tmp < time - (100 * game->nbr_philo))
+	while (time - tmp >  (30 * game->nbr_philo))
 	{
 		usleep(custom_value(game, time, tmp, 1));
 		custom_gettime(game, philo, tmp_time, c_time);
