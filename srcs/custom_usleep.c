@@ -47,13 +47,14 @@ signed int	custom_value(t_game *g, signed int time, signed int tmp, int mode)
 
 	if (mode == 0)
 	{
-		tmp2 = time / 2;
+		tmp2 = 3 * time / 4;
 		if (tmp2 < 600)
 			return (time);
 		return (tmp2);
 	}
-	return (10 * g->nbr_philo);
-	return ((time - tmp) * 0.5);
+	return (50);
+	return (g->t_die);
+	return (tmp);
 }
 
 signed int	custom_usleep(t_game *game, t_philo *philo, signed int	time)
@@ -72,7 +73,7 @@ signed int	custom_usleep(t_game *game, t_philo *philo, signed int	time)
 	custom_gettime(game, philo, tmp_time, c_time);
 	tmp = time_calcul(tmp_time->tv_sec - c_time->tv_sec,
 			tmp_time->tv_usec - c_time->tv_usec) * 1000;
-	while (time - tmp >  (30 * game->nbr_philo))
+	while (time - tmp > 0)
 	{
 		usleep(custom_value(game, time, tmp, 1));
 		custom_gettime(game, philo, tmp_time, c_time);
