@@ -12,6 +12,16 @@
 
 #include "../lib/libphi.h"
 
+void	wave_init(t_game *game, t_philo *philo, int id_p)
+{
+	if (philo->t_eat[id_p] > 0)
+		return ;
+	lock_wave(game, id_p);
+	if (game->waiter.sp_ord)
+		lock_wave3(game, id_p);
+	fast_wait_init(game, id_p);
+}
+
 void	lock_forks(t_game *g, int id_p, int id_p2)
 {
 	if (id_p > id_p2)
@@ -40,6 +50,7 @@ int	routine_eat2(t_game *g, t_philo *p, signed int *time, int id_p2)
 	unlock_wave2(g, id_p);
 	if (g->waiter.sp_ord)
 		unlock_wave3(g, id_p);
+	init_unlock_wave3(g, p, id_p);
 	return (0);
 	return (id_p2);
 }
@@ -48,6 +59,7 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 {
 	int		id_p2;
 	int		id_p;
+
 
 	id_p = (int)time[1];
 	id_p2 = id_p + 1;
@@ -61,6 +73,7 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 			;
 		return (1);
 	}
+	wave_init(g, p, id_p);
 	waiter_eat(g, p, time);
 	lock_forks(g, id_p, id_p2);
 	if (update_time(g, p, time))

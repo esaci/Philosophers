@@ -14,10 +14,15 @@
 
 void	lock_wave(t_game *g, int id_p)
 {
-	if (g->waiter.order == -1)
-		g->waiter.order = id_p;
 	if (id_p == g->waiter.order)
 		pthread_mutex_lock(&g->waiter.mutex_w);
+	if (!(g->waiter.order == -1))
+		return ;
+	pthread_mutex_lock(&g->waiter.mutex_w);
+	if (g->waiter.order == -1)
+		g->waiter.order = id_p;
+	if (!(id_p == g->waiter.order))
+		pthread_mutex_unlock(&g->waiter.mutex_w);
 }
 
 void	wait_wave(t_game *g, t_philo *p, int id_p)

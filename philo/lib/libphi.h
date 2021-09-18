@@ -28,6 +28,8 @@ typedef struct s_waiter
 	pthread_mutex_t		mutex_w2;
 	pthread_mutex_t		mutex_w3;
 	pthread_mutex_t		mutex_w_w2;
+	pthread_mutex_t		mutex_init1;
+	pthread_mutex_t		mutex_init2;
 }				t_waiter;
 
 typedef struct s_game
@@ -80,12 +82,15 @@ int				part_of_wave3(t_game *g, int id_p);
 void			fast_wait_wave(t_game *g);
 void			fast_wait_wave2(t_game *g);
 void			fast_wait_wave3(t_game *g);
+void			fast_wait_init(t_game *g, int id_p);
 void			lock_wave(t_game *game, int id_p);
 void			lock_wave2(t_game *g, int id_p);
 void			lock_wave3(t_game *game, int id_p);
+void			init_lock_wave3(t_game *g, int id_p);
 void			unlock_wave(t_game *g, int id_p);
 void			unlock_wave2(t_game *g, int id_p);
 void			unlock_wave3(t_game *g, int id_p);
+void			init_unlock_wave3(t_game *g, t_philo *p, int id_p);
 void			wait_wave(t_game *g, t_philo *p, int id_p);
 void			wave_lock_wave2(t_game *g, int id_p);
 void			wave_unlock_wave2(t_game *g, int id_p);

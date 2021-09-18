@@ -31,6 +31,7 @@ SRC =	$(SRCD)init_philo.c		\
 		$(SRCD)routine_think.c \
 		$(SRCD)routine_die.c \
 		$(SRCD)waiter.c			\
+		$(SRCD)waiter_init.c			\
 		$(SRCD)waiter_w.c			\
 		$(SRCD)waiter_w2.c			\
 		$(SRCD)waiter_w3.c

@@ -46,6 +46,8 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 	pthread_mutex_destroy(&g->waiter.mutex_w2);
 	pthread_mutex_destroy(&g->waiter.mutex_w3);
 	pthread_mutex_destroy(&g->waiter.mutex_w_w2);
+	pthread_mutex_destroy(&g->waiter.mutex_init1);
+	pthread_mutex_destroy(&g->waiter.mutex_init2);
 	if (str2)
 		free(str2);
 	if (g->mutex_f)
