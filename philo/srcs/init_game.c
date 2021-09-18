@@ -93,11 +93,11 @@ int	init_game2(t_game *game, t_philo *philo, int count)
 int	init_game(char *av[], t_game *g, t_philo *philo, int count)
 {
 	g->nbr_philo = ft_atoi(av[1]);
-	g->philo_a_table = g->nbr_philo;
-	g->waiter.sp_ord = g->nbr_philo % 2;
+	g->t_die = ft_atoi(av[2]);
 	g->t_eat = ft_atoi(av[3]);
 	g->t_sleeping = ft_atoi(av[4]);
-	g->t_die = ft_atoi(av[2]);
+	g->philo_a_table = g->nbr_philo;
+	g->waiter.sp_ord = g->nbr_philo % 2;
 	g->th_ph = malloc(sizeof(pthread_t) * (g->nbr_philo + 1));
 	if (!g->th_ph)
 		return (stopper(g, philo, "malloc", NULL));

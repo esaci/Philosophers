@@ -47,11 +47,13 @@ signed int	custom_value(t_game *g, signed int time, signed int tmp, int mode)
 
 	if (mode == 0)
 	{
-		tmp2 = 3 * time / 4;
+		tmp2 = (4 * time) / 5;
 		if (tmp2 < 600)
 			return (time);
 		return (tmp2);
 	}
+	if ((time - tmp) / 2 < 60)
+		return ((time - tmp) / 2);
 	return (50);
 	return (g->t_die);
 	return (tmp);
