@@ -60,7 +60,6 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	int		id_p2;
 	int		id_p;
 
-
 	id_p = (int)time[1];
 	id_p2 = id_p + 1;
 	if (id_p == g->nbr_philo - 1)

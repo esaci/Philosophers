@@ -16,7 +16,9 @@ void	lock_wave2(t_game *g, int id_p)
 {
 	int	order;
 
+	pthread_mutex_lock(&g->mutex_eat_t);
 	order = g->waiter.order % 2;
+	pthread_mutex_unlock(&g->mutex_eat_t);
 	if (id_p + order == 1)
 		pthread_mutex_lock(&g->waiter.mutex_w2);
 }

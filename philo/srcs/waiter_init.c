@@ -14,7 +14,7 @@
 
 void	init_lock_wave3(t_game *g, int id_p)
 {
-	if (!(g->waiter.sp_ord))
+	if (!(g->nbr_philo % 2))
 		return ;
 	if (id_p == 1)
 		pthread_mutex_lock(&g->waiter.mutex_init1);
@@ -24,7 +24,7 @@ void	init_lock_wave3(t_game *g, int id_p)
 
 void	fast_wait_init(t_game *g, int id_p)
 {
-	if (!(g->waiter.sp_ord))
+	if (!(g->nbr_philo % 2))
 		return ;
 	if (!(part_of_wave3(g, id_p)))
 		return ;
@@ -36,7 +36,7 @@ void	fast_wait_init(t_game *g, int id_p)
 
 void	init_unlock_wave3(t_game *g, t_philo *p, int id_p)
 {
-	if (!(g->waiter.sp_ord))
+	if (!(g->nbr_philo % 2))
 		return ;
 	if (p->t_eat[id_p] > 1)
 		return ;

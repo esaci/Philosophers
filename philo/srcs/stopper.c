@@ -29,15 +29,8 @@ int	print_return(char *str, int code)
 	return (code);
 }
 
-int	stopper(t_game *g, t_philo *p, char *str, void *str2)
+void	stopper_mutex(t_game *g)
 {
-	free(p->philo_id);
-	free(p->t_die);
-	free(p->t_eat);
-	free(p->t_sleep);
-	free(p->t_think);
-	free(p->s_fork);
-	free(p->eat_time);
 	pthread_mutex_destroy(&g->mutex_show);
 	pthread_mutex_destroy(&g->mutex_id);
 	pthread_mutex_destroy(&g->mutex_table);
@@ -48,6 +41,18 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 	pthread_mutex_destroy(&g->waiter.mutex_w_w2);
 	pthread_mutex_destroy(&g->waiter.mutex_init1);
 	pthread_mutex_destroy(&g->waiter.mutex_init2);
+}
+
+int	stopper(t_game *g, t_philo *p, char *str, void *str2)
+{
+	free(p->philo_id);
+	free(p->t_die);
+	free(p->t_eat);
+	free(p->t_sleep);
+	free(p->t_think);
+	free(p->s_fork);
+	free(p->eat_time);
+	stopper_mutex(g);
 	if (str2)
 		free(str2);
 	if (g->mutex_f)
