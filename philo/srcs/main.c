@@ -24,7 +24,7 @@ void	init_mutex(t_game *game)
 	pthread_mutex_init(&game->mutex_eat_t, NULL);
 	pthread_mutex_init(&game->waiter.mutex_init2, NULL);
 	pthread_mutex_init(&game->waiter.mutex_init1, NULL);
-	game->th_ph = 0;
+	game->free_th = 0;
 	game->show_ptr = 0;
 }
 
@@ -42,6 +42,6 @@ int	main(int ac, char *av[])
 		return (1);
 	if (init_game(av, &g, &p, 0))
 		return (1);
-	stopper(&g, &p, "FIN", NULL);
+	stopper(&g, &p, "", NULL);
 	return (0);
 }

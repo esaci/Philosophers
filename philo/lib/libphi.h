@@ -48,6 +48,7 @@ typedef struct s_game
 	signed int			t_die;
 	int					nbr_philo;
 	char				*show_ptr;
+	int					free_th;
 }				t_game;
 
 typedef struct s_philo

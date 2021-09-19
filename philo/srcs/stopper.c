@@ -59,10 +59,10 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 		free(str2);
 	if (g->mutex_f)
 		free(g->mutex_f);
-	if (g->th_ph)
+	if (g->free_th)
 		free(g->th_ph);
 	if (g->show_ptr)
 		free(g->show_ptr);
+	write(1, str, ft_strlen(str));
 	return (0);
-	koi(str, g);
 }

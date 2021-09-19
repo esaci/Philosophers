@@ -58,7 +58,7 @@ int	init_game3(t_game *game, t_philo *philo, int count, signed int *time)
 					count = game->philo_a_table;
 					pthread_mutex_unlock(&game->mutex_table);
 				}
-				return (0);
+				return (return_free_time(time, 0));
 			}
 		}
 	}
@@ -74,6 +74,7 @@ int	init_game2(t_game *game, t_philo *philo, int count)
 	dst.philo = philo;
 	if (gettimeofday(&game->s_time, NULL))
 		return (stopper(game, philo, "time", NULL));
+	game->free_th = 1;
 	while (count < game->nbr_philo)
 	{
 		if (pthread_create(game->th_ph + count, NULL, &routine, &dst))
@@ -87,7 +88,7 @@ int	init_game2(t_game *game, t_philo *philo, int count)
 			return (stopper(game, philo, "Thread detach failed", NULL));
 		count++;
 	}
-	return (init_game3(game, philo, game->nbr_philo, 0));
+	return (init_game3(game, philo, 1, 0));
 }
 
 int	init_game(char *av[], t_game *g, t_philo *philo, int count)
