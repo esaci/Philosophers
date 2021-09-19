@@ -12,23 +12,25 @@
 
 #include "../lib/libphi.h"
 
+void	fast_wave_wave2(t_game *g)
+{
+	pthread_mutex_lock(&g->waiter.mutex_w_w2);
+	pthread_mutex_unlock(&g->waiter.mutex_w_w2);
+}
+
 int	routine_think2(t_game *g, t_philo *p, int id_p)
 {
 	wave_lock_wave2(g, id_p);
 	fast_wait_wave3(g);
 	if (!part_of_wave(g, id_p))
-	{
-		pthread_mutex_lock(&g->waiter.mutex_w_w2);
-		pthread_mutex_unlock(&g->waiter.mutex_w_w2);
-	}
+		fast_wave_wave2(g);
 	lock_wave(g, id_p);
 	wave_unlock_wave2(g, id_p);
 	lock_wave2(g, id_p);
 	if (g->waiter.sp_ord)
 	{
-		pthread_mutex_lock(&g->waiter.mutex_w3);
-		if (!(part_of_wave3(g, id_p)))
-			pthread_mutex_unlock(&g->waiter.mutex_w3);
+		if (part_of_wave3(g, id_p))
+			pthread_mutex_lock(&g->waiter.mutex_w3);
 	}
 	p->t_think[id_p]++;
 	return (0);

@@ -14,17 +14,16 @@
 
 void	init_mutex(t_game *game)
 {
-	pthread_mutex_init(&game->mutex_show, NULL);
+	pthread_mutex_init(&game->mutex_id, NULL);
 	pthread_mutex_init(&game->waiter.mutex_w, NULL);
-	pthread_mutex_init(&game->waiter.mutex_w_w2, NULL);
 	pthread_mutex_init(&game->waiter.mutex_w2, NULL);
 	pthread_mutex_init(&game->waiter.mutex_w3, NULL);
-	pthread_mutex_init(&game->waiter.mutex_init1, NULL);
-	pthread_mutex_init(&game->waiter.mutex_init2, NULL);
-	pthread_mutex_init(&game->mutex_id, NULL);
+	pthread_mutex_init(&game->waiter.mutex_w_w2, NULL);
+	pthread_mutex_init(&game->mutex_show, NULL);
 	pthread_mutex_init(&game->mutex_table, NULL);
 	pthread_mutex_init(&game->mutex_eat_t, NULL);
-	game->mutex_f = 0;
+	pthread_mutex_init(&game->waiter.mutex_init2, NULL);
+	pthread_mutex_init(&game->waiter.mutex_init1, NULL);
 	game->th_ph = 0;
 	game->show_ptr = 0;
 }

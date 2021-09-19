@@ -24,12 +24,12 @@ typedef struct s_waiter
 {
 	int					order;
 	int					sp_ord;
+	pthread_mutex_t		mutex_init1;
+	pthread_mutex_t		mutex_init2;
 	pthread_mutex_t		mutex_w;
 	pthread_mutex_t		mutex_w2;
 	pthread_mutex_t		mutex_w3;
 	pthread_mutex_t		mutex_w_w2;
-	pthread_mutex_t		mutex_init1;
-	pthread_mutex_t		mutex_init2;
 }				t_waiter;
 
 typedef struct s_game
@@ -77,6 +77,7 @@ void			waiter_eat(t_game *game, t_philo *philo, signed int *time);
 int				routine_sleep(t_game *game, t_philo *philo, signed int *time);
 int				routine_think(t_game *g, t_philo *p, signed int *time);
 int				routine_die(t_game *g, t_philo *p, signed int *time, int m);
+void			wave_init(t_game *game, t_philo *philo, int id_p);
 int				part_of_wave(t_game *g, int id_p);
 int				part_of_wave3(t_game *g, int id_p);
 void			fast_wait_wave(t_game *g);
@@ -113,7 +114,7 @@ signed int		custom_usleep(t_game *game, t_philo *philo, int time);
 struct timeval	*init_timeval(t_game *game, t_philo *philo);
 int				custom_gettime(t_game *g, t_philo *p,
 					struct timeval *tmp_ti, void *c_ti);
-void			unlocker_die_mutex(t_game *g, signed int *time);
+void			unlocker_die_mutex(t_game *g, t_philo *p, signed int *time);
 int				c_int(char *nbr);
 int				full_check_int(char *av[], int ac);
 int				refresh_space(t_game *game);

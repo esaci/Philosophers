@@ -18,8 +18,8 @@ int	check_sp_ord3(t_game *g, int id_p)
 		return (0);
 	if (part_of_wave3(g, id_p))
 	{
-		fast_wait_wave(g);
 		fast_wait_wave2(g);
+		fast_wait_wave(g);
 		return (1);
 	}
 	if (part_of_wave(g, id_p))
