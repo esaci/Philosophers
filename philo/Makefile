@@ -14,7 +14,7 @@ SANIT2 = -pthread -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-point
 
 COMPILE = gcc
 
-CFLAGS = -pthread -Wall -Wextra -Werror -fsanitize=thread
+CFLAGS = -pthread -Wall -Wextra -Werror
 
 SRC =	$(SRCD)init_philo.c		\
 		$(SRCD)init_game.c		\

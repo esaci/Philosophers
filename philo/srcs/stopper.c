@@ -63,6 +63,6 @@ int	stopper(t_game *g, t_philo *p, char *str, void *str2)
 		free(g->th_ph);
 	if (g->show_ptr)
 		free(g->show_ptr);
-	write(1, str, ft_strlen(str));
 	return (0);
+	return (write(1, str, ft_strlen(str)));
 }
