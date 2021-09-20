@@ -54,7 +54,7 @@ void	init_unlock_wave3(t_game *g, t_philo *p, int id_p)
 int	order_init(t_game *g, int id_p)
 {
 	int	tmp;
-	
+
 	pthread_mutex_lock(&g->mutex_ord_);
 	if (g->waiter.order == -1)
 		g->waiter.order = id_p;

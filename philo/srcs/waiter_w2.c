@@ -24,7 +24,7 @@ int	ord_init(t_game *g, int id_p)
 	return (order);
 }
 
-int		part_of_wave2(t_game *g, int id_p)
+int	part_of_wave2(t_game *g, int id_p)
 {
 	int	order;
 
