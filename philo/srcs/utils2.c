@@ -40,7 +40,7 @@ signed	int	time_calcul(int time, signed int sectime)
 {
 	int	res;
 
-	res = time * 1000 + sectime / 1000;
+	res = (time * 1000) + (sectime / 1000);
 	return (res);
 }
 

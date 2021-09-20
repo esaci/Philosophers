@@ -14,15 +14,17 @@
 
 void	wave_init(t_game *g, t_philo *p, int id_p)
 {
-	if (p->t_eat[id_p] > 0)
-		return ;
+	int	tmp;
+
 	pthread_mutex_lock(&g->mutex_eat_t);
-	if (g->waiter.order == -1)
-		g->waiter.order = id_p;
+	tmp = p->t_eat[id_p];
 	pthread_mutex_unlock(&g->mutex_eat_t);
+	if (tmp > 0)
+		return ;
+	ord_init(g, id_p);
 	lock_wave(g, id_p);
 	lock_wave2(g, id_p);
-	if (g->nbr_philo % 2)
+	if ((g->nbr_philo % 2))
 	{
 		lock_wave3(g, id_p);
 		fast_wait_init(g, id_p);
@@ -71,7 +73,6 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	id_p2 = id_p + 1;
 	if (id_p == g->nbr_philo - 1)
 		id_p2 = 0;
-
 	if ((g->nbr_philo % 2) && id_p == 0)
 		id_p2 = g->nbr_philo - 1;
 	if (id_p2 == id_p)

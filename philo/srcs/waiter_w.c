@@ -14,15 +14,13 @@
 
 void	lock_wave(t_game *g, int id_p)
 {
-	if (id_p == g->waiter.order)
-		pthread_mutex_lock(&g->waiter.mutex_w);
-	if (!(g->waiter.order == -1))
-		return ;
+	int	tmp;
+
+	ord_init(g, id_p);
 	pthread_mutex_lock(&g->mutex_eat_t);
-	if (g->waiter.order == -1)
-		g->waiter.order = id_p;
+	tmp = g->waiter.order;
 	pthread_mutex_unlock(&g->mutex_eat_t);
-	if (id_p == g->waiter.order)
+	if (id_p == tmp)
 		pthread_mutex_lock(&g->waiter.mutex_w);
 }
 
@@ -45,18 +43,21 @@ void	wait_wave(t_game *g, t_philo *p, int id_p)
 		pthread_mutex_unlock(&g->mutex_eat_t);
 }
 
-void	fast_wait_wave(t_game *g)
+void	fast_wait_wave(t_game *g, int id_p)
 {
 	pthread_mutex_lock(&g->waiter.mutex_w);
 	pthread_mutex_unlock(&g->waiter.mutex_w);
+	return ;
+	if (part_of_wave(g, id_p))
+		return ;
 }
 
 int	part_of_wave(t_game *g, int id_p)
 {
 	int	order;
 
-	order = g->waiter.order % 2;
-	if (id_p % 2 == order)
+	order = ord_init(g, id_p);
+	if ((id_p % 2) == order)
 		return (1);
 	return (0);
 }

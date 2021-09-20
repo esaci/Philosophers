@@ -36,9 +36,14 @@ void	fast_wait_init(t_game *g, int id_p)
 
 void	init_unlock_wave3(t_game *g, t_philo *p, int id_p)
 {
+	int	tmp;
+
 	if (!(g->nbr_philo % 2))
 		return ;
-	if (p->t_eat[id_p] > 1)
+	pthread_mutex_lock(&g->mutex_eat_t);
+	tmp = p->t_eat[id_p];
+	pthread_mutex_unlock(&g->mutex_eat_t);
+	if (tmp > 1)
 		return ;
 	if (id_p == 0)
 		pthread_mutex_unlock(&g->waiter.mutex_init1);
