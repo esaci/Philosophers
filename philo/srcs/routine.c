@@ -64,7 +64,6 @@ void	*routine(void *dstruct)
 	philo = (t_philo *)dst->philo;
 	game = (t_game *)dst->game;
 	id_p = routine_id(game, philo);
-	lock_wave2(game, id_p);
 	loop_routine(game, philo, id_p);
 	pthread_mutex_lock(&game->mutex_table);
 	game->philo_a_table--;
