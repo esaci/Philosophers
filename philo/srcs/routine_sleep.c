@@ -18,9 +18,9 @@ int	routine_sleep(t_game *g, t_philo *p, signed int *time)
 	int	tmp;
 
 	id_p = time[1];
-	pthread_mutex_lock(&g->mutex_eat_t);
+	pthread_mutex_lock(&g->mutex_eat_);
 	tmp = p->t_eat[id_p];
-	pthread_mutex_unlock(&g->mutex_eat_t);
+	pthread_mutex_unlock(&g->mutex_eat_);
 	if (tmp == p->n_eat)
 		return (1);
 	if (show_state(g, p, "is sleeping", time))

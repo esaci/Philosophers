@@ -12,17 +12,18 @@
 
 #include "../lib/libphi.h"
 
-int	routine_id(t_game *game, t_philo *philo)
+int	routine_id(t_game *g, t_philo *p)
 {
 	int	id_p;
 
 	id_p = 0;
-	pthread_mutex_lock(&game->mutex_id);
-	while (philo->philo_id[id_p] == 1)
+	pthread_mutex_lock(&g->mutex_id);
+	while (p->philo_id[id_p] == 1)
 		id_p++;
-	philo->philo_id[id_p] = 1;
-	init_lock_wave3(game, id_p);
-	pthread_mutex_unlock(&game->mutex_id);
+	p->philo_id[id_p] = 1;
+	init_lock_wave3(g, id_p);
+	pthread_mutex_unlock(&g->mutex_id);
+	wave_init(g, p, id_p);
 	return (id_p);
 }
 

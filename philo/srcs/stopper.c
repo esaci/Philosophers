@@ -35,7 +35,8 @@ void	stopper_mutex(t_game *g)
 	pthread_mutex_lock(&g->mutex_table);
 	pthread_mutex_unlock(&g->mutex_table);
 	pthread_mutex_destroy(&g->mutex_table);
-	pthread_mutex_destroy(&g->mutex_eat_t);
+	pthread_mutex_destroy(&g->mutex_eat_);
+	pthread_mutex_destroy(&g->mutex_ord_);
 	pthread_mutex_destroy(&g->waiter.mutex_w);
 	pthread_mutex_destroy(&g->waiter.mutex_w2);
 	pthread_mutex_destroy(&g->waiter.mutex_w3);

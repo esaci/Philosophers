@@ -16,11 +16,11 @@ int	ord_init(t_game *g, int id_p)
 {
 	int	order;
 
-	pthread_mutex_lock(&g->mutex_eat_t);
+	pthread_mutex_lock(&g->mutex_ord_);
 	if (g->waiter.order == -1)
 		g->waiter.order = id_p;
 	order = (g->waiter.order % 2);
-	pthread_mutex_unlock(&g->mutex_eat_t);
+	pthread_mutex_unlock(&g->mutex_ord_);
 	return (order);
 }
 

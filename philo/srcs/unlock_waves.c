@@ -16,10 +16,7 @@ void	unlock_wave(t_game *g, int id_p)
 {
 	int	tmp;
 
-	ord_init(g, id_p);
-	pthread_mutex_lock(&g->mutex_eat_t);
-	tmp = g->waiter.order;
-	pthread_mutex_unlock(&g->mutex_eat_t);
+	tmp = order_init(g, id_p);
 	if (id_p == tmp)
 		pthread_mutex_unlock(&g->waiter.mutex_w);
 }

@@ -50,10 +50,10 @@ int	routine_die(t_game *game, t_philo *philo, signed int *time, int mode)
 	signed int	tmp;
 	signed int	tmp2;
 
-	pthread_mutex_lock(&game->mutex_eat_t);
+	pthread_mutex_lock(&game->mutex_eat_);
 	tmp = time[0] - philo->eat_time[time[1]];
 	tmp2 = philo->t_die[time[1]];
-	pthread_mutex_unlock(&game->mutex_eat_t);
+	pthread_mutex_unlock(&game->mutex_eat_);
 	if (tmp < game->t_die && !tmp2)
 		return (0);
 	if (mode == 2)

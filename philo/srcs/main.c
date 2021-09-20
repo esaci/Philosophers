@@ -21,7 +21,8 @@ void	init_mutex(t_game *game)
 	pthread_mutex_init(&game->waiter.mutex_w_w2, NULL);
 	pthread_mutex_init(&game->mutex_show, NULL);
 	pthread_mutex_init(&game->mutex_table, NULL);
-	pthread_mutex_init(&game->mutex_eat_t, NULL);
+	pthread_mutex_init(&game->mutex_eat_, NULL);
+	pthread_mutex_init(&game->mutex_ord_, NULL);
 	pthread_mutex_init(&game->waiter.mutex_init2, NULL);
 	pthread_mutex_init(&game->waiter.mutex_init1, NULL);
 	game->free_th = 0;

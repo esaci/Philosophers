@@ -1,0 +1,1014 @@
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):35:400 2 is eating
+(standard input):38:400 4 is eating
+(standard input):44:500 5 is eating
+(standard input):51:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):59:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):71:800 5 is eating
+(standard input):77:900 1 is eating
+(standard input):80:901 3 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+1
+
+
+(standard input):3:0 2 is eating
+(standard input):6:0 4 is eating
+(standard input):10:100 3 is eating
+(standard input):14:100 1 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 2 is eating
+(standard input):29:300 4 is eating
+(standard input):35:400 3 is eating
+(standard input):39:400 1 is eating
+(standard input):45:500 5 is eating
+(standard input):50:600 4 is eating
+(standard input):55:600 2 is eating
+(standard input):61:700 1 is eating
+(standard input):64:700 3 is eating
+(standard input):70:800 5 is eating
+(standard input):76:900 2 is eating
+(standard input):79:900 4 is eating
+(standard input):84:1000 3 is eating
+(standard input):87:1000 1 is eating
+(standard input):90:1100 5 is eating
+
+
+
+2
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):34:400 4 is eating
+(standard input):38:400 2 is eating
+(standard input):43:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):54:600 1 is eating
+(standard input):59:700 2 is eating
+(standard input):63:700 4 is eating
+(standard input):70:800 5 is eating
+(standard input):76:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+3
+
+
+(standard input):3:0 3 is eating
+(standard input):6:0 1 is eating
+(standard input):10:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):29:300 3 is eating
+(standard input):35:400 4 is eating
+(standard input):38:400 2 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):60:700 2 is eating
+(standard input):63:700 4 is eating
+(standard input):71:801 5 is eating
+(standard input):76:901 1 is eating
+(standard input):80:901 3 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+4
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):13:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):27:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):35:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):45:500 5 is eating
+(standard input):50:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):60:700 2 is eating
+(standard input):63:700 4 is eating
+(standard input):69:800 5 is eating
+(standard input):75:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+5
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):9:100 2 is eating
+(standard input):12:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):36:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):46:500 5 is eating
+(standard input):51:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):60:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):70:800 5 is eating
+(standard input):75:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+6
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 4 is eating
+(standard input):13:100 2 is eating
+(standard input):19:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):35:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):44:500 5 is eating
+(standard input):50:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):60:700 2 is eating
+(standard input):63:700 4 is eating
+(standard input):71:800 5 is eating
+(standard input):77:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+7
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):27:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):36:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):45:500 5 is eating
+(standard input):50:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):59:700 2 is eating
+(standard input):63:700 4 is eating
+(standard input):71:800 5 is eating
+(standard input):77:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+8
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):25:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):34:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):46:500 5 is eating
+(standard input):50:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):59:700 4 is eating
+(standard input):62:700 2 is eating
+(standard input):68:800 5 is eating
+(standard input):75:900 3 is eating
+(standard input):78:900 1 is eating
+(standard input):83:1000 2 is eating
+(standard input):86:1000 4 is eating
+(standard input):90:1099 5 is eating
+
+
+
+9
+
+
+(standard input):3:0 2 is eating
+(standard input):6:0 4 is eating
+(standard input):9:100 1 is eating
+(standard input):12:100 3 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 4 is eating
+(standard input):30:300 2 is eating
+(standard input):34:400 1 is eating
+(standard input):39:400 3 is eating
+(standard input):43:500 5 is eating
+(standard input):50:600 4 is eating
+(standard input):54:600 2 is eating
+(standard input):60:700 1 is eating
+(standard input):64:700 3 is eating
+(standard input):69:800 5 is eating
+(standard input):74:900 4 is eating
+(standard input):77:900 2 is eating
+(standard input):83:1000 3 is eating
+(standard input):87:1000 1 is eating
+(standard input):90:1100 5 is eating
+
+
+
+10
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):19:200 5 is eating
+(standard input):25:300 1 is eating
+(standard input):29:300 3 is eating
+(standard input):34:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):58:700 2 is eating
+(standard input):62:700 4 is eating
+(standard input):69:800 5 is eating
+(standard input):76:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+11
+
+
+(standard input):3:0 2 is eating
+(standard input):6:0 4 is eating
+(standard input):11:100 1 is eating
+(standard input):14:100 3 is eating
+(standard input):21:200 5 is eating
+(standard input):26:300 4 is eating
+(standard input):29:300 2 is eating
+(standard input):35:400 1 is eating
+(standard input):38:400 3 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 4 is eating
+(standard input):55:600 2 is eating
+(standard input):59:700 1 is eating
+(standard input):64:700 3 is eating
+(standard input):71:800 5 is eating
+(standard input):76:901 4 is eating
+(standard input):80:901 2 is eating
+(standard input):84:1000 1 is eating
+(standard input):87:1000 3 is eating
+(standard input):90:1100 5 is eating
+
+
+
+12
+
+
+(standard input):3:0 2 is eating
+(standard input):6:0 4 is eating
+(standard input):11:100 3 is eating
+(standard input):14:100 1 is eating
+(standard input):21:200 5 is eating
+(standard input):27:300 4 is eating
+(standard input):30:300 2 is eating
+(standard input):36:400 3 is eating
+(standard input):39:400 1 is eating
+(standard input):46:500 5 is eating
+(standard input):51:600 4 is eating
+(standard input):54:600 2 is eating
+(standard input):59:700 1 is eating
+(standard input):64:700 3 is eating
+(standard input):69:800 5 is eating
+(standard input):76:900 4 is eating
+(standard input):80:901 2 is eating
+(standard input):84:1000 3 is eating
+(standard input):87:1000 1 is eating
+(standard input):90:1100 5 is eating
+
+
+
+13
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):27:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):34:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):60:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):71:800 5 is eating
+(standard input):76:901 3 is eating
+(standard input):80:901 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+14
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):9:100 2 is eating
+(standard input):13:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):34:400 2 is eating
+(standard input):38:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):59:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):71:800 5 is eating
+(standard input):76:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+15
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):24:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):35:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):45:500 5 is eating
+(standard input):51:601 1 is eating
+(standard input):55:601 3 is eating
+(standard input):61:701 4 is eating
+(standard input):64:701 2 is eating
+(standard input):70:801 5 is eating
+(standard input):76:901 1 is eating
+(standard input):79:901 3 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+16
+
+
+(standard input):3:0 3 is eating
+(standard input):6:0 1 is eating
+(standard input):10:100 2 is eating
+(standard input):13:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):27:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):34:400 2 is eating
+(standard input):37:400 4 is eating
+(standard input):42:500 5 is eating
+(standard input):50:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):61:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):70:800 5 is eating
+(standard input):75:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+17
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):19:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):35:400 4 is eating
+(standard input):38:400 2 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 3 is eating
+(standard input):54:600 1 is eating
+(standard input):59:700 4 is eating
+(standard input):63:700 2 is eating
+(standard input):68:800 5 is eating
+(standard input):76:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+18
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):36:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):46:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):60:700 4 is eating
+(standard input):63:700 2 is eating
+(standard input):69:800 5 is eating
+(standard input):75:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):83:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+19
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):9:100 4 is eating
+(standard input):12:100 2 is eating
+(standard input):18:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):28:300 1 is eating
+(standard input):36:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):60:700 4 is eating
+(standard input):63:700 2 is eating
+(standard input):69:800 5 is eating
+(standard input):77:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+20
+
+
+(standard input):3:0 3 is eating
+(standard input):6:0 1 is eating
+(standard input):9:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):27:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):34:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):46:500 5 is eating
+(standard input):52:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):59:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):71:801 5 is eating
+(standard input):76:901 1 is eating
+(standard input):80:901 3 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+21
+
+
+(standard input):3:0 2 is eating
+(standard input):6:0 4 is eating
+(standard input):10:100 1 is eating
+(standard input):13:100 3 is eating
+(standard input):18:200 5 is eating
+(standard input):26:300 4 is eating
+(standard input):29:300 2 is eating
+(standard input):34:400 3 is eating
+(standard input):39:400 1 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 4 is eating
+(standard input):54:600 2 is eating
+(standard input):59:700 1 is eating
+(standard input):64:700 3 is eating
+(standard input):69:800 5 is eating
+(standard input):75:900 4 is eating
+(standard input):79:900 2 is eating
+(standard input):84:1000 1 is eating
+(standard input):87:1000 3 is eating
+(standard input):90:1099 5 is eating
+
+
+
+22
+
+
+(standard input):3:0 2 is eating
+(standard input):6:0 4 is eating
+(standard input):10:100 3 is eating
+(standard input):13:100 1 is eating
+(standard input):20:200 5 is eating
+(standard input):25:300 4 is eating
+(standard input):30:300 2 is eating
+(standard input):35:400 3 is eating
+(standard input):38:400 1 is eating
+(standard input):44:500 5 is eating
+(standard input):50:600 4 is eating
+(standard input):54:600 2 is eating
+(standard input):61:700 1 is eating
+(standard input):64:700 3 is eating
+(standard input):69:800 5 is eating
+(standard input):75:900 4 is eating
+(standard input):78:900 2 is eating
+(standard input):83:1000 1 is eating
+(standard input):86:1000 3 is eating
+(standard input):90:1100 5 is eating
+
+
+
+23
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):13:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):34:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):43:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):54:600 1 is eating
+(standard input):59:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):70:800 5 is eating
+(standard input):76:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+24
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):19:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):35:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):45:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):54:600 1 is eating
+(standard input):61:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):70:800 5 is eating
+(standard input):76:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+25
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):34:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):45:500 5 is eating
+(standard input):50:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):61:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):71:801 5 is eating
+(standard input):76:901 3 is eating
+(standard input):80:901 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+26
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):9:100 4 is eating
+(standard input):12:100 2 is eating
+(standard input):18:200 5 is eating
+(standard input):25:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):34:400 2 is eating
+(standard input):38:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):60:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):71:800 5 is eating
+(standard input):75:900 3 is eating
+(standard input):78:900 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+27
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):18:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):35:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):59:700 2 is eating
+(standard input):63:700 4 is eating
+(standard input):69:800 5 is eating
+(standard input):75:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+28
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):9:100 2 is eating
+(standard input):12:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):29:300 3 is eating
+(standard input):34:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):60:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):71:801 5 is eating
+(standard input):76:901 3 is eating
+(standard input):80:901 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+29
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):21:200 5 is eating
+(standard input):26:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):36:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):46:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):55:600 3 is eating
+(standard input):60:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):70:801 5 is eating
+(standard input):75:901 3 is eating
+(standard input):80:901 1 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+30
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):21:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):35:400 2 is eating
+(standard input):38:400 4 is eating
+(standard input):44:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):60:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):71:800 5 is eating
+(standard input):77:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+31
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):35:400 2 is eating
+(standard input):38:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):51:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):59:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):71:800 5 is eating
+(standard input):77:900 1 is eating
+(standard input):80:900 3 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+32
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):21:200 5 is eating
+(standard input):26:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):35:400 2 is eating
+(standard input):38:400 4 is eating
+(standard input):44:500 5 is eating
+(standard input):51:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):59:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):71:800 5 is eating
+(standard input):76:900 3 is eating
+(standard input):80:900 1 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+33
+
+
+(standard input):3:0 3 is eating
+(standard input):6:0 1 is eating
+(standard input):11:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):21:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):34:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):46:500 5 is eating
+(standard input):50:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):61:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):70:800 5 is eating
+(standard input):76:900 3 is eating
+(standard input):79:900 1 is eating
+(standard input):84:1000 2 is eating
+(standard input):87:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+34
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):20:200 5 is eating
+(standard input):26:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):35:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):45:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):60:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):70:800 5 is eating
+(standard input):75:900 3 is eating
+(standard input):79:900 1 is eating
+(standard input):83:1000 2 is eating
+(standard input):86:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+35
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):10:100 2 is eating
+(standard input):14:100 4 is eating
+(standard input):20:200 5 is eating
+(standard input):27:300 3 is eating
+(standard input):30:300 1 is eating
+(standard input):35:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):44:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):54:600 1 is eating
+(standard input):61:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):70:800 5 is eating
+(standard input):76:901 3 is eating
+(standard input):80:901 1 is eating
+(standard input):84:1000 4 is eating
+(standard input):87:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+36
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):11:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):18:200 5 is eating
+(standard input):25:300 3 is eating
+(standard input):29:300 1 is eating
+(standard input):35:400 2 is eating
+(standard input):39:400 4 is eating
+(standard input):44:500 5 is eating
+(standard input):50:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):61:700 4 is eating
+(standard input):64:700 2 is eating
+(standard input):71:800 5 is eating
+(standard input):77:901 1 is eating
+(standard input):80:901 3 is eating
+(standard input):83:1000 4 is eating
+(standard input):86:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+37
+
+
+(standard input):3:0 1 is eating
+(standard input):6:0 3 is eating
+(standard input):9:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):21:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):35:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):46:500 5 is eating
+(standard input):52:600 3 is eating
+(standard input):55:600 1 is eating
+(standard input):61:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):70:800 5 is eating
+(standard input):75:901 1 is eating
+(standard input):80:901 3 is eating
+(standard input):83:1000 4 is eating
+(standard input):86:1000 2 is eating
+(standard input):90:1100 5 is eating
+
+
+
+38
+
+
+(standard input):3:0 3 is eating
+(standard input):6:0 1 is eating
+(standard input):10:100 4 is eating
+(standard input):14:100 2 is eating
+(standard input):21:200 5 is eating
+(standard input):26:300 1 is eating
+(standard input):30:300 3 is eating
+(standard input):35:400 4 is eating
+(standard input):39:400 2 is eating
+(standard input):44:500 5 is eating
+(standard input):51:600 1 is eating
+(standard input):54:600 3 is eating
+(standard input):60:700 2 is eating
+(standard input):64:700 4 is eating
+(standard input):71:800 5 is eating
+(standard input):76:900 3 is eating
+(standard input):79:900 1 is eating
+(standard input):83:1000 2 is eating
+(standard input):86:1000 4 is eating
+(standard input):90:1100 5 is eating
+
+
+
+39
+
+

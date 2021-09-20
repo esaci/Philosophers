@@ -45,13 +45,13 @@ int	routine_think(t_game *g, t_philo *p, signed int *time)
 	order = ord_init(g, id_p);
 	if (show_state(g, p, "is thinking", time))
 		return (1);
-	pthread_mutex_lock(&g->mutex_eat_t);
+	pthread_mutex_lock(&g->mutex_eat_);
 	if (p->t_eat[(order + 1) % 2] < p->t_eat[id_p] && !g->waiter.sp_ord)
 	{
-		pthread_mutex_unlock(&g->mutex_eat_t);
+		pthread_mutex_unlock(&g->mutex_eat_);
 		fast_wait_wave2(g, id_p);
 	}
 	else
-		pthread_mutex_unlock(&g->mutex_eat_t);
+		pthread_mutex_unlock(&g->mutex_eat_);
 	return (routine_think2(g, p, id_p));
 }

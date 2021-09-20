@@ -16,9 +16,9 @@ void	wave_init(t_game *g, t_philo *p, int id_p)
 {
 	int	tmp;
 
-	pthread_mutex_lock(&g->mutex_eat_t);
+	pthread_mutex_lock(&g->mutex_eat_);
 	tmp = p->t_eat[id_p];
-	pthread_mutex_unlock(&g->mutex_eat_t);
+	pthread_mutex_unlock(&g->mutex_eat_);
 	if (tmp > 0)
 		return ;
 	ord_init(g, id_p);
@@ -50,7 +50,7 @@ int	routine_eat2(t_game *g, t_philo *p, signed int *time, int id_p2)
 	int		id_p;
 
 	id_p = (int)time[1];
-	pthread_mutex_unlock(&g->mutex_eat_t);
+	pthread_mutex_unlock(&g->mutex_eat_);
 	if (show_state(g, p, "is eating", time))
 		return (1);
 	pthread_mutex_unlock(&g->mutex_f[id_p]);
@@ -81,12 +81,11 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 			;
 		return (1);
 	}
-	wave_init(g, p, id_p);
 	waiter_eat(g, p, time);
 	lock_forks(g, id_p, id_p2);
 	if (update_time(g, p, time))
 		return (1);
-	pthread_mutex_lock(&g->mutex_eat_t);
+	pthread_mutex_lock(&g->mutex_eat_);
 	p->eat_time[id_p] = time[0];
 	p->t_eat[id_p]++;
 	return (routine_eat2(g, p, time, id_p2));
