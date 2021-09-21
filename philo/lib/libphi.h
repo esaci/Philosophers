@@ -35,6 +35,7 @@ typedef struct s_waiter
 typedef struct s_game
 {
 	t_waiter			waiter;
+	struct timeval		s_time;
 	pthread_t			*th_ph;
 	pthread_mutex_t		mutex_id;
 	pthread_mutex_t		mutex_show;
@@ -42,14 +43,13 @@ typedef struct s_game
 	pthread_mutex_t		mutex_eat_;
 	pthread_mutex_t		mutex_ord_;
 	pthread_mutex_t		*mutex_f;
+	int					free_th;
 	int					philo_a_table;
-	struct timeval		s_time;
 	signed int			t_eat;
 	signed int			t_sleeping;
 	signed int			t_die;
 	int					nbr_philo;
 	char				*show_ptr;
-	int					free_th;
 }				t_game;
 
 typedef struct s_philo
