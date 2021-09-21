@@ -43,7 +43,7 @@ void	init_unlock_wave3(t_game *g, t_philo *p, int id_p)
 	pthread_mutex_lock(&g->mutex_eat_);
 	tmp = p->t_eat[id_p];
 	pthread_mutex_unlock(&g->mutex_eat_);
-	if (tmp > 1)
+	if (tmp > 1 || !(g->nbr_philo % 2))
 		return ;
 	if (id_p == 0)
 		pthread_mutex_unlock(&g->waiter.mutex_init1);

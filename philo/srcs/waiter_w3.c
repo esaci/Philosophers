@@ -16,6 +16,8 @@ int	part_of_wave3(t_game *g, int id_p)
 {
 	int	tmp;
 
+	if (!(g->nbr_philo % 2))
+		return (0);
 	pthread_mutex_lock(&g->mutex_ord_);
 	if (g->waiter.sp_ord == 1 && (id_p == 0 || id_p == (g->nbr_philo - 1)))
 		g->waiter.sp_ord = id_p + 2;
@@ -26,12 +28,14 @@ int	part_of_wave3(t_game *g, int id_p)
 	return (0);
 }
 
-void	lock_wave3(t_game *game, int id_p)
+void	lock_wave3(t_game *g, int id_p)
 {
-	if (id_p != 0 && id_p != (game->nbr_philo - 1))
+	if (!(g->nbr_philo % 2))
 		return ;
-	if (part_of_wave3(game, id_p))
-		pthread_mutex_lock(&game->waiter.mutex_w3);
+	if (id_p != 0 && id_p != (g->nbr_philo - 1))
+		return ;
+	if (part_of_wave3(g, id_p))
+		pthread_mutex_lock(&g->waiter.mutex_w3);
 }
 
 void	fast_wait_wave3(t_game *g, int id_p)
@@ -56,7 +60,6 @@ void	wave_unlock_wave2(t_game *g, int id_p)
 {
 	int	tmp;
 
-	ord_init(g, id_p);
 	tmp = order_init(g, id_p);
 	if (id_p == tmp)
 		pthread_mutex_unlock(&g->waiter.mutex_w_w2);

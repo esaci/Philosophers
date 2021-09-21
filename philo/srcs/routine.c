@@ -23,7 +23,6 @@ int	routine_id(t_game *g, t_philo *p)
 	p->philo_id[id_p] = 1;
 	init_lock_wave3(g, id_p);
 	pthread_mutex_unlock(&g->mutex_id);
-	wave_init(g, p, id_p);
 	return (id_p);
 }
 

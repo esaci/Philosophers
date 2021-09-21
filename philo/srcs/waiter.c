@@ -14,7 +14,7 @@
 
 int	check_sp_ord3(t_game *g, int id_p)
 {
-	if (!g->nbr_philo % 2)
+	if (!(g->nbr_philo % 2))
 		return (0);
 	if (part_of_wave3(g, id_p))
 	{

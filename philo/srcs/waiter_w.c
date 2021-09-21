@@ -54,7 +54,7 @@ int	part_of_wave(t_game *g, int id_p)
 	int	order;
 
 	order = ord_init(g, id_p);
-	if ((id_p % 2) == order)
+	if ((id_p % 2) == order && !part_of_wave3(g, id_p))
 		return (1);
 	return (0);
 }

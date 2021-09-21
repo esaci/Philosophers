@@ -61,7 +61,6 @@ int	routine_eat2(t_game *g, t_philo *p, signed int *time, int id_p2)
 		unlock_wave3(g, id_p);
 	init_unlock_wave3(g, p, id_p);
 	return (0);
-	return (id_p2);
 }
 
 int	routine_eat(t_game *g, t_philo *p, signed int *time)
@@ -81,6 +80,7 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 			;
 		return (1);
 	}
+	wave_init(g, p, id_p);
 	waiter_eat(g, p, time);
 	lock_forks(g, id_p, id_p2);
 	if (update_time(g, p, time))

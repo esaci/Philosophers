@@ -65,30 +65,32 @@ int	init_game3(t_game *game, t_philo *philo, int count, signed int *time)
 	return (return_free_time(time, 0));
 }
 
-int	init_game2(t_game *game, t_philo *philo, int count)
+int	init_game2(t_game *g, t_philo *philo, int count)
 {
 	t_dstruct		dst;
 
-	game->waiter.order = -1;
-	dst.game = game;
+	g->waiter.order = -1;
+	dst.game = g;
 	dst.philo = philo;
-	if (gettimeofday(&game->s_time, NULL))
-		return (stopper(game, philo, "time", NULL));
-	game->free_th = 1;
-	while (count < game->nbr_philo)
+	if (gettimeofday(&g->s_time, NULL))
+		return (stopper(g, philo, "time", NULL));
+	g->free_th = 1;
+	pthread_mutex_lock(&g->mutex_id);
+	while (count < g->nbr_philo)
 	{
-		if (pthread_create(game->th_ph + count, NULL, &routine, &dst))
-			return (stopper(game, philo, "Thread creation failed", NULL));
+		if (pthread_create(g->th_ph + count, NULL, &routine, &dst))
+			return (stopper(g, philo, "Thread creation failed", &g->mutex_id));
 		count++;
 	}
+	pthread_mutex_unlock(&g->mutex_id);
 	count = 0;
-	while (count < game->nbr_philo)
+	while (count < g->nbr_philo)
 	{
-		if (pthread_detach(game->th_ph[count]))
-			return (stopper(game, philo, "Thread detach failed", NULL));
+		if (pthread_detach(g->th_ph[count]))
+			return (stopper(g, philo, "Thread detach failed", NULL));
 		count++;
 	}
-	return (init_game3(game, philo, 1, 0));
+	return (init_game3(g, philo, 1, 0));
 }
 
 int	init_game(char *av[], t_game *g, t_philo *philo, int count)
