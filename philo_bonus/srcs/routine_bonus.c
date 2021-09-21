@@ -17,8 +17,9 @@ int	routine_bonus(t_game *g, t_philo *p, int index)
 	g->b_pid[index] = fork();
 	if (!g->b_pid[index])
 	{
-		printf("je suis le phil %d\n", index);
-		exit (0);
+		write(1, "philo\n", 6);
+		usleep(10000000);
+		stopper_bonus(g, p, "fin du processus", 0);
 	}
 	return (0);
 	if (p->eat_time == 100)

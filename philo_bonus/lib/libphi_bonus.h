@@ -30,12 +30,22 @@ typedef struct s_waiter
 {
 	int					order;
 	int					sp_ord;
+	sem_t				*sem_init1;
+	sem_t				*sem_init2;
+	sem_t				*sem_w;
+	sem_t				*sem_w2;
+	sem_t				*sem_w3;
+	sem_t				*sem_w_w2;
 }				t_waiter;
 
 typedef struct s_game
 {
-	t_waiter			waiter;
+	t_waiter			w;
 	sem_t				*sem_id;
+	sem_t				*sem_show;
+	sem_t				*sem_table;
+	sem_t				*sem_eat_;
+	sem_t				*sem_ord_;
 	int					philo_a_table;
 	signed int			t_eat;
 	signed int			t_sleeping;
@@ -70,7 +80,7 @@ int			init_philo_bonus(int ac, char *av[], t_philo *p);
 int			init_game_bonus(char *av[], t_game *g, t_philo *p, int count);
 int			routine_bonus(t_game *g, t_philo *p, int count);
 int			waiter_bonus(t_game *g, t_philo *p, int index);
-int			stopper_bonus(t_game *g, t_philo *p, char *str, void *str2);
+int			stopper_bonus(t_game *g, t_philo *p, char *str, int mode);
 int			ft_itoa(char *str, signed int n);
 int			ft_atoi(const char *str);
 int			ft_strlen(const char *s);

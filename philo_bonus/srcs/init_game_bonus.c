@@ -41,14 +41,14 @@ int	init_game_bonus(char *av[], t_game *g, t_philo *p, int count)
 	g->t_eat = ft_atoi(av[3]);
 	g->t_sleeping = ft_atoi(av[4]);
 	g->philo_a_table = g->nbr_philo;
-	g->waiter.sp_ord = g->nbr_philo % 2;
-	g->waiter.order = -1;
+	g->w.sp_ord = g->nbr_philo % 2;
+	g->w.order = -1;
 	g->show_ptr = malloc(sizeof(char) * 2000);
 	if (!g->show_ptr)
-		return (stopper_bonus(g, p, "malloc", NULL));
+		return (stopper_bonus(g, p, "malloc", -1));
 	g->b_pid = malloc(sizeof(int) *(g->nbr_philo));
 	if (!g->b_pid)
-		return (stopper_bonus(g, p, "malloc", NULL));
+		return (stopper_bonus(g, p, "malloc", -1));
 	while (count < g->nbr_philo)
 		g->b_pid[count++] = -2;
 	return (init_game_bonus2(g, p, 0));

@@ -12,16 +12,28 @@
 
 #include "../lib/libphi_bonus.h"
 
-int	stopper_bonus(t_game *g, t_philo *p, char *str, void *str2)
+int	stopper_bonus(t_game *g, t_philo *p, char *str, int mode)
 {
 	if (g->show_ptr)
 		free(g->show_ptr);
 	if (g->b_pid)
 		free(g->b_pid);
-	if (str2)
-		free(str2);
 	sem_close(g->sem_id);
 	sem_unlink("/sem_id");
+	sem_close(g->w.sem_init1);
+	sem_unlink("/init1");
+	sem_close(g->w.sem_init2);
+	sem_unlink("/init2");
+	sem_close(g->w.sem_w);
+	sem_unlink("/sem_w");
+	sem_close(g->w.sem_w2);
+	sem_unlink("/sem_w2");
+	sem_close(g->w.sem_w3);
+	sem_unlink("/sem_w3");
+	sem_close(g->w.sem_w_w2);
+	sem_unlink("/sem_w_w2");
+	if (mode >= 0)
+		exit(mode);
 	return (0);
 	return (write(1, str, ft_strlen(str)));
 	if (p->eat_time == 100)
