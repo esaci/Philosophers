@@ -14,13 +14,19 @@ COMPILE = gcc
 
 CFLAGS = -pthread -Wall -Wextra -Werror
 
-SRC =	$(SRCD)init_philo_bonus.c	\
-		$(SRCD)init_game_bonus.c	\
-		$(SRCD)routine_bonus.c		\
-		$(SRCD)waiter_bonus.c		\
-		$(SRCD)return_bonus.c		\
-		$(SRCD)stopper_bonus.c		\
-		$(SRCD)utils_bonus.c		\
+SRC =	$(SRCD)init_philo_bonus.c			\
+		$(SRCD)init_game_bonus.c			\
+		$(SRCD)routine_bonus.c				\
+		$(SRCD)routine_eat_bonus.c			\
+		$(SRCD)routine_sleep_bonus.c		\
+		$(SRCD)routine_think_bonus.c		\
+		$(SRCD)routine_die_bonus.c			\
+		$(SRCD)fast_wait_bonus.c			\
+		$(SRCD)waiter_end_bonus.c			\
+		$(SRCD)return_bonus.c				\
+		$(SRCD)stopper_bonus.c				\
+		$(SRCD)time_bonus.c					\
+		$(SRCD)utils_bonus.c				\
 		$(SRCD)utils2_bonus.c
 
 OBJ = $(SRC:.c=.o)

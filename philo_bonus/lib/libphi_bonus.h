@@ -41,6 +41,7 @@ typedef struct s_waiter
 typedef struct s_game
 {
 	t_waiter			w;
+	struct timeval		s_time;
 	sem_t				*sem_id;
 	sem_t				*sem_show;
 	sem_t				*sem_table;
@@ -59,6 +60,7 @@ typedef struct s_game
 typedef struct s_philo
 {
 	int					philo_id;
+	int					philo_id2;
 	int					t_die;
 	int					t_eat;
 	int					t_sleep;
@@ -73,14 +75,17 @@ typedef struct s_dstruct
 	t_philo	*philo;
 }				t_dstruct;
 
-int			print_return(char *str, int code);
 int			full_check_int(char *av[], int ac);
 int			custom_sem_init(sem_t **semptr, char *name, int oflag, int mode);
 int			init_philo_bonus(int ac, char *av[], t_philo *p);
 int			init_game_bonus(char *av[], t_game *g, t_philo *p, int count);
 int			routine_bonus(t_game *g, t_philo *p, int count);
-int			waiter_bonus(t_game *g, t_philo *p, int index);
+int			waiter_end_bonus(t_game *g, t_philo *p, int index);
 int			stopper_bonus(t_game *g, t_philo *p, char *str, int mode);
+void		fast_wait_id(t_game *g);
+int			update_time(t_game *game, t_philo *philo, signed int *time);
+int			print_return(char *str, int code);
+int			return_free_time(signed int *time, int exit_num);
 int			ft_itoa(char *str, signed int n);
 int			ft_atoi(const char *str);
 int			ft_strlen(const char *s);

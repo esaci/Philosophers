@@ -49,8 +49,7 @@ int	loop_routine(t_game *game, t_philo *philo, int id_p)
 		if (routine_think(game, philo, time))
 			return (return_free_time(time, 1));
 	}
-	free(time);
-	return (0);
+	return (return_free_time(time, 0));
 }
 
 void	*routine(void *dstruct)

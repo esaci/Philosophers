@@ -12,7 +12,7 @@
 
 #include "../lib/libphi_bonus.h"
 
-int	waiter_bonus(t_game *g, t_philo *p, int index)
+int	waiter_end_bonus(t_game *g, t_philo *p, int index)
 {
 	g->tmp[0] = 0;
 	waitpid(g->b_pid[index], &g->tmp[1], 0);

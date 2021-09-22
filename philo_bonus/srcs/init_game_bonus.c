@@ -43,6 +43,8 @@ int	init_game_bonus(char *av[], t_game *g, t_philo *p, int count)
 	g->philo_a_table = g->nbr_philo;
 	g->w.sp_ord = g->nbr_philo % 2;
 	g->w.order = -1;
+	if (gettimeofday(&g->s_time, NULL))
+		return (stopper_bonus(g, p, "malloc", -1));
 	g->show_ptr = malloc(sizeof(char) * 2000);
 	if (!g->show_ptr)
 		return (stopper_bonus(g, p, "malloc", -1));

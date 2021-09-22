@@ -18,3 +18,9 @@ int	print_return(char *str, int code)
 	write(1, "\n", 1);
 	return (code);
 }
+
+int	return_free_time(signed int *time, int exit_num)
+{
+	free(time);
+	return (num);
+}

@@ -40,13 +40,16 @@ void	unlocker_die_mutex(t_game *g, t_philo *p, signed int *time, int mode)
 		id_p2 = 0;
 	if ((g->nbr_philo % 2) && id_p == 0)
 		id_p2 = g->nbr_philo - 1;
-	pthread_mutex_unlock(&g->mutex_f[id_p]);
-	pthread_mutex_unlock(&g->mutex_f[id_p2]);
 	unlock_wave(g, id_p);
 	unlock_wave2(g, id_p);
 	if (g->waiter.sp_ord)
 		unlock_wave3(g, id_p);
 	init_unlock_wave3(g, p, id_p);
+	if (g->nbr_philo == 1)
+		return ;
+	pthread_mutex_unlock(&g->mutex_f[id_p]);
+	pthread_mutex_unlock(&g->mutex_f[id_p2]);
+	return ;
 }
 
 int	routine_die(t_game *game, t_philo *philo, signed int *time, int mode)

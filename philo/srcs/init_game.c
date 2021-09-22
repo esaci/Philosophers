@@ -52,6 +52,8 @@ int	init_game3(t_game *game, t_philo *philo, int count, signed int *time)
 		{
 			if (check_death(game, philo, time, &c_time))
 			{
+				if (game->nbr_philo == 1)
+					pthread_mutex_unlock(&game->waiter.mutex_w2);
 				while (count > 0)
 				{
 					pthread_mutex_lock(&game->mutex_table);
@@ -96,6 +98,8 @@ int	init_game2(t_game *g, t_philo *philo, int count)
 int	init_game(char *av[], t_game *g, t_philo *philo, int count)
 {
 	g->nbr_philo = ft_atoi(av[1]);
+	if (g->nbr_philo == 1)
+		pthread_mutex_lock(&g->waiter.mutex_w2);
 	g->t_die = ft_atoi(av[2]);
 	g->t_eat = ft_atoi(av[3]);
 	g->t_sleeping = ft_atoi(av[4]);

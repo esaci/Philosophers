@@ -20,12 +20,13 @@ int	part_of_wave3(t_game *g, int id_p)
 		return (0);
 	pthread_mutex_lock(&g->mutex_ord_);
 	if (g->waiter.sp_ord == 1 && (id_p == 0 || id_p == (g->nbr_philo - 1)))
-		g->waiter.sp_ord = id_p + 2;
+		g->waiter.sp_ord = 2;
 	tmp = g->waiter.sp_ord;
 	pthread_mutex_unlock(&g->mutex_ord_);
 	if ((id_p == 0 || id_p == (g->nbr_philo - 1)) && ((id_p + 2) != tmp))
 		return (1);
 	return (0);
+	g->waiter.sp_ord = id_p + 2;
 }
 
 void	lock_wave3(t_game *g, int id_p)
