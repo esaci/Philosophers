@@ -18,7 +18,6 @@ int	routine_bonus(t_game *g, t_philo *p, int index)
 	if (!g->b_pid[index])
 	{
 		write(1, "philo\n", 6);
-		usleep(10000000);
 		stopper_bonus(g, p, "fin du processus", 0);
 	}
 	return (0);

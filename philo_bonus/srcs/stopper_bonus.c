@@ -32,6 +32,14 @@ int	stopper_bonus(t_game *g, t_philo *p, char *str, int mode)
 	sem_unlink("/sem_w3");
 	sem_close(g->w.sem_w_w2);
 	sem_unlink("/sem_w_w2");
+	sem_close(g->sem_eat_);
+	sem_unlink("/sem_eat_");
+	sem_close(g->sem_ord_);
+	sem_unlink("/sem_ord_");
+	sem_close(g->sem_table);
+	sem_unlink("/sem_table");
+	sem_close(g->sem_show);
+	sem_unlink("/sem_show");
 	if (mode >= 0)
 		exit(mode);
 	return (0);

@@ -75,7 +75,7 @@ typedef struct s_dstruct
 
 int			print_return(char *str, int code);
 int			full_check_int(char *av[], int ac);
-int			custom_sem_init(sem_t *semptr, char *name, int oflag, int mode);
+int			custom_sem_init(sem_t **semptr, char *name, int oflag, int mode);
 int			init_philo_bonus(int ac, char *av[], t_philo *p);
 int			init_game_bonus(char *av[], t_game *g, t_philo *p, int count);
 int			routine_bonus(t_game *g, t_philo *p, int count);
