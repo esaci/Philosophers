@@ -15,7 +15,7 @@ signed int	checker_str(t_game *game, t_philo *philo, char *str)
 	return (-1);
 }
 
-int	take_2_fork(t_game *g, signed int *time)
+int	take_2_fork_bonus(t_game *g, signed int *time)
 {
 	int		count;
 	int		tmp;
@@ -45,12 +45,12 @@ int	show_state_bonus(t_game *game, t_philo *philo, char *str, signed int *time)
 	full_reset_showptr(game);
 	if (!ft_memcmp(str, "is eating", 9))
 	{
-		if (routine_die(game, philo, time, 2))
+		if (routine_die_bonus(game, philo, time, 2))
 			return (1);
-		if (take_2_fork(game, time))
+		if (take_2_fork_bonus(game, time))
 			return (1);
 	}
-	else if (routine_die(game, philo, time, 1))
+	else if (routine_die_bonus(game, philo, time, 1))
 		return (1);
 	tmp = ft_strlen(game->show_ptr);
 	ft_itoa(&game->show_ptr[tmp], time[0]);

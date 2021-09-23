@@ -92,6 +92,7 @@ int	init_seph(t_game *g)
 	g->show_ptr = 0;
 	g->b_pid = 0;
 	g->sem_fork = 0;
+	g->time = 0;
 	if (init_seph_fork(g))
 		return (1);
 	if (custom_sem_init(&g->sem_id, "/sem_id", O_CREAT | O_EXCL, 0664))

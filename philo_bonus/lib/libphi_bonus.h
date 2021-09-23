@@ -36,6 +36,7 @@ typedef struct s_waiter
 	sem_t				*sem_w2;
 	sem_t				*sem_w3;
 	sem_t				*sem_w_w2;
+	pthread_mutex_t		mutex_exit;
 }				t_waiter;
 
 typedef struct s_game
@@ -48,6 +49,7 @@ typedef struct s_game
 	sem_t				*sem_eat_;
 	sem_t				*sem_ord_;
 	sem_t				**sem_fork;
+	signed int			*time;
 	int					philo_a_table;
 	signed int			t_eat;
 	signed int			t_sleeping;
@@ -60,25 +62,56 @@ typedef struct s_game
 
 typedef struct s_philo
 {
+	pthread_t			th_ph;
 	int					philo_id;
 	int					philo_id2;
 	int					t_die[2];
 	int					t_eat[2];
 	signed int			eat_time;
 	int					n_eat;
+	int					exit_value;
 }				t_philo;
 
 typedef struct s_dstruct
 {
-	t_game	*game;
-	t_philo	*philo;
+	t_game				*game;
+	t_philo				*philo;
 }				t_dstruct;
 
 int			full_check_int(char *av[], int ac);
 int			custom_sem_init(sem_t **semptr, char *name, int oflag, int mode);
 int			init_philo_bonus(int ac, char *av[], t_philo *p);
 int			init_game_bonus(char *av[], t_game *g, t_philo *p, int count);
-int			routine_bonus(t_game *g, t_philo *p, int count);
+signed int	custom_usleep(t_game *game, t_philo *philo, signed int time);
+int			routine_bonus(t_game *g, t_philo *p, int count, signed int *time);
+int			routine_eat_bonus(t_game *game, t_philo *philo, signed int *time);
+void		waiter_eat_bonus(t_game *game, t_philo *philo, signed int *time);
+int			routine_sleep_bonus(t_game *game, t_philo *philo, signed int *time);
+int			routine_think_bonus(t_game *g, t_philo *p, signed int *time);
+int			routine_die_bonus(t_game *g, t_philo *p, signed int *time, int m);
+void		wave_init_bonus(t_game *game, t_philo *philo, int id_p);
+int			ord_init_bonus(t_game *g, int id_p);
+int			order_init_bonus(t_game *g, int id_p);
+int			part_of_wave_bonus(t_game *g, int id_p);
+int			part_of_wave2_bonus(t_game *g, int id_p);
+int			part_of_wave3_bonus(t_game *g, int id_p);
+void		fast_wait_wave_bonus(t_game *g, int id_p);
+void		fast_wait_wave2_bonus(t_game *g, int id_p);
+void		fast_wait_wave3_bonus(t_game *g, int id_p);
+void		fast_wait_init_bonus(t_game *g, int id_p);
+void		lock_wave_bonus(t_game *game, int id_p);
+void		lock_wave2_bonus(t_game *g, int id_p);
+void		lock_wave3_bonus(t_game *game, int id_p);
+void		init_lock_wave3_bonus(t_game *g, int id_p);
+void		unlock_wave_bonus(t_game *g, int id_p);
+void		unlock_wave2_bonus(t_game *g, int id_p);
+void		unlock_wave3_bonus(t_game *g, int id_p);
+void		init_unlock_wave3_bonus(t_game *g, t_philo *p, int id_p);
+void		unlocker_die_mutex_bonus(t_game *g, t_philo *p, signed int *t, int m);
+void		wait_wave_bonus(t_game *g, t_philo *p, int id_p);
+void		wave_lock_wave2_bonus(t_game *g, int id_p);
+void		wave_unlock_wave2_bonus(t_game *g, t_philo *p, int id_p);
+int			show_state_bonus(t_game *g, t_philo *p, char *str, signed int *time);
 int			waiter_end_bonus(t_game *g, t_philo *p, int index);
 int			destroy_sem_fork(t_game *g, int count);
 int			stopper_bonus(t_game *g, t_philo *p, char *str, int mode);
@@ -86,6 +119,7 @@ void		fast_wait_id(t_game *g);
 int			update_time_bonus(t_game *game, t_philo *philo, signed int *time);
 int			print_return(char *str, int code);
 int			return_free_time(void *time, int exit_num);
+int			return_free_time_void(void *time);
 int			ft_itoa(char *str, signed int n);
 int			ft_atoi(const char *str);
 int			ft_strlen(const char *s);

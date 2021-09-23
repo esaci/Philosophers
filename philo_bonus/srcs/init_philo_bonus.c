@@ -23,5 +23,6 @@ int	init_philo_bonus(int ac, char *av[], t_philo *p)
 	p->t_eat[0] = 0;
 	p->t_eat[1] = 0;
 	p->eat_time = 0;
+	p->exit_value = 0;
 	return (0);
 }

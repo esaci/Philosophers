@@ -69,12 +69,14 @@ int	routine_die(t_game *game, t_philo *philo, signed int *time, int mode)
 		pthread_mutex_unlock(&game->mutex_show);
 		return (2);
 	}
+	pthread_mutex_lock(&game->mutex_eat_);
 	if (!philo->t_die[time[1]])
 	{
 		tmp = 0;
 		while (tmp < game->nbr_philo)
 			philo->t_die[tmp++] = 1;
 	}
+	pthread_mutex_unlock(&game->mutex_eat_);
 	show_die(game, time);
 	return (1);
 }

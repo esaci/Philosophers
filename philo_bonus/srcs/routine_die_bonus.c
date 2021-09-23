@@ -1,6 +1,6 @@
 #include "../lib/libphi_bonus.h"
 
-void	show_die(t_game *g, signed int *time)
+void	show_die_bonus(t_game *g, signed int *time)
 {
 	int		tmp;
 
@@ -12,7 +12,7 @@ void	show_die(t_game *g, signed int *time)
 	tmp = refresh_space(g);
 	merge_twoarray(&g->show_ptr[tmp + 1], "died");
 	print_str(g->show_ptr, 1);
-	pthread_mutex_unlock(&g->mutex_show);
+	sem_post(g->sem_show);
 }
 
 void	unlocker_die_sem(t_game *g, t_philo *p, signed int *time, int mode)
@@ -28,8 +28,8 @@ void	unlocker_die_sem(t_game *g, t_philo *p, signed int *time, int mode)
 	init_unlock_wave3_bonus(g, p, p->philo_id);
 	if (g->nbr_philo == 1)
 		return ;
-	sem_post(&g->mutex_f[p->philo_id]);
-	sem_post(&g->mutex_f[p->philo_id2]);
+	sem_post(&g->sem_f[p->philo_id]);
+	sem_post(&g->sem_f[p->philo_id2]);
 	return ;
 }
 
@@ -39,21 +39,26 @@ int	routine_die_bonus(t_game *game, t_philo *philo, signed int *time, int mode)
 	signed int	tmp2;
 
 	tmp = time[0] - philo->eat_time;
+	pthread_mutex_lock(&game->w.mutex_exit);
 	tmp2 = philo->t_die[1];
+	pthread_mutex_unlock(&game->w.mutex_exit);
 	if (tmp < game->t_die && !tmp2)
 		return (0);
 	unlocker_die_sem(game, philo, time, mode);
-	if (philo->t_die[time[1]])
+	pthread_mutex_lock(&game->w.mutex_exit);
+	if (philo->t_die[1])
 	{
+		pthread_mutex_unlock(&game->w.mutex_exit);
 		sem_post(&game->mutex_show);
 		return (2);
 	}
-	if (!philo->t_die[time[1]])
+	if (!philo->t_die[1])
 	{
 		tmp = 0;
-		while (tmp < game->nbr_philo)
+		while (tmp < 2)
 			philo->t_die[tmp++] = 1;
 	}
-	show_die(game, time);
+	pthread_mutex_unlock(&game->w.mutex_exit);
+	show_die_bonus(game, time);
 	return (1);
 }

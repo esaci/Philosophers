@@ -24,3 +24,9 @@ int	return_free_time(void *time, int exit_num)
 	free(time);
 	return (num);
 }
+
+int	return_free_time_void(void *time)
+{
+	free(time);
+	return (NULL);
+}

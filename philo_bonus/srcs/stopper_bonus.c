@@ -39,6 +39,8 @@ int	stopper_bonus(t_game *g, t_philo *p, char *str, int mode)
 		free(g->sem_fork);
 	if (g->b_pid)
 		free(g->b_pid);
+	if (g->time)
+		free(g->time);
 	sem_close(g->sem_id);
 	sem_unlink("/sem_id");
 	sem_close(g->w.sem_init1);
