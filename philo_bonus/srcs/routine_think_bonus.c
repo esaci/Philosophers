@@ -24,12 +24,9 @@ int	routine_think2_bonus(t_game *g, t_philo *p)
 
 int	routine_think_bonus(t_game *g, t_philo *p, signed int *time)
 {
-	int	order;
-
-	order = ord_init_bonus(g, p->philo_id);
 	if (show_state_bonus(g, p, "is thinking", time))
 		return (1);
-	if (p->t_eat[(p->philo_id + 1) % 2] < p->t_eat[p->philo_id % 2] && !g->w.sp_ord)
+	if (part_of_wave_bonus(g, p->philo_id) && !g->w.sp_ord)
 		fast_wait_wave2_bonus(g, p->philo_id);
 	return (routine_think2_bonus(g, p));
 }

@@ -1,0 +1,348 @@
+==4869== Memcheck, a memory error detector
+==4869== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4869== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4869== Command: ./philo_bonus 1 35000 100 100 4
+==4869== 
+--4869-- Valgrind options:
+--4869--    --trace-children=yes
+--4869--    -v
+--4869-- Contents of /proc/version:
+--4869--   Linux version 5.4.0-81-generic (buildd@lgw01-amd64-051) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #91~18.04.1-Ubuntu SMP Fri Jul 23 13:36:29 UTC 2021
+--4869-- 
+--4869-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
+--4869-- Page sizes: currently 4096, max supported 4096
+--4869-- Valgrind library directory: /usr/lib/valgrind
+--4869-- Reading syms from /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus
+--4869-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--4869--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--4869--   .. CRC mismatch (computed ac9397f6 wanted d0d82632)
+--4869--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--4869--   .. CRC is valid
+--4869-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--4869--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4869--   .. CRC mismatch (computed 41ddb025 wanted 9972f546)
+--4869--    object doesn't have a symbol table
+--4869--    object doesn't have a dynamic symbol table
+--4869-- Scheduler: using generic scheduler lock implementation.
+--4869-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4869== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4869-by-user42-on-???
+==4869== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4869-by-user42-on-???
+==4869== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4869-by-user42-on-???
+==4869== 
+==4869== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4869== don't want to do, unless you know exactly what you're doing,
+==4869== or are doing some strange experiment):
+==4869==   /usr/lib/valgrind/../../bin/vgdb --pid=4869 ...command...
+==4869== 
+==4869== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4869==   /path/to/gdb ./philo_bonus
+==4869== and then give GDB the following command
+==4869==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4869
+==4869== --pid is optional if only one valgrind process is running
+==4869== 
+--4869-- REDIR: 0x401f320 (ld-linux-x86-64.so.2:strlen) redirected to 0x580608c1 (???)
+--4869-- REDIR: 0x401f100 (ld-linux-x86-64.so.2:index) redirected to 0x580608db (???)
+--4869-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--4869--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4869--   .. CRC mismatch (computed 50df1b30 wanted 4800a4cf)
+--4869--    object doesn't have a symbol table
+--4869-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--4869--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4869--   .. CRC mismatch (computed f893b962 wanted 95ee359e)
+--4869--    object doesn't have a symbol table
+==4869== WARNING: new redirection conflicts with existing -- ignoring it
+--4869--     old: 0x0401f320 (strlen              ) R-> (0000.0) 0x580608c1 ???
+--4869--     new: 0x0401f320 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--4869-- REDIR: 0x401d390 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--4869-- REDIR: 0x401f860 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--4869-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.27.so
+--4869--   Considering /usr/lib/debug/.build-id/bc/3c06107774266c5f7db3f1f380a3da68af90fa.debug ..
+--4869--   .. build-id is valid
+--4869-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--4869--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--4869--   .. CRC mismatch (computed c2c067b2 wanted d73adc7f)
+--4869--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--4869--   .. CRC is valid
+--4869-- REDIR: 0x50f9ce0 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8db0 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f9fc0 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8800 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8de0 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50fb830 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f9e50 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f9c80 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8d70 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8870 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f9db0 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x5117160 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8d10 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f88e0 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50fa010 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f88b0 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50fa150 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8e10 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8830 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f8ce0 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x5103730 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50fa060 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f9c50 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x5117f20 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f90c0 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f9f90 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50f9f60 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50fb860 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x50fa0b0 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4869-- REDIR: 0x510c3a0 (libc.so.6:__strrchr_sse2) redirected to 0x4c32790 (__strrchr_sse2)
+--4869-- REDIR: 0x50f20e0 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--4869-- REDIR: 0x50f29c0 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+--4869-- REDIR: 0x510c690 (libc.so.6:__strlen_sse2) redirected to 0x4c32d30 (__strlen_sse2)
+--4869-- REDIR: 0x510bf70 (libc.so.6:__strchr_sse2) redirected to 0x4c328d0 (__strchr_sse2)
+--4869-- REDIR: 0x51164b0 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x4c37130 (mempcpy)
+--4869-- REDIR: 0x51164d0 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4c34060 (memcpy@GLIBC_2.2.5)
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x108FF9: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109028: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109063: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10909E: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x1090D9: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109114: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10914F: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10918A: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x1091C7: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109201: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10923B: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4871== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4871-by-user42-on-???
+==4871== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4871-by-user42-on-???
+==4871== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4871-by-user42-on-???
+==4871== 
+==4871== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4871== don't want to do, unless you know exactly what you're doing,
+==4871== or are doing some strange experiment):
+==4871==   /usr/lib/valgrind/../../bin/vgdb --pid=4871 ...command...
+==4871== 
+==4871== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4871==   /path/to/gdb ./philo_bonus
+==4871== and then give GDB the following command
+==4871==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4871
+==4871== --pid is optional if only one valgrind process is running
+==4871== 
+--4869-- REDIR: 0x5104ee0 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c33da0 (strcmp)
+==4869== 
+==4869== HEAP SUMMARY:
+==4869==     in use at exit: 0 bytes in 0 blocks
+==4869==   total heap usage: 36 allocs, 36 frees, 3,760 bytes allocated
+==4869== 
+==4869== All heap blocks were freed -- no leaks are possible
+==4869== 
+==4869== Use --track-origins=yes to see where uninitialised values come from
+==4869== ERROR SUMMARY: 11 errors from 11 contexts (suppressed: 0 from 0)
+==4869== 
+==4869== 1 errors in context 1 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10923B: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 2 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109201: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 3 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x1091C7: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 4 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10918A: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 5 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10914F: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 6 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109114: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 7 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x1090D9: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 8 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x10909E: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 9 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109063: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 10 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109028: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== 
+==4869== 1 errors in context 11 of 11:
+==4869== Syscall param write(buf) points to uninitialised byte(s)
+==4869==    at 0x4E4D291: write (write.c:27)
+==4869==    by 0x4E4C278: sem_open (sem_open.c:269)
+==4869==    by 0x10B92F: custom_sem_init (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x108FF9: init_seph (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==    by 0x109325: main (in /home/user42/Bureau/Philosophers/philo_bonus/philo_bonus)
+==4869==  Address 0x1fff0001cc is on thread 1's stack
+==4869==  in frame #1, created by sem_open (sem_open.c:141)
+==4869== 
+==4869== ERROR SUMMARY: 11 errors from 11 contexts (suppressed: 0 from 0)
+--4871-- REDIR: 0x50f50a0 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
