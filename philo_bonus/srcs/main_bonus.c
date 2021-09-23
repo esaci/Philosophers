@@ -60,12 +60,13 @@ int	init_seph_fork(t_game *g)
 {
 	int	count;
 	char	*ptr;
+	int		tmp;
 
 	ptr = malloc(sizeof(char) * 200);
 	if (!ptr)
 		return (1);
 	g->sem_f = malloc(sizeof(sem_t) * (g->nbr_philo + 1));
-	if (g->sem_f)
+	if (!g->sem_f)
 		return (return_free_time(ptr, 1));
 	count = 0;
 	while (count < 200)
@@ -75,8 +76,9 @@ int	init_seph_fork(t_game *g)
 	{
 		ptr[0] = '/';
 		ft_itoa(ptr + 1, count);
-		merge_twoarray(ptr, "_fork");
-		if (custom_sem_init(&g->sem_f[count], ptr, O_CREAT | O_EXCL, 0664))
+		tmp  = ft_strlen(ptr);
+		merge_twoarray(ptr + tmp, "_fork");
+		if (custom_sem_init(&g->sem_f[count], ptr, O_CREAT, 0664))
 			break ;
 		count++;
 	}
@@ -95,27 +97,27 @@ int	init_seph(t_game *g, char *av[])
 	g->time = 0;
 	if (init_seph_fork(g))
 		return (1);
-	if (custom_sem_init(&g->sem_id, "/sem_id", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->sem_id, "/sem_id", O_CREAT, 0664))
 		return (1);
-	if (custom_sem_init(&g->w.sem_init1, "/init1", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->w.sem_init1, "/init1", O_CREAT, 0664))
 		return(return_free(g, 1));
-	if (custom_sem_init(&g->w.sem_init2, "/init2", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->w.sem_init2, "/init2", O_CREAT, 0664))
 		return(return_free(g, 2));
-	if (custom_sem_init(&g->w.sem_w, "/sem_w", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->w.sem_w, "/sem_w", O_CREAT, 0664))
 		return(return_free(g, 3));
-	if (custom_sem_init(&g->w.sem_w2, "/sem_w2", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->w.sem_w2, "/sem_w2", O_CREAT, 0664))
 		return(return_free(g, 4));
-	if (custom_sem_init(&g->w.sem_w3, "/sem_w3", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->w.sem_w3, "/sem_w3", O_CREAT, 0664))
 		return(return_free(g, 5));
-	if (custom_sem_init(&g->w.sem_w_w2, "/sem_w_w2", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->w.sem_w_w2, "/sem_w_w2", O_CREAT, 0664))
 		return(return_free(g, 6));
-	if (custom_sem_init(&g->sem_show, "/sem_show", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->sem_show, "/sem_show", O_CREAT, 0664))
 		return(return_free(g, 7));
-	if (custom_sem_init(&g->sem_table, "/sem_table", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->sem_table, "/sem_table", O_CREAT, 0664))
 		return(return_free(g, 8));
-	if (custom_sem_init(&g->sem_eat_, "/sem_eat_", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->sem_eat_, "/sem_eat_", O_CREAT, 0664))
 		return(return_free(g, 9));
-	if (custom_sem_init(&g->sem_ord_, "/sem_ord_", O_CREAT | O_EXCL, 0664))
+	if (custom_sem_init(&g->sem_ord_, "/sem_ord_", O_CREAT, 0664))
 		return(return_free(g, 10));
 	return (0);
 }
