@@ -26,7 +26,7 @@ int	destroy_sem_fork(t_game *g, int count)
 		ptr[0] = '/';
 		ft_itoa(ptr + 1, count2);
 		merge_twoarray(ptr, "_fork");
-		sem_close(g->sem_f[count2]);
+		sem_close(&g->sem_f[count2]);
 		sem_unlink(ptr);
 		count2++;
 	}
@@ -45,27 +45,27 @@ int	stopper_bonus(t_game *g, t_philo *p, char *str, int mode)
 		free(g->b_pid);
 	if (g->time)
 		free(g->time);
-	sem_close(g->sem_id);
+	sem_close(&g->sem_id);
 	sem_unlink("/sem_id");
-	sem_close(g->w.sem_init1);
+	sem_close(&g->w.sem_init1);
 	sem_unlink("/init1");
-	sem_close(g->w.sem_init2);
+	sem_close(&g->w.sem_init2);
 	sem_unlink("/init2");
-	sem_close(g->w.sem_w);
+	sem_close(&g->w.sem_w);
 	sem_unlink("/sem_w");
-	sem_close(g->w.sem_w2);
+	sem_close(&g->w.sem_w2);
 	sem_unlink("/sem_w2");
-	sem_close(g->w.sem_w3);
+	sem_close(&g->w.sem_w3);
 	sem_unlink("/sem_w3");
-	sem_close(g->w.sem_w_w2);
+	sem_close(&g->w.sem_w_w2);
 	sem_unlink("/sem_w_w2");
-	sem_close(g->sem_eat_);
+	sem_close(&g->sem_eat_);
 	sem_unlink("/sem_eat_");
-	sem_close(g->sem_ord_);
+	sem_close(&g->sem_ord_);
 	sem_unlink("/sem_ord_");
-	sem_close(g->sem_table);
+	sem_close(&g->sem_table);
 	sem_unlink("/sem_table");
-	sem_close(g->sem_show);
+	sem_close(&g->sem_show);
 	sem_unlink("/sem_show");
 	if (mode >= 0)
 		exit(mode);

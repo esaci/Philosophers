@@ -31,12 +31,12 @@ typedef struct s_waiter
 	int					order;
 	int					sp_ord;
 	int					flag;
-	sem_t				*sem_init1;
-	sem_t				*sem_init2;
-	sem_t				*sem_w;
-	sem_t				*sem_w2;
-	sem_t				*sem_w3;
-	sem_t				*sem_w_w2;
+	sem_t				sem_init1;
+	sem_t				sem_init2;
+	sem_t				sem_w;
+	sem_t				sem_w2;
+	sem_t				sem_w3;
+	sem_t				sem_w_w2;
 	pthread_mutex_t		mutex_exit;
 }				t_waiter;
 
@@ -44,12 +44,12 @@ typedef struct s_game
 {
 	t_waiter			w;
 	struct timeval		s_time;
-	sem_t				*sem_id;
-	sem_t				*sem_show;
-	sem_t				*sem_table;
-	sem_t				*sem_eat_;
-	sem_t				*sem_ord_;
-	sem_t				**sem_f;
+	sem_t				sem_id;
+	sem_t				sem_show;
+	sem_t				sem_table;
+	sem_t				sem_eat_;
+	sem_t				sem_ord_;
+	sem_t				*sem_f;
 	signed int			*time;
 	int					philo_a_table;
 	signed int			t_eat;
@@ -80,7 +80,7 @@ typedef struct s_dstruct
 }				t_dstruct;
 
 int				full_check_int(char *av[], int ac);
-int				custom_sem_init(sem_t **semptr, char *name, int oflag, int mode);
+int				custom_sem_init(sem_t *semptr, char *name, int oflag, int mode);
 int				init_philo_bonus(int ac, char *av[], t_philo *p);
 int				init_game_bonus(char *av[], t_game *g, t_philo *p, int count);
 signed int		custom_usleep(t_game *game, t_philo *philo, signed int time);

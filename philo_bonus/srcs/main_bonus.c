@@ -15,43 +15,43 @@
 int	return_free(t_game *g, int index)
 {
 	destroy_sem_fork(g, g->nbr_philo);
-	sem_close(g->sem_id);
+	sem_close(&g->sem_id);
 	sem_unlink("/sem_id");
 	if (index < 2)
 		return (1);
-	sem_close(g->w.sem_init1);
+	sem_close(&g->w.sem_init1);
 	sem_unlink("/init1");
 	if (index < 3)
 		return (1);
-	sem_close(g->w.sem_init2);
+	sem_close(&g->w.sem_init2);
 	sem_unlink("/init2");
 	if (index < 4)
 		return (1);
-	sem_close(g->w.sem_w);
+	sem_close(&g->w.sem_w);
 	sem_unlink("/sem_w");
 	if (index < 5)
 		return (1);
-	sem_close(g->w.sem_w2);
+	sem_close(&g->w.sem_w2);
 	sem_unlink("/sem_w2");
 	if (index < 6)
 		return (1);
-	sem_close(g->w.sem_w3);
+	sem_close(&g->w.sem_w3);
 	sem_unlink("/sem_w3");
 	if (index < 7)
 		return (1);
-	sem_close(g->w.sem_w_w2);
+	sem_close(&g->w.sem_w_w2);
 	sem_unlink("/sem_w_w2");
 	if (index < 8)
 		return (1);
-	sem_close(g->sem_show);
+	sem_close(&g->sem_show);
 	sem_unlink("/sem_show");
 	if (index < 9)
 		return (1);
-	sem_close(g->sem_table);
+	sem_close(&g->sem_table);
 	sem_unlink("/sem_table");
 	if (index < 10)
 		return (1);
-	sem_close(g->sem_eat_);
+	sem_close(&g->sem_eat_);
 	sem_unlink("/sem_eat_");
 	return (1);
 }
@@ -78,7 +78,7 @@ int	init_seph_fork(t_game *g)
 		ft_itoa(ptr + 1, count);
 		tmp  = ft_strlen(ptr);
 		merge_twoarray(ptr + tmp, "_fork");
-		if (custom_sem_init(&g->sem_f[count], ptr, O_CREAT, 0664))
+		if (custom_sem_init(g->sem_f + count, ptr, O_CREAT, 0664))
 			break ;
 		count++;
 	}

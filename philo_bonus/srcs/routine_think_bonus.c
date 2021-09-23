@@ -2,8 +2,8 @@
 
 void	fast_wave_wave2_bonus(t_game *g)
 {
-	sem_wait(g->w.sem_w_w2);
-	sem_post(g->w.sem_w_w2);
+	sem_wait(&g->w.sem_w_w2);
+	sem_post(&g->w.sem_w_w2);
 }
 
 int	routine_think2_bonus(t_game *g, t_philo *p)
@@ -17,7 +17,7 @@ int	routine_think2_bonus(t_game *g, t_philo *p)
 	if (g->w.sp_ord)
 	{
 		if (part_of_wave3_bonus(g, p->philo_id))
-			sem_wait(g->w.sem_w3);
+			sem_wait(&g->w.sem_w3);
 	}
 	return (0);
 }

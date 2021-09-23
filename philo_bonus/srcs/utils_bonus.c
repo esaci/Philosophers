@@ -54,10 +54,10 @@ int	full_check_int(char *av[], int ac)
 	return (0);
 }
 
-int	custom_sem_init(sem_t **semptr, char *name, int oflag, int mode)
+int	custom_sem_init(sem_t *semptr, char *name, int oflag, int mode)
 {
-	*semptr = sem_open(name, oflag, mode, 1);
-	if (*semptr == SEM_FAILED)
+	semptr = sem_open(name, oflag, mode, 1);
+	if (semptr == SEM_FAILED)
 		return (1);
 	return (0);
 }

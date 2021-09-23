@@ -18,21 +18,21 @@ int	init_game_bonus2(t_game *g, t_philo *p, int index)
 	struct timeval	*c_time;
 
 	if (g->nbr_philo == 1)
-		sem_wait(g->w.sem_w2);
+		sem_wait(&g->w.sem_w2);
 	c_time = init_timeval(g, p);
 	if (!c_time)
 		return (0);
-	sem_wait(g->sem_id);
+	sem_wait(&g->sem_id);
 	while (index < g->nbr_philo)
 	{
 		if (routine_bonus(g, p, index))
 		{
-			sem_post(g->sem_id);
+			sem_post(&g->sem_id);
 			return (1);
 		}
 		index++;
 	}
-	sem_post(g->sem_id);
+	sem_post(&g->sem_id);
 	index2 = 0;
 	while (index2 < g->nbr_philo)
 	{

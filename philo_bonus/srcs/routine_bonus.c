@@ -49,15 +49,15 @@ int	routine_bonus(t_game *g, t_philo *p, int index)
 			stopper_bonus(g, p, "Thread echec", 1);
 		}
 		loop_routine_bonus(g, p);
-		sem_wait(g->sem_table);
+		sem_wait(&g->sem_table);
 		g->philo_a_table--;
 		tmp = g->philo_a_table;
-		sem_post(g->sem_table);
+		sem_post(&g->sem_table);
 		while (tmp > 0)
 		{
-			sem_wait(g->sem_table);
+			sem_wait(&g->sem_table);
 			tmp = g->philo_a_table;
-			sem_post(g->sem_table);
+			sem_post(&g->sem_table);
 		}
 		pthread_mutex_destroy(&g->w.mutex_exit);
 		stopper_bonus(g, p, "Fin du processus", p->exit_value);

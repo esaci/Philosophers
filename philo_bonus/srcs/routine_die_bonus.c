@@ -6,7 +6,7 @@ void	show_die_bonus(t_game *g, signed int *time, int mode)
 
 	if (!mode)
 	{
-		sem_post(g->sem_show);
+		sem_post(&g->sem_show);
 		return ;
 	}
 	full_reset_showptr(g);
@@ -17,7 +17,7 @@ void	show_die_bonus(t_game *g, signed int *time, int mode)
 	tmp = refresh_space(g);
 	merge_twoarray(&g->show_ptr[tmp + 1], "died");
 	print_str(g->show_ptr, 1);
-	sem_post(g->sem_show);
+	sem_post(&g->sem_show);
 }
 
 void	unlocker_die_sem(t_game *g, t_philo *p, int mode)
@@ -33,8 +33,8 @@ void	unlocker_die_sem(t_game *g, t_philo *p, int mode)
 	init_unlock_wave3_bonus(g, p, p->philo_id);
 	if (g->nbr_philo == 1)
 		return ;
-	sem_post(g->sem_f[p->philo_id]);
-	sem_post(g->sem_f[p->philo_id2]);
+	sem_post(&g->sem_f[p->philo_id]);
+	sem_post(&g->sem_f[p->philo_id2]);
 	return ;
 }
 
@@ -54,7 +54,7 @@ int	routine_die_bonus(t_game *game, t_philo *philo, signed int *time, int mode)
 	if (philo->t_die[1])
 	{
 		pthread_mutex_unlock(&game->w.mutex_exit);
-		sem_post(game->sem_show);
+		sem_post(&game->sem_show);
 		return (2);
 	}
 	if (!philo->t_die[1])

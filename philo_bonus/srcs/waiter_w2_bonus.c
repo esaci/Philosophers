@@ -27,13 +27,13 @@ void	lock_wave2_bonus(t_game *g, int id_p)
 
 	order = ord_init_bonus(g, id_p);
 	if ((id_p + order) == 1)
-		sem_wait(g->w.sem_w2);
+		sem_wait(&g->w.sem_w2);
 }
 
 void	fast_wait_wave2_bonus(t_game *g, int id_p)
 {
-	sem_wait(g->w.sem_w2);
-	sem_post(g->w.sem_w2);
+	sem_wait(&g->w.sem_w2);
+	sem_post(&g->w.sem_w2);
 	return ;
 	if (part_of_wave2_bonus(g, id_p))
 		return ;
