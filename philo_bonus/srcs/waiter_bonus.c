@@ -1,26 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   waiter_bonus.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 19:57:48 by esaci             #+#    #+#             */
-/*   Updated: 2021/09/21 19:59:34 by esaci            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../lib/libphi_bonus.h"
 
-int	waiter_end_bonus(t_game *g, t_philo *p, int index)
+int	check_sp_ord3_bonus(t_game *g)
 {
-	g->tmp[0] = 0;
-	waitpid(g->b_pid[index], &g->tmp[1], 0);
-	if (WIFEXITED(g->tmp[1]))
+	if (!(g->nbr_philo % 2))
+		return (0);
+	if (part_of_wave3_bonus(g, p->philo_id))
 	{
-		g->tmp[0] = WEXITSTATUS(g->tmp[1]);
-		if (p->eat_time == 100)
-			return ('e');
+		fast_wait_wave2_bonus(g, p->philo_id);
+		fast_wait_wave_bonus(g, p->philo_id);
+		return (1);
 	}
-	return (0);
+	if (part_of_wave_bonus(g, p->philo_id))
+		return (1);
+	fast_wait_wave_bonus(g, p->philo_id);
+	return (1);
+}
+
+void	waiter_eat_bonus(t_game *g, t_philo *p, signed int *time)
+{
+	int	order;
+
+	if (check_sp_ord3_bonus(g, p->philo_id))
+		return ;
+	order = ord_init_bonus(g, p->philo_id);
+	if ((p->philo_id % 2) == order)
+		return ;
+	wait_wave_bonus(g, p, p->philo_id);
+	return ;
 }

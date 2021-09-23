@@ -15,7 +15,7 @@
 int	init_game_bonus2(t_game *g, t_philo *p, int index)
 {
 	if (g->nbr_philo == 1)
-		pthread_mutex_lock(&g->waiter.mutex_w2);
+		pthread_mutex_lock(&g->w.mutex_w2);
 	sem_wait(g->sem_id);
 	while (index < g->nbr_philo)
 	{
@@ -44,7 +44,7 @@ int	init_game_bonus(char *av[], t_game *g, t_philo *p, int count)
 	g->t_sleeping = ft_atoi(av[4]);
 	g->philo_a_table = g->nbr_philo;
 	g->w.sp_ord = g->nbr_philo % 2;
-	g->w.order = -1;
+	g->w.order = 0;
 	if (gettimeofday(&g->s_time, NULL))
 		return (stopper_bonus(g, p, "malloc", -1));
 	g->show_ptr = malloc(sizeof(char) * 2000);

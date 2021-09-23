@@ -1,6 +1,6 @@
 #include "../lib/libphi_bonus.h"
 
-int	update_time(t_game *game, t_philo *philo, signed int *time)
+int	update_time_bonus(t_game *game, t_philo *philo, signed int *time)
 {
 	struct timeval	*c_time;
 

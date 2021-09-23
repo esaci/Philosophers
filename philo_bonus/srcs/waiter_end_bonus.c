@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_philo_bonus.c                                 :+:      :+:    :+:   */
+/*   waiter_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 17:38:13 by esaci             #+#    #+#             */
-/*   Updated: 2021/09/21 17:39:36 by esaci            ###   ########.fr       */
+/*   Created: 2021/09/21 19:57:48 by esaci             #+#    #+#             */
+/*   Updated: 2021/09/21 19:59:34 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/libphi_bonus.h"
 
-int	init_philo_bonus(int ac, char *av[], t_philo *p)
+int	waiter_end_bonus(t_game *g, t_philo *p, int index)
 {
-	p->n_eat = -1;
-	if (ac == 6)
-		p->n_eat = ft_atoi(av[5]);
-	p->philo_id = -1;
-	p->t_die = 0;
-	p->t_eat[0] = 0;
-	p->t_eat[1] = 0;
-	p->eat_time = 0;
+	g->tmp[0] = 0;
+	waitpid(g->b_pid[index], &g->tmp[1], 0);
+	if (WIFEXITED(g->tmp[1]))
+	{
+		g->tmp[0] = WEXITSTATUS(g->tmp[1]);
+/* 		if (p->eat_time == 100)
+			return ('e'); */
+	}
 	return (0);
 }

@@ -17,7 +17,7 @@ int	loop_routine_bonus(t_game *game, t_philo *philo)
 	signed int		*time;
 
 	time = malloc(sizeof(signed int) * 2);
-	if (update_time(game, philo, time))
+	if (update_time_bonus(game, philo, time))
 		return (return_free_time(time, 1));
 	while (1)
 	{
