@@ -14,6 +14,8 @@
 
 int	init_game_bonus2(t_game *g, t_philo *p, int index)
 {
+	if (g->nbr_philo == 1)
+		pthread_mutex_lock(&g->waiter.mutex_w2);
 	sem_wait(g->sem_id);
 	while (index < g->nbr_philo)
 	{
