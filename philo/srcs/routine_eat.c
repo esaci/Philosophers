@@ -25,10 +25,7 @@ void	wave_init(t_game *g, t_philo *p, int id_p)
 	lock_wave(g, id_p);
 	lock_wave2(g, id_p);
 	if ((g->nbr_philo % 2))
-	{
-		lock_wave3(g, id_p);
 		fast_wait_init(g, id_p);
-	}
 }
 
 void	lock_forks(t_game *g, int id_p, int id_p2)

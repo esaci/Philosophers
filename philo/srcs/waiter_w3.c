@@ -31,7 +31,7 @@ int	part_of_wave3(t_game *g, int id_p)
 
 void	lock_wave3(t_game *g, int id_p)
 {
-	if (!(g->nbr_philo % 2))
+	if (!(g->nbr_philo % 2) || g->nbr_philo == 1)
 		return ;
 	if (id_p != 0 && id_p != (g->nbr_philo - 1))
 		return ;
