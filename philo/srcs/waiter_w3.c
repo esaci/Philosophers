@@ -57,10 +57,15 @@ void	wave_lock_wave2(t_game *g, int id_p)
 		pthread_mutex_lock(&g->waiter.mutex_w_w2);
 }
 
-void	wave_unlock_wave2(t_game *g, int id_p)
+void	wave_unlock_wave2(t_game *g, t_philo *p, int id_p)
 {
 	int	tmp;
 
+	pthread_mutex_lock(&g->mutex_eat_);
+	tmp = p->t_eat[id_p];
+	pthread_mutex_unlock(&g->mutex_eat_);
+	if (tmp < 1)
+		return ;
 	tmp = order_init(g, id_p);
 	if (id_p == tmp)
 		pthread_mutex_unlock(&g->waiter.mutex_w_w2);

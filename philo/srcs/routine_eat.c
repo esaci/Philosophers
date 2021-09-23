@@ -80,6 +80,7 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	lock_forks(g, id_p, id_p2);
 	if (update_time(g, p, time))
 		return (1);
+	wave_unlock_wave2(g, p, id_p);
 	pthread_mutex_lock(&g->mutex_eat_);
 	p->eat_time[id_p] = time[0];
 	p->t_eat[id_p]++;

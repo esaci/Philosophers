@@ -100,7 +100,7 @@ void			init_unlock_wave3(t_game *g, t_philo *p, int id_p);
 void			unlocker_die_mutex(t_game *g, t_philo *p, signed int *t, int m);
 void			wait_wave(t_game *g, t_philo *p, int id_p);
 void			wave_lock_wave2(t_game *g, int id_p);
-void			wave_unlock_wave2(t_game *g, int id_p);
+void			wave_unlock_wave2(t_game *g, t_philo *p, int id_p);
 int				show_state(t_game *g, t_philo *p, char *str, signed int *time);
 void			full_reset_showptr(t_game *g);
 int				ft_strlen(const char *s);

@@ -25,7 +25,7 @@ int	routine_think2(t_game *g, t_philo *p, int id_p)
 	if (!part_of_wave(g, id_p))
 		fast_wave_wave2(g);
 	lock_wave(g, id_p);
-	wave_unlock_wave2(g, id_p);
+/* 	wave_unlock_wave2(g, p, id_p); */
 	lock_wave2(g, id_p);
 	if (g->waiter.sp_ord)
 	{

@@ -31,7 +31,7 @@ int	check_death(t_game *g, t_philo *p, signed int *time, struct timeval *c_time)
 		if (res == 1)
 		{
 			if (g->nbr_philo == 1)
-					pthread_mutex_unlock(&g->waiter.mutex_w2);
+				pthread_mutex_unlock(&g->waiter.mutex_w2);
 		}
 		if (res)
 			return (0);
