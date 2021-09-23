@@ -29,7 +29,7 @@ void	lock_forks_bonus(t_game *g, t_philo *p)
 
 int	routine_eat_bonus2(t_game *g, t_philo *p, signed int *time)
 {
-	if (show_state(g, p, "is eating", time))
+	if (show_state_bonus(g, p, "is eating", time))
 		return (1);
 	sem_post(g->sem_f[p->philo_id]);
 	sem_post(g->sem_f[p->philo_id2]);
@@ -49,7 +49,7 @@ int	routine_eat_bonus(t_game *g, t_philo *p, signed int *time)
 	if ((g->nbr_philo % 2) && p->philo_id == 0)
 		p->philo_id2 = g->nbr_philo - 1;
 	wave_init_bonus(g, p);
-	waiter_eat_bonus(g, p, time);
+	waiter_eat_bonus(g, p);
 	lock_forks_bonus(g, p);
 	if (update_time_bonus(g, p, time))
 		return (1);

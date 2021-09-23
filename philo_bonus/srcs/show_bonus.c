@@ -59,7 +59,7 @@ int	show_state_bonus(t_game *game, t_philo *philo, char *str, signed int *time)
 	tmp = refresh_space(game);
 	merge_twoarray(&game->show_ptr[tmp + 1], str);
 	print_str(game->show_ptr, 1);
-	pthread_mutex_unlock(game->sem_show);
+	sem_post(game->sem_show);
 	time[0] = checker_str(game, philo, str);
 	if (time[0] == -1)
 		return (1);

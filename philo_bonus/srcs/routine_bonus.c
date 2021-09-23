@@ -12,17 +12,17 @@
 
 #include "../lib/libphi_bonus.h"
 
-int	loop_routine_bonus(t_game *game, t_philo *philo)
+int	loop_routine_bonus(t_game *g, t_philo *philo)
 {
-	if (update_time_bonus(game, philo, g->time))
+	if (update_time_bonus(g, philo, g->time))
 		return (return_free_time(g->time, 1));
 	while (1)
 	{
-		if (routine_eat_bonus(game, philo, g->time))
+		if (routine_eat_bonus(g, philo, g->time))
 			return (return_free_time(g->time, 1));
-		if (routine_sleep_bonus(game, philo, g->time))
+		if (routine_sleep_bonus(g, philo, g->time))
 			return (return_free_time(g->time, 1));
-		if (routine_think_bonus(game, philo, g->time))
+		if (routine_think_bonus(g, philo, g->time))
 			return (return_free_time(g->time, 1));
 	}
 	return (return_free_time(g->time, 0));
@@ -38,16 +38,17 @@ int	routine_bonus(t_game *g, t_philo *p, int index)
 	{
 		pthread_mutex_init(&g->w.mutex_exit, NULL);
 		dst.game = g;
-		dst.philo = philo;
+		dst.philo = p;
 		p->philo_id = index;
-		init_lock_wave3(g, id_p);
+		g->time[1] = index;
+		init_lock_wave3_bonus(g, p->philo_id);
 		fast_wait_id(g);
-		if (pthread_create(p->th_ph, NULL, &thread_routine_bonus, &dst))
+		if (pthread_create(&p->th_ph, NULL, &thread_routine_bonus, &dst))
 		{
-			pthread_mutex_destroy(&g->w.mutex_exit, NULL);
+			pthread_mutex_destroy(&g->w.mutex_exit);
 			stopper_bonus(g, p, "Thread echec", 1);
 		}
-		loop_routine_bonus(g, p, time);
+		loop_routine_bonus(g, p);
 		sem_wait(g->sem_table);
 		g->philo_a_table--;
 		tmp = g->philo_a_table;
@@ -58,7 +59,7 @@ int	routine_bonus(t_game *g, t_philo *p, int index)
 			tmp = g->philo_a_table;
 			sem_post(g->sem_table);
 		}
-		pthread_mutex_destroy(&g->w.mutex_exit, NULL);
+		pthread_mutex_destroy(&g->w.mutex_exit);
 		stopper_bonus(g, p, "Fin du processus", p->exit_value);
 	}
 	return (0);

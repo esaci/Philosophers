@@ -15,14 +15,18 @@
 int	destroy_sem_fork(t_game *g, int count)
 {
 	int	count2;
+	char	*ptr;
 
+	ptr = malloc(sizeof(char) * 200);
+	if (!ptr)
+		return (1);
 	count2 = 0;
 	while (count2 < count)
 	{
 		ptr[0] = '/';
 		ft_itoa(ptr + 1, count2);
 		merge_twoarray(ptr, "_fork");
-		sem_close(g->sem_fork[count2]);
+		sem_close(g->sem_f[count2]);
 		sem_unlink(ptr);
 		count2++;
 	}
@@ -35,8 +39,8 @@ int	stopper_bonus(t_game *g, t_philo *p, char *str, int mode)
 	if (g->show_ptr)
 		free(g->show_ptr);
 	destroy_sem_fork(g, g->nbr_philo);
-	if (g->sem_fork)
-		free(g->sem_fork);
+	if (g->sem_f)
+		free(g->sem_f);
 	if (g->b_pid)
 		free(g->b_pid);
 	if (g->time)

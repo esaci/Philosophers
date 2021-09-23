@@ -1,6 +1,6 @@
 #include "../lib/libphi_bonus.h"
 
-int	check_sp_ord3_bonus(t_game *g)
+int	check_sp_ord3_bonus(t_game *g, t_philo *p)
 {
 	if (!(g->nbr_philo % 2))
 		return (0);
@@ -16,11 +16,11 @@ int	check_sp_ord3_bonus(t_game *g)
 	return (1);
 }
 
-void	waiter_eat_bonus(t_game *g, t_philo *p, signed int *time)
+void	waiter_eat_bonus(t_game *g, t_philo *p)
 {
 	int	order;
 
-	if (check_sp_ord3_bonus(g, p->philo_id))
+	if (check_sp_ord3_bonus(g, p))
 		return ;
 	order = ord_init_bonus(g, p->philo_id);
 	if ((p->philo_id % 2) == order)

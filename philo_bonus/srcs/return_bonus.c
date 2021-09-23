@@ -22,10 +22,10 @@ int	print_return(char *str, int code)
 int	return_free_time(void *time, int exit_num)
 {
 	free(time);
-	return (num);
+	return (exit_num);
 }
 
-int	return_free_time_void(void *time)
+void	*return_free_time_void(void *time)
 {
 	free(time);
 	return (NULL);

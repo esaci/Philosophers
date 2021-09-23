@@ -18,16 +18,14 @@ struct timeval	*init_timeval(t_game *game, t_philo *philo)
 
 	t = malloc(sizeof(t) * 2);
 	if (!t)
-	{
-		stopper(game, philo, "malloc", NULL);
 		return (0);
-	}
 	if (gettimeofday(t, NULL))
 	{
-		stopper(game, philo, "gettimeofday a renvoye NULL", t);
+		free(t);
 		return (0);
 	}
 	return (t);
+	stopper(game, philo, "malloc", NULL);
 }
 
 int	custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp, void *c)
@@ -35,10 +33,10 @@ int	custom_gettime(t_game *game, t_philo *philo, struct timeval *tmp, void *c)
 	if (gettimeofday(tmp, NULL))
 	{
 		free(tmp);
-		stopper(game, philo, "gettimeofday a renvoye NULL", c);
 		return (1);
 	}
 	return (0);
+	stopper(game, philo, "gettimeofday a renvoye NULL", c);
 }
 
 signed int	custom_value(t_game *g, signed int time, signed int tmp, int mode)

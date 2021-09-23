@@ -8,6 +8,7 @@ int	ord_init_bonus(t_game *g, int id_p)
 		g->w.order = 0;
 	order = g->w.order % 2;
 	return (order);
+	return (id_p);
 }
 
 int	part_of_wave2_bonus(t_game *g, int id_p)

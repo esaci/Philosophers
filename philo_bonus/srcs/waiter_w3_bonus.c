@@ -22,13 +22,13 @@ void	lock_wave3_bonus(t_game *g, int id_p)
 	if (id_p != 0 && id_p != (g->nbr_philo - 1))
 		return ;
 	if (part_of_wave3_bonus(g, id_p))
-		sem_wait(g->w.mutex_w3);
+		sem_wait(g->w.sem_w3);
 }
 
 void	fast_wait_wave3_bonus(t_game *g, int id_p)
 {
-	sem_wait(g->w.mutex_w3);
-	sem_post(g->w.mutex_w3);
+	sem_wait(g->w.sem_w3);
+	sem_post(g->w.sem_w3);
 	return ;
 	if (part_of_wave3_bonus(g, id_p))
 		return ;
@@ -40,7 +40,7 @@ void	wave_lock_wave2_bonus(t_game *g, int id_p)
 
 	tmp = order_init_bonus(g, id_p);
 	if (id_p == tmp)
-		sem_wait(g->w.mutex_w_w2);
+		sem_wait(g->w.sem_w_w2);
 }
 
 void	wave_unlock_wave2_bonus(t_game *g, t_philo *p, int id_p)
@@ -52,5 +52,5 @@ void	wave_unlock_wave2_bonus(t_game *g, t_philo *p, int id_p)
 		return ;
 	tmp = order_init_bonus(g, id_p);
 	if (id_p == tmp)
-		sem_post(g->w.mutex_w_w2);
+		sem_post(g->w.sem_w_w2);
 }

@@ -14,7 +14,7 @@
 
 int	return_free(t_game *g, int index)
 {
-	destroy_sem_fork(g);
+	destroy_sem_fork(g, g->nbr_philo);
 	sem_close(g->sem_id);
 	sem_unlink("/sem_id");
 	if (index < 2)
@@ -64,8 +64,8 @@ int	init_seph_fork(t_game *g)
 	ptr = malloc(sizeof(char) * 200);
 	if (!ptr)
 		return (1);
-	g->sem_fork = malloc(sizeof(sem_t) * (g->nbr_philo + 1));
-	if (g->sem_fork)
+	g->sem_f = malloc(sizeof(sem_t) * (g->nbr_philo + 1));
+	if (g->sem_f)
 		return (return_free_time(ptr, 1));
 	count = 0;
 	while (count < 200)
@@ -76,7 +76,7 @@ int	init_seph_fork(t_game *g)
 		ptr[0] = '/';
 		ft_itoa(ptr + 1, count);
 		merge_twoarray(ptr, "_fork");
-		if (custom_sem_init(&g->sem_fork[count], ptr, O_CREAT | O_EXCL, 0664))
+		if (custom_sem_init(&g->sem_f[count], ptr, O_CREAT | O_EXCL, 0664))
 			break ;
 		count++;
 	}
@@ -86,12 +86,12 @@ int	init_seph_fork(t_game *g)
 	return (0);
 }
 
-int	init_seph(t_game *g)
+int	init_seph(t_game *g, char *av[])
 {
 	g->nbr_philo = ft_atoi(av[1]);
 	g->show_ptr = 0;
 	g->b_pid = 0;
-	g->sem_fork = 0;
+	g->sem_f = 0;
 	g->time = 0;
 	if (init_seph_fork(g))
 		return (1);
@@ -131,7 +131,7 @@ int	main(int ac, char *av[])
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
 	if (ft_atoi(av[1]) > 2000)
 		return (print_return("Max 2000 philo", 2));
-	if (init_seph(&g))
+	if (init_seph(&g, av))
 		return (1);
 	init_philo_bonus(ac, av, &p);
 	init_game_bonus(av, &g, &p, 0);

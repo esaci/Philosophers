@@ -21,13 +21,23 @@ SRC =	$(SRCD)init_philo_bonus.c			\
 		$(SRCD)routine_sleep_bonus.c		\
 		$(SRCD)routine_think_bonus.c		\
 		$(SRCD)routine_die_bonus.c			\
+		$(SRCD)custom_usleep.c				\
+		$(SRCD)show_bonus.c					\
+		$(SRCD)thread_routine_bonus.c		\
+		$(SRCD)waiter_bonus.c				\
+		$(SRCD)waiter_init_bonus.c			\
+		$(SRCD)waiter_w_bonus.c				\
+		$(SRCD)waiter_w2_bonus.c			\
+		$(SRCD)waiter_w3_bonus.c			\
 		$(SRCD)fast_wait_bonus.c			\
 		$(SRCD)waiter_end_bonus.c			\
+		$(SRCD)unlock_waves_bonus.c			\
 		$(SRCD)return_bonus.c				\
 		$(SRCD)stopper_bonus.c				\
 		$(SRCD)time_bonus.c					\
 		$(SRCD)utils_bonus.c				\
-		$(SRCD)utils2_bonus.c
+		$(SRCD)utils2_bonus.c				\
+		$(SRCD)utils3_bonus.c
 
 OBJ = $(SRC:.c=.o)
 
