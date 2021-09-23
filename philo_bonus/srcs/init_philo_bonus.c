@@ -18,7 +18,8 @@ int	init_philo_bonus(int ac, char *av[], t_philo *p)
 	if (ac == 6)
 		p->n_eat = ft_atoi(av[5]);
 	p->philo_id = -1;
-	p->t_die = 0;
+	p->t_die[0] = 0;
+	p->t_die[1] = 0;
 	p->t_eat[0] = 0;
 	p->t_eat[1] = 0;
 	p->eat_time = 0;

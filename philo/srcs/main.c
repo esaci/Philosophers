@@ -38,6 +38,8 @@ int	main(int ac, char *av[])
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
 	if (full_check_int(av, ac))
 		return (print_return("n_philo, t_die, t_eat, t_sleep, [n_eat])", 2));
+	if (ft_atoi(av[1]) > 2000)
+		return (print_return("Max 2000 philo", 2));
 	init_mutex(&g);
 	if (init_philo(ac, av, &p))
 		return (1);

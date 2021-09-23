@@ -19,7 +19,7 @@ int	print_return(char *str, int code)
 	return (code);
 }
 
-int	return_free_time(signed int *time, int exit_num)
+int	return_free_time(void *time, int exit_num)
 {
 	free(time);
 	return (num);

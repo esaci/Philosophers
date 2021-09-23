@@ -38,7 +38,7 @@ int	c_int(char *nbr)
 	if (nbr[0] == '-')
 		fix = 1;
 	ft_itoa(temp, ft_atoi(nbr));
-	if (ft_atoi(nbr) <= 0)
+	if (ft_atoi(nbr) <= 0 || ft_atoi(nbr) > INT32_MAX)
 		return (1);
 	if (ft_strncmp(temp, nbr, ft_strlen(nbr)))
 	{

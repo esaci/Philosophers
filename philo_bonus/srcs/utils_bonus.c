@@ -24,7 +24,7 @@ int	c_int(char *nbr)
 	if (nbr[0] == '-')
 		fix = 1;
 	ft_itoa(temp, ft_atoi(nbr));
-	if (ft_atoi(nbr) <= 0)
+	if (ft_atoi(nbr) <= 0 || ft_atoi(nbr) > INT32_MAX)
 		return (1);
 	if (ft_strncmp(temp, nbr, ft_strlen(nbr)))
 	{
@@ -60,4 +60,25 @@ int	custom_sem_init(sem_t **semptr, char *name, int oflag, int mode)
 	if (*semptr == SEM_FAILED)
 		return (1);
 	return (0);
+}
+
+void	full_reset_showptr(t_game *g)
+{
+	int		count;
+
+	count = 0;
+	while (count < 2000)
+	{
+		g->show_ptr[count] = 0;
+		count++;
+	}
+}
+
+int	refresh_space(t_game *game)
+{
+	int	tmp;
+
+	tmp = ft_strlen(game->show_ptr);
+	game->show_ptr[tmp] = ' ';
+	return (tmp);
 }

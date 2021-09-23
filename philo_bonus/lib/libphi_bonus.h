@@ -47,6 +47,7 @@ typedef struct s_game
 	sem_t				*sem_table;
 	sem_t				*sem_eat_;
 	sem_t				*sem_ord_;
+	sem_t				**sem_fork;
 	int					philo_a_table;
 	signed int			t_eat;
 	signed int			t_sleeping;
@@ -61,7 +62,7 @@ typedef struct s_philo
 {
 	int					philo_id;
 	int					philo_id2;
-	int					t_die;
+	int					t_die[2];
 	int					t_eat[2];
 	signed int			eat_time;
 	int					n_eat;
@@ -79,13 +80,20 @@ int			init_philo_bonus(int ac, char *av[], t_philo *p);
 int			init_game_bonus(char *av[], t_game *g, t_philo *p, int count);
 int			routine_bonus(t_game *g, t_philo *p, int count);
 int			waiter_end_bonus(t_game *g, t_philo *p, int index);
+int			destroy_sem_fork(t_game *g, int count);
 int			stopper_bonus(t_game *g, t_philo *p, char *str, int mode);
 void		fast_wait_id(t_game *g);
 int			update_time_bonus(t_game *game, t_philo *philo, signed int *time);
 int			print_return(char *str, int code);
-int			return_free_time(signed int *time, int exit_num);
+int			return_free_time(void *time, int exit_num);
 int			ft_itoa(char *str, signed int n);
 int			ft_atoi(const char *str);
 int			ft_strlen(const char *s);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+void		full_reset_showptr(t_game *g);
+int			refresh_space(t_game *game);
+char		*merge_twoarray(char *str, char *str2);
+int			print_str(char *str, int mode);
+signed int	time_calcul(int time, signed int sectime);
+int			ft_memcmp(const void *s1, const void *s2, size_t n);
 #endif

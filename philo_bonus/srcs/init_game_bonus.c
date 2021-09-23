@@ -38,7 +38,6 @@ int	init_game_bonus2(t_game *g, t_philo *p, int index)
 
 int	init_game_bonus(char *av[], t_game *g, t_philo *p, int count)
 {
-	g->nbr_philo = ft_atoi(av[1]);
 	g->t_die = ft_atoi(av[2]);
 	g->t_eat = ft_atoi(av[3]);
 	g->t_sleeping = ft_atoi(av[4]);
