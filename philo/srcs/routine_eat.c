@@ -71,8 +71,6 @@ int	routine_eat(t_game *g, t_philo *p, signed int *time)
 	id_p2 = id_p + 1;
 	if (id_p == g->nbr_philo - 1)
 		id_p2 = 0;
-	if ((g->nbr_philo % 2) && id_p == 0)
-		id_p2 = g->nbr_philo - 1;
 	wave_init(g, p, id_p);
 	if (id_p2 == id_p)
 		fast_wait_wave2(g, id_p);
